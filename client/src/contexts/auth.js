@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    const signin = (email, password) => {//func. que recebe email e senha
+    const login = (email, password) => {//func. que recebe email e senha
         //objeto que puxa os registros
         const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
         //verifica se o email ja esta cadastrado
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const signup = (email, password) => {//função de inscrição
+    const inscrever = (email, password) => {//função de inscrição
         //puxa os registros
         const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
         //verifica se email ja esta cadastrado
@@ -65,14 +65,14 @@ export const AuthProvider = ({ children }) => {
         return;
     };
 
-    const signout = () => {//faz o logout
+    const logout = () => {//faz o logout
         setUser(null);
         localStorage.removeItem("user_token");
     };
 
     return ( //retorna os valores para que possam ser usados no resto da aplicação
         <AuthContext.Provider
-            value={{ user, signed: !!user, signin, signup, signout }}
+            value={{ user, signed: !!user, login, inscrever, logout }}
         >
             {children}
         </AuthContext.Provider>
