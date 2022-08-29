@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import * as C from "./styles";
+import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -15,7 +13,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (!email | !senha) {//mensagem de erro caso nao preencha todos campos
-      setError("Preencha todos os campos");
+      setError("*Preencha todos os campos*");
       return;
     }
 
@@ -30,34 +28,63 @@ const Login = () => {
   };
 
   return (
-  <>
-  <C.Container>
-      <C.Label>SISTEMA DE LOGIN - OPERAÇÃO GRANEL - top</C.Label>
-      <C.Content>
-        <Input
-          type="email"
-          placeholder="Digite seu E-mail"
-          value={email}
-          onChange={(e) => [setEmail(e.target.value), setError("")]}//começa digitar e some msg de erro
-        />
-        <Input
-          type="password"
-          placeholder="Digite sua Senha"
-          value={senha}
-          onChange={(e) => [setSenha(e.target.value), setError("")]}
-        />
-        <C.labelError>{error}</C.labelError>
-        <Button Text="Entrar" onClick={handleLogin} />
-        <C.LabelSignup>
-          Não tem uma conta?
-          <C.Strong>
-            <Link to="/inscrever">&nbsp;Registre-se</Link>
-          </C.Strong>
-        </C.LabelSignup>
-      </C.Content>
-    </C.Container>
-  </>
-    
+    <>
+      <div className="container">
+        <div className="login-left">
+          <div className="left-container">
+          </div>
+          <div className="frase_box">
+            <div className="frase"> {/*transformar letreiro em component  */}
+              Qualquer hora, qualquer lugar
+              Controle
+              {/* <a className="typewrite" data-type='[ 
+                                "sua carga !", 
+                                "seu navio !", 
+                                "suas operações !" 
+                            ]'>
+              </a> */}
+            </div>
+          </div>
+        </div>
+        <div className="login-right">
+          <div className="text-right">
+            <div className="tittle">
+              Operação Granel
+            </div>
+            <form>
+              <div className="group">
+                <input
+                  className="input"
+                  type="email"
+                  value={email}
+                  onChange={(e) => [setEmail(e.target.value), setError("")]}//começa digitar e some msg de erro
+                  required
+                />
+                <label>Usúario</label>
+              </div>
+              <div className="group">
+                <input
+                  className="input"
+                  type="password"
+                  value={senha}
+                  onChange={(e) => [setSenha(e.target.value), setError("")]}
+                  required
+                />
+                <label>Senha</label>
+              </div>
+              
+            </form>
+            <div className="msg">{error}</div>
+            <div className="submit">
+              <button onClick={handleLogin}>Entrar</button>
+              <Link to="/inscrever">&nbsp;Registre-se</Link>
+            </div>
+            <p className="direitos">Todos os direitos reservados &copy;</p>
+          </div>
+        </div>
+      </div>
+    </>
+
   );
 };
 
