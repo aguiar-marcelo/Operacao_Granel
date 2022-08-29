@@ -37,12 +37,12 @@ const Login = () => {
             <div className="frase"> {/*transformar letreiro em component  */}
               Qualquer hora, qualquer lugar
               Controle
-              {/* <a className="typewrite" data-type='[ 
+              <span className="typewrite" data-type='[ 
                                 "sua carga !", 
                                 "seu navio !", 
                                 "suas operações !" 
                             ]'>
-              </a> */}
+              </span>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Login = () => {
               <div className="group">
                 <input
                   className="input"
-                  type="email"
+                  type="text"
                   value={email}
                   onChange={(e) => [setEmail(e.target.value), setError("")]}//começa digitar e some msg de erro
                   required
@@ -72,7 +72,6 @@ const Login = () => {
                 />
                 <label>Senha</label>
               </div>
-              
             </form>
             <div className="msg">{error}</div>
             <div className="submit">
