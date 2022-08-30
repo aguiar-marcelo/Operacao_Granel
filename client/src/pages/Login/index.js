@@ -24,7 +24,7 @@ const Login = () => {
       return;
     }
 
-    navigate("/home");//se tudo estiver ok, redireciona para Home
+    navigate("/dashboard");//se tudo estiver ok, redireciona para Home
   };
 
   return (

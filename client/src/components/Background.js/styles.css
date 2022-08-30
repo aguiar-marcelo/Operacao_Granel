@@ -1,0 +1,19 @@
+
+.feixe1{
+    background-color: #dbdfe6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -60%;
+    z-index: -2;
+    transform: skewy(-17deg); /* Padrão */
+}
+.feixe2{
+    background-color: #d2d7e0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -90%;
+    z-index: -1;
+    transform: skewy(-22deg); /* Padrão */
+}
