@@ -7,29 +7,29 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {//toda vez que for carregada a aplicação, verifica user e token
         const userToken = localStorage.getItem("user_token");
-        const usersStorage = localStorage.getItem("users_bd");
+        const usersStorage = localStorage.getItem("users_db");
 
         if (userToken && usersStorage) {//if verifica se existe algum usuario e token
             const hasUser = JSON.parse(usersStorage)?.filter(
-                (user) => user.email === JSON.parse(userToken).email
-            );//verifica se o usuario e tem o mesmo email do token
+                (user) => user.id === JSON.parse(userToken).id
+            );//verifica se o usuario e tem o mesmo id do token
 
             if (hasUser) setUser(hasUser[0]);
         }
     }, []);
 
-    const login = (email, password) => {//func. que recebe email e senha
+    const login = (id, password) => {//func. que recebe id e senha
         //objeto que puxa os registros
-        const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
-        //verifica se o email ja esta cadastrado
-        const hasUser = usersStorage?.filter((user) => user.email === email);
+        const usersStorage = JSON.parse(localStorage.getItem("users_db"));
+        //verifica se o id ja esta cadastrado
+        const hasUser = usersStorage?.filter((user) => user.id === id);
 
-        if (hasUser?.length) {//caso exista esse usuario, verifica se email e senha esta correto
-            if (hasUser[0].email === email && hasUser[0].password === password) {
+        if (hasUser?.length) {//caso exista esse usuario, verifica se id e senha esta correto
+            if (hasUser[0].id === id && hasUser[0].password === password) {
                 //gera token
                 const token = Math.random().toString(36).substring(2);//gera token aleatorio
-                localStorage.setItem("user_token", JSON.stringify({ email, token }));
-                setUser({ email, password });
+                localStorage.setItem("user_token", JSON.stringify({ id, token }));
+                setUser({ id, password });
                 return;
             } else {
                 return "E-mail ou senha incorretos";
@@ -39,13 +39,13 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const inscrever = (email, password) => {//função de inscrição
+    const inscrever = (id, password) => {//função de inscrição
         //puxa os registros
-        const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
-        //verifica se email ja esta cadastrado
-        const hasUser = usersStorage?.filter((user) => user.email === email);
+        const usersStorage = JSON.parse(localStorage.getItem("users_db"));
+        //verifica se id ja esta cadastrado
+        const hasUser = usersStorage?.filter((user) => user.id === id);
 
-        if (hasUser?.length) {//caso sim, retorna que email ja esta cadastrado
+        if (hasUser?.length) {//caso sim, retorna que id ja esta cadastrado
             return "Já tem uma conta com esse E-mail";
         }
 
@@ -53,14 +53,14 @@ export const AuthProvider = ({ children }) => {
 
         if (usersStorage) {
             //pega todos usuarios ja cadastrados e acrescenta mais um
-            newUser = [...usersStorage, { email, password }];
+            newUser = [...usersStorage, { id, password }];
         } else {
             //caso for o primeiro usuario que sera cadastrado
-            newUser = [{ email, password }];
+            newUser = [{ id, password }];
         }
 
         //envia para o local storage o array com os usuarios atualizados
-        localStorage.setItem("users_bd", JSON.stringify(newUser));
+        localStorage.setItem("users_db", JSON.stringify(newUser));
 
         return;
     };

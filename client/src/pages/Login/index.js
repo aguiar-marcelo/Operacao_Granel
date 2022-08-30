@@ -7,17 +7,17 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    if (!email | !senha) {//mensagem de erro caso nao preencha todos campos
+    if (!id | !senha) {//mensagem de erro caso nao preencha todos campos
       setError("*Preencha todos os campos*");
       return;
     }
 
-    const res = login(email, senha);
+    const res = login(id, senha);
 
     if (res) {//caso retorne algum erro, sera exibido
       setError(res);
@@ -56,8 +56,8 @@ const Login = () => {
                 <input
                   className="input"
                   type="text"
-                  value={email}
-                  onChange={(e) => [setEmail(e.target.value), setError("")]}//começa digitar e some msg de erro
+                  value={id}
+                  onChange={(e) => [setId(e.target.value), setError("")]}//começa digitar e some msg de erro
                   required
                 />
                 <label>Usúario</label>

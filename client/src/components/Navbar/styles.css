@@ -1,0 +1,17 @@
+.navbar {
+  background-color: #153240;
+  color:#fff;
+  height: 100%;
+  width: 16%;
+  position: fixed;
+  overflow: hidden;
+}
+
+.item{
+  display: flex;
+}
+
+.item a{
+color: #fff;
+text-decoration: none;
+}

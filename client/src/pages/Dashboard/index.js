@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar";
 import "./styles.css";
 import Brackground from "../../components/Background.js";
 
@@ -9,7 +9,7 @@ const Dashboard = () => {
     <>
     <Navbar />
     <Brackground />
-      <h2>Dashboard</h2>
+      <h1>Dashboard</h1>
     </>
   );
 };
