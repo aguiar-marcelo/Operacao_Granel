@@ -8,7 +8,7 @@ function Header() {
   const user = JSON.parse(userToken);
 
   return (
-    <div className={styles.Header}>
+    <div className="headertopo">
         {user.id}
     </div>
   );

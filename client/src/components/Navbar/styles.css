@@ -1,17 +1,169 @@
-.navbar {
-  background-color: #153240;
-  color:#fff;
-  height: 100%;
-  width: 16%;
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Titillium WebLight"), local("TitilliumWeb-Light"), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format("woff");
+}
+
+#menu {
   position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 160px;
+  margin: 0;
+  z-index: 9;
+}
+
+#menu div {
+  position: relative;
+  display: inline-block;
+}
+
+#menu div.vertical-menu {
+  position: relative;
+  height: 100%;
   overflow: hidden;
 }
 
-.item{
-  display: flex;
+#menu div.vertical-menu nav {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  max-width: 60px;
+  height: 100%;
+  background-color: #153240;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-.item a{
-color: #fff;
-text-decoration: none;
+#menu div.vertical-menu nav:hover,
+#menu div.vertical-menu nav.open {
+  max-width: 300px;
 }
+
+#menu div.vertical-menu nav div ul {
+  margin: 70px 0;
+  padding: 0;
+}
+
+#menu div.vertical-menu nav div ul li {
+  position: relative;
+  display: block;
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#menu div.vertical-menu nav div ul li:hover,
+#menu div.vertical-menu nav div ul li.open {
+  background-color: #1a3e50;
+}
+
+#menu div.vertical-menu nav div ul li:hover a,
+#menu div.vertical-menu nav div ul li.open a {
+  color: #fff;
+}
+
+#menu div.vertical-menu nav div ul li.active {
+  background-color: #1e4e77;
+}
+
+#menu div.vertical-menu nav div ul li.active a {
+  color: #fff;
+}
+
+#menu div.vertical-menu nav div ul li a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 17px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu div.vertical-menu nav div ul li a .item-icon {
+  position: relative;
+  display: table-cell;
+  min-width: 60px;
+  width: 60px;
+  height: 45px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 23px;
+
+}
+
+#menu div.vertical-menu nav div ul li a .item-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: auto;
+  margin-right: 0;
+  padding-right: 1em;
+  font-family: "Titillium Web", sans-serif;
+  white-space: nowrap;
+}
+
+.logout {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*
+.logout:hover{
+  background-color: #1a3e50;
+}
+
+.logout a{
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 17px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout a .item-icon {
+  position: relative;
+  display: table-cell;
+  min-width: 60px;
+  width: 60px;
+  height: 45px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 23px;
+
+}
+
+.logout a .item-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: auto;
+  margin-right: 0;
+  padding-right: 1em;
+  font-family: "Titillium Web", sans-serif;
+  white-space: nowrap;
+}*/
