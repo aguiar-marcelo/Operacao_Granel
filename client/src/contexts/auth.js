@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         if (userToken && usersStorage) {//if verifica se existe algum usuario e token
             const hasUser = JSON.parse(usersStorage)?.filter(
                 (user) => user.id === JSON.parse(userToken).id
-            );//verifica se o usuario e tem o mesmo id do token
+            );//verifica se o usuario tem o mesmo id do token
 
             if (hasUser) setUser(hasUser[0]);
         }
