@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <div className="headertopo">
-        {user.id}
+        <div className="nome">{user.id}</div>
     </div>
   );
 }

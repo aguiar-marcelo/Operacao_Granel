@@ -1,10 +1,20 @@
 import { createContext, useEffect, useState } from "react";
+//import Axios from 'axios';
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
+    // const [users, setUsers] = useState();
+    
 
+    // const getUsers = () => {
+    //     Axios.get('http://localhost:8080/users').then((response) => {
+    //         setUsers(response.data);
+    //     });
+    // }
+    // getUsers();
+    
     useEffect(() => {//toda vez que for carregada a aplicação, verifica user e token
         const userToken = localStorage.getItem("user_token");
         const usersStorage = localStorage.getItem("users_db");

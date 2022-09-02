@@ -31,8 +31,8 @@ app.get("/users", (req, res) => {
         } else {
             res.send(result)
         }
-    })
-})
+    });
+});
 
 
 //RODAR API

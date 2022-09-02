@@ -6,7 +6,7 @@ import Container from "../../components/Container.js";
 import Header from "../../components/Header";
 
 const Dashboard = () => {
-
+  
   return (
     <>
     <Navbar />

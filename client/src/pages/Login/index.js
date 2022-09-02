@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="content">
         <div className="login-left">
           <div className="left-container">
           </div>
