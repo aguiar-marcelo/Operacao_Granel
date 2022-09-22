@@ -1,0 +1,85 @@
+.form {
+    background-color: #cac6c6;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1vw;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 10px 15px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+    
+}
+.inputs{
+    background-color: #cfcfcf;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+}
+
+.form .item {
+    width: 85%;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+.form .item div {
+    font-size: 20px;
+}
+
+.form input, select {
+    width: 230px;
+    padding: 12px 10px;
+    border: 1px solid #ebebeb;
+    border-radius: 2px;
+    outline: none;
+}
+select {
+    width: 255px;
+}
+
+.submit {
+    background-color: #cfcfcf;
+}
+.submit button{
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 75px;
+	margin: 10px 5px;
+    margin-left: 27.3vw;
+}.submit button:hover{
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.507), 0 0 0 5px #27AE60;
+}
+
+/* .item1 { grid-area: imo; }
+.item2 { grid-area: lloyd; }
+.item3 { grid-area: nome; }
+.item4 { grid-area: status; }
+.item5 { grid-area: tipo; }
+.item6 { grid-area: loa; }
+.item7 { grid-area: boca; }
+.item8 { grid-area: armador; }
+.item9 { grid-area: bandeira; }
+
+.form {
+  display: grid;
+  grid-template-areas:
+    'imo imo lloyd lloyd nome nome '
+    'status status tipo tipo loa loa'
+    'boca armador bandeira';
+  gap: 10px;
+  background-color: #b9b6b6;
+    width: 85%;
+    margin: 0 auto;
+    padding: 1vw;
+    border-radius: 10px;
+}
+
+.form > div {
+    width: 98%;
+    height: 50px;
+    display: flex;
+    background: #ffffff4b;
+}  */

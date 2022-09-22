@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
+import style from"./Header.module.css";
 
 function Header() {
 
@@ -8,8 +8,8 @@ function Header() {
   const user = JSON.parse(userToken);
 
   return (
-    <div className="headertopo">
-        <div className="nome">{user.id}</div>
+    <div className={style.header}>
+        <div className="nome">{user.id} | GRUPO RODRIMAR</div>
     </div>
   );
 }

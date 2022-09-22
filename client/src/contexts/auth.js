@@ -6,7 +6,12 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     // const [users, setUsers] = useState();
-    
+    const usersStorage = [
+        { "id": "maguiar", "password": "12345" },
+        { "id": "lucas", "password": "12345" },
+        { "id": "rita", "password": "12345" },
+    ]
+
 
     // const getUsers = () => {
     //     Axios.get('http://localhost:8080/users').then((response) => {
@@ -14,13 +19,13 @@ export const AuthProvider = ({ children }) => {
     //     });
     // }
     // getUsers();
-    
+
     useEffect(() => {//toda vez que for carregada a aplicação, verifica user e token
         const userToken = localStorage.getItem("user_token");
-        const usersStorage = localStorage.getItem("users_db");
+        
 
-        if (userToken && usersStorage) {//if verifica se existe algum usuario e token
-            const hasUser = JSON.parse(usersStorage)?.filter(
+        if (userToken) {//if verifica se existe algum usuario e token
+            const hasUser = usersStorage.filter(
                 (user) => user.id === JSON.parse(userToken).id
             );//verifica se o usuario e tem o mesmo id do token
 
@@ -30,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = (id, password) => {//func. que recebe id e senha
         //objeto que puxa os registros
-        const usersStorage = JSON.parse(localStorage.getItem("users_db"));
+        //const usersStorage = JSON.parse(localStorage.getItem("users_db"));
         //verifica se o id ja esta cadastrado
         const hasUser = usersStorage?.filter((user) => user.id === id);
 
@@ -49,31 +54,6 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const inscrever = (id, password) => {//função de inscrição
-        //puxa os registros
-        const usersStorage = JSON.parse(localStorage.getItem("users_db"));
-        //verifica se id ja esta cadastrado
-        const hasUser = usersStorage?.filter((user) => user.id === id);
-
-        if (hasUser?.length) {//caso sim, retorna que id ja esta cadastrado
-            return "Já tem uma conta com esse E-mail";
-        }
-
-        let newUser;//caso nao, cria novo usuario
-
-        if (usersStorage) {
-            //pega todos usuarios ja cadastrados e acrescenta mais um
-            newUser = [...usersStorage, { id, password }];
-        } else {
-            //caso for o primeiro usuario que sera cadastrado
-            newUser = [{ id, password }];
-        }
-
-        //envia para o local storage o array com os usuarios atualizados
-        localStorage.setItem("users_db", JSON.stringify(newUser));
-
-        return;
-    };
 
     const logout = () => {//faz o logout
         setUser(null);
@@ -82,7 +62,7 @@ export const AuthProvider = ({ children }) => {
 
     return ( //retorna os valores para que possam ser usados no resto da aplicação
         <AuthContext.Provider
-            value={{ user, signed: !!user, login, inscrever, logout }}
+            value={{ user, signed: !!user, login, logout }}
         >
             {children}
         </AuthContext.Provider>

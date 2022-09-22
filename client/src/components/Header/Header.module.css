@@ -1,0 +1,16 @@
+.header{
+    width: 100%;
+    padding: 5px 0;
+    position: absolute;
+    top: 0;
+    z-index: 8;
+    background-color: #153240;
+    color: #fff;
+    text-align: end;
+    border-bottom: 3px solid #91D1BA;
+}
+
+.header div{
+    margin-right:5vw;
+    font-size: 17px;
+}

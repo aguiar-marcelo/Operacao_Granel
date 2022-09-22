@@ -1,14 +1,24 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import "./styles.css";
+import Brackground from "../../components/Background";
+import Container from "../../components/Container";
+import Header from "../../components/Header";
 
-const Paralisacao = () => {
+const Dashboard = () => {
+  
   return (
     <>
     <Navbar />
-      <h2>Paralisacao</h2>
+    <Header/>
+    <Brackground />
+    <Container>
+    <h1>Dashboard</h1> <br/>
+      <h2>teste teste teste teste</h2>
+    </Container>
+      
     </>
   );
 };
 
-export default Paralisacao;
+export default Dashboard;

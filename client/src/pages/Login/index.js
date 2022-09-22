@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css";
+import style from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -29,15 +29,15 @@ const Login = () => {
 
   return (
     <>
-      <div className="content">
-        <div className="login-left">
-          <div className="left-container">
+      <div className={style.content}>
+        <div className={style.login_left}>
+          <div className={style.left_container}>
           </div>
-          <div className="frase_box">
-            <div className="frase"> {/*transformar letreiro em component  */}
+          <div className={style.frase_box}>
+            <div className={style.frase}> {/*transformar letreiro em component  */}
               Qualquer hora, qualquer lugar
               Controle
-              <span className="typewrite" data-type='[ 
+              <span className={style.typewrite} data-type='[ 
                                 "sua carga !", 
                                 "seu navio !", 
                                 "suas operações !" 
@@ -46,15 +46,15 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className="login-right">
-          <div className="text-right">
-            <div className="tittle">
+        <div className={style.login_right}>
+          <div className={style.text_right}>
+            <div className={style.tittle}>
               Operação Granel
             </div>
             <form>
-              <div className="group">
+              <div className={style.group}>
                 <input
-                  className="input"
+                  className={style.input}
                   type="text"
                   value={id}
                   onChange={(e) => [setId(e.target.value), setError("")]}//começa digitar e some msg de erro
@@ -62,9 +62,9 @@ const Login = () => {
                 />
                 <label>Usúario</label>
               </div>
-              <div className="group">
+              <div className={style.group}>
                 <input
-                  className="input"
+                  className={style.input}
                   type="password"
                   value={senha}
                   onChange={(e) => [setSenha(e.target.value), setError("")]}
@@ -73,8 +73,8 @@ const Login = () => {
                 <label>Senha</label>
               </div>
             </form>
-            <div className="msg">{error}</div>
-            <div className="submit">
+            <div className={style.msg}>{error}</div>
+            <div className={style.submit}>
               <button onClick={handleLogin}>Entrar</button>
               <Link to="/inscrever">&nbsp;Registre-se</Link>
             </div>
