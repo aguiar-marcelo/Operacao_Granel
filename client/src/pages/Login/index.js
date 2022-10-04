@@ -76,7 +76,7 @@ const Login = () => {
             <div className={style.msg}>{error}</div>
             <div className={style.submit}>
               <button onClick={handleLogin}>Entrar</button>
-              <Link to="/inscrever">&nbsp;Registre-se</Link>
+              <a onClick={()=>alert("Contate o suporte!")}>&nbsp;Registre-se</a>
             </div>
             <p className="direitos">Todos os direitos reservados &copy;</p>
           </div>

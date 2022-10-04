@@ -175,8 +175,9 @@ body{
     outline:none;
     color: #1532409f;
     transition: 0.3s;
-}.submit .a:hover{
-    color: #153240;
+    cursor: pointer;
+}.submit a:hover{
+    color: #000000;
 }
 
 .text_right p{

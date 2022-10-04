@@ -1,85 +1,94 @@
-.form {
-    background-color: #cac6c6;
-    width: 80%;
+.flex {
+	display: flex;
+	justify-content: space-between;
+    width: 90%;
     margin: 0 auto;
-    padding: 1vw;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 10px 15px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+	margin-top: 3vh;
+}
+
+.button{
+	font-family: 'News Cycle', sans-serif;
+	font-size: 17px;
+	outline: none;
+	border: 2px solid #91D1BA;
+	transition: 0.3s;
+	padding: 0.5em 1em;
+	font-size: 17px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 10px;
+	cursor: pointer;
+}.button:hover {
+	border: 3px solid #153240;
+}
+
+.busca {
+	width: 20%;
+	height: 25px;
+	font-family: 'News Cycle', sans-serif;
+	font-size: 17px;
+	outline: none;
+	border: 2px solid #91D1BA;
+	transition: 0.3s;
+	padding: 0.5em 1em;
+	font-size: 17px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 10px;
+	
+}
+
+.busca:focus {
+	border: 3px solid #153240;
+}
+
+.zeronavio {
+	font-size: 25px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	padding-top: 5vh;
+}
+
+.table{
+    margin: 0 auto;
+	margin-top: 5vh;
+	width: 90%;
+}
+
+.sumario {
+	color: #8A909B;
+	background-color: #F9FAFB;
+	display: grid;
+	border-radius: 5px 5px 0 0;
+	padding: 15px 20px;
+	grid-template-columns: 4fr 3fr 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+	border-bottom: 1px solid #E9EBEE;
     
 }
-.inputs{
-    background-color: #cfcfcf;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
-    justify-content: center;
+
+.sumario div {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	
 }
 
-.form .item {
-    width: 85%;
-    margin-bottom: 20px;
-    font-family: sans-serif;
-    font-weight: 100;
+.table_item {
+	background-color: #ffffff;
+	color: #2B313F;
+	padding: 0 5px;
+	display: grid;
+	padding: 0 20px;
+	grid-template-columns: 4fr 3fr 1fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+	border-bottom: 1px solid #E9EBEE;
 }
 
-.form .item div {
-    font-size: 20px;
+.table_item div {
+	padding: 7px 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	
 }
 
-.form input, select {
-    width: 230px;
-    padding: 12px 10px;
-    border: 1px solid #ebebeb;
-    border-radius: 2px;
-    outline: none;
+.center{
+	text-align: center;
 }
-select {
-    width: 255px;
-}
-
-.submit {
-    background-color: #cfcfcf;
-}
-.submit button{
-	background: #27AE60;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 75px;
-	margin: 10px 5px;
-    margin-left: 27.3vw;
-}.submit button:hover{
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.507), 0 0 0 5px #27AE60;
-}
-
-/* .item1 { grid-area: imo; }
-.item2 { grid-area: lloyd; }
-.item3 { grid-area: nome; }
-.item4 { grid-area: status; }
-.item5 { grid-area: tipo; }
-.item6 { grid-area: loa; }
-.item7 { grid-area: boca; }
-.item8 { grid-area: armador; }
-.item9 { grid-area: bandeira; }
-
-.form {
-  display: grid;
-  grid-template-areas:
-    'imo imo lloyd lloyd nome nome '
-    'status status tipo tipo loa loa'
-    'boca armador bandeira';
-  gap: 10px;
-  background-color: #b9b6b6;
-    width: 85%;
-    margin: 0 auto;
-    padding: 1vw;
-    border-radius: 10px;
-}
-
-.form > div {
-    width: 98%;
-    height: 50px;
-    display: flex;
-    background: #ffffff4b;
-}  */

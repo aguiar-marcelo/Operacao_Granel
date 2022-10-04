@@ -6,9 +6,19 @@ import Container from "../../components/Container";
 import Header from "../../components/Header";
 
 const CadastrarBiBl = () => {
-  return (
-    <div>CadastrarBiBl</div>
-  )
-}
 
-export default CadastrarBiBl
+  return (
+    <>
+      <Navbar cbibl />
+      <Header />
+      <Brackground />
+      <Container>
+        <h1>CadastrarBiBl</h1> <br />
+        <h2>teste teste teste teste</h2>
+      </Container>
+
+    </>
+  );
+};
+
+export default CadastrarBiBl;

@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <div className={style.header}>
-        <div className="nome">{user.id} | GRUPO RODRIMAR</div>
+        <div className="nome">{user.id} &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; GRUPO RODRIMAR</div>
     </div>
   );
 }

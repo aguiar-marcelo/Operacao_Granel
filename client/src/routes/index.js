@@ -6,7 +6,6 @@ import Atracacao from "../pages/Atracacao";
 import CadastrarBiBl from "../pages/CadastrarBiBl";
 import CadastroNavio from "../pages/CadastroNavio";
 import Dashboard from "../pages/Dashboard";
-import Inscrever from "../pages/Inscrever";
 import Login from "../pages/Login";
 import Paralisacao from "../pages/Paralisacao";
 import Pesagem from "../pages/Pesagem";
@@ -40,7 +39,6 @@ const RoutesApp = () => {
 
                     <Route path="/" element={<Private Item={Dashboard} />} />
                     <Route path="*" element={<Private Item={Dashboard} />} />
-                    <Route exact path="/inscrever" element={<Inscrever />} />
                 </Routes>
             </Fragment>
         </BrowserRouter>

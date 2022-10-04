@@ -9,7 +9,7 @@ const Dashboard = () => {
   
   return (
     <>
-    <Navbar />
+    <Navbar dashboard/>
     <Header/>
     <Brackground />
     <Container>
