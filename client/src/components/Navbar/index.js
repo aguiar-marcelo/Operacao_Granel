@@ -10,7 +10,6 @@ function Navbar(props) {
 
   const userToken = localStorage.getItem("user_token");
 
-
   return (
       <div id="menu">
         <div className="menus vertical-menu">
@@ -26,20 +25,28 @@ function Navbar(props) {
                     <span className="item-text">Dashboard</span>
                   </a>
                 </li>
-                <li className={props.cnavio && "active"} >
-                  <a href="/cadastro-navio">
+                <li className={props.navios && "active"} >
+                  <a href="/navios">
                     <span className="item-icon">
                       <i className="fa fa-ship icon"></i>                      
                     </span>
-                    <span className="item-text">Cadastro de Navio</span>
+                    <span className="item-text">Navios</span>
                   </a>
                 </li>
-                <li className={props.atracacao && "active"}>
-                  <a href="/atracacao">
+                <li className={props.viagens && "active"}>
+                  <a href="/viagens">
                     <span className="item-icon">
                       <i className="fa fa-anchor"></i>                      
                     </span>
-                    <span className="item-text">Atracação/Liberação</span>
+                    <span className="item-text">Viagens</span>
+                  </a>
+                </li>
+                <li className={props.operacao && "active"}>
+                  <a href="/operacao/atracacao">
+                    <span className="item-icon">
+                      <i className="fa fa-calendar"></i>                      
+                    </span>
+                    <span className="item-text">Registros de Operação</span>
                   </a>
                 </li>
                 <li className={props.aperiodo && "active"} >

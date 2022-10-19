@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
-import Brackground from "../../components/Background";
-import Container from "../../components/Container";
-import Header from "../../components/Header";
-import style from "./Atracacao.module.css";
+import Navbar from "../../../components/Navbar";
+import Brackground from "../../../components/Background";
+import Container from "../../../components/Container";
+import Header from "../../../components/Header";
+import style from "./Liberacao.module.css";
 
-const Atracacao = () => {
+const Liberacao = () => {
 
   return (
     <>
-      <Navbar atracacao/>
+      <Navbar operacao/>
       <Header />
       <Brackground />
       <Container>
@@ -69,4 +69,4 @@ const Atracacao = () => {
   );
 };
 
-export default Atracacao;
+export default Liberacao;
