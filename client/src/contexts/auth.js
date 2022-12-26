@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
         { "id": "maguiar", "password": "12345" },
         { "id": "lucas", "password": "12345" },
         { "id": "rita", "password": "12345" },
+        { "id": "joao", "password": "12345" }
     ]
 
 

@@ -6,6 +6,7 @@
 	display: grid;
 	border-radius: 5px;
 	padding: 15px 25px;
+
 }
 
 .nav {
@@ -17,11 +18,6 @@
 	padding: 0 1vw;
 	margin-bottom: -1px;
 }
-.nav div:hover{
-	color: #1f4d64;
-	border-bottom: 3px solid #1f4d64;
-}
-
 .nav a{
 	text-decoration: none;
 	color: #bbbbbb;
@@ -32,10 +28,25 @@
 	border-bottom: 3px solid #1f4d64;
 }
 
-
-
-
 /*-----------------------------------------------*/
+
+.busca {
+	width: 20%;
+	height: 25px;
+	font-family: 'News Cycle', sans-serif;
+	font-size: 17px;
+	outline: none;
+	border: 2px solid #91D1BA;
+	transition: 0.3s;
+	padding: 0.5em 1em;
+	font-size: 17px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 10px;
+}
+
+.busca:focus {
+	border: 3px solid #153240;
+}
 
 .zeronavio {
 	font-size: 25px;
@@ -54,7 +65,7 @@
 	display: grid;
 	border-radius: 5px 5px 0 0;
 	padding: 10px 0 10px 20px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 3fr 3fr 1fr 2fr 2fr 3fr 2fr 2fr 2fr;
 	border-bottom: 1px solid #E9EBEE;
 }
 
@@ -71,45 +82,41 @@
 	padding: 0 5px;
 	display: grid;
 	padding: 0 0 0 20px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 3fr 3fr 1fr 2fr 2fr 3fr 2fr 2fr 2fr;
 	border-bottom: 1px solid #E9EBEE;
 }
 
 .table_item div {
 	padding: 7px 0;
-	font-family: 'Roboto', sans-serif; 
-	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
 }
 
-.sumario .border {
+.sumario .center {
 	border-left: 2px solid #ebebeb;
 }
 
-.submit {
-    width: 52%;
-	margin: 3 25px;	
-    margin-top: 10px;
-	 
-}
-
-.submit button{
-	
-	background: #051630;
-	width: 15%;
-    font-size: 15px;
-	color: white;
-	border: 0 none;
-	border-radius: 200px;
+.button_atraca{
+	background-color: #153240;
+	border-style: none;
+	outline: none;
+	border-radius: 80px;
+	padding: 2px 13px;
 	cursor: pointer;
-	padding: 9px ;
-	margin: 5px 15px auto 20px;
-
-    
+	color: #fff;
+	font-size: 16px;
+	word-spacing: 5px;
+	font-family: "Titillium Web", sans-serif;
+	border: 1px solid #36b8e700;
 }
-.submit button:hover{
-	justify-content: center;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.753), 0 0 0 5px #27AE60;
+
+
+.button_atraca:hover {
+	border: 1px solid #36b8e7;
+	outline: 3px solid #8ad4ee80;
 }

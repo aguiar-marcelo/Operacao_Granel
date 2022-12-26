@@ -1,0 +1,19 @@
+.form_control button{
+	background: #27AE60;
+    font-size: 20px;
+	color: white;
+	font-family: 'Titillium Web', sans-serif;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	transition: 0.3s;
+	padding: 7px 45px;
+	margin-top: 25px;
+	margin-left: 2px;
+	
+}.form_control button:hover{
+	background: #27AE60;
+	box-shadow: 
+	0 0 0 3px #ffffffd8,
+	 0 0 0 4px #27AE60;
+}

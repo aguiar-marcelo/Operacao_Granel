@@ -17,101 +17,112 @@ function Navbar(props) {
             <div>
               <ul>
                 {/* <li className="active" > */}
-                <li className={props.dashboard && "active"} >
-                  <a href="/dashboard">
+                <li onClick={()=> navigate("/dashboard")} className={props.dashboard && "active"} >
+
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-dashboard"></i>                      
                     </span>
                     <span className="item-text">Dashboard</span>
-                  </a>
+                  </div>
                 </li>
-                <li className={props.navios && "active"} >
-                  <a href="/navios">
+                <li onClick={()=> navigate("/navios")} className={props.navios && "active"} >
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-ship icon"></i>                      
                     </span>
                     <span className="item-text">Navios</span>
-                  </a>
+                  </div>
                 </li>
-                <li className={props.viagens && "active"}>
-                  <a href="/viagens">
+
+                <li onClick={()=> navigate("/veiculos")} className={props.veiculos && "active"} >
+                  <div className="nav_bar">
+                    <span className="item-icon">
+                      <i className="fa fa-truck icon"></i>                      
+                    </span>
+                    <span className="item-text">Veículos</span>
+                  </div>
+                 </li>
+
+                <li onClick={()=> navigate("/Viagens/TodasViagens")} className={props.viagens && "active"}>
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-anchor"></i>                      
                     </span>
                     <span className="item-text">Viagens</span>
-                  </a>
+                  </div>
                 </li>
-                <li className={props.operacao && "active"}>
-                  <a href="/operacao/atracacao">
+                <li onClick={()=> navigate("/operacao/em-andamento")} className={props.operacao && "active"}>
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-calendar"></i>                      
                     </span>
-                    <span className="item-text">Registros de Operação</span>
-                  </a>
-                </li>
-                <li className={props.aperiodo && "active"} >
-                  <a href="/abertura-periodo">
-                    <span className="item-icon">
-                      <i className="fas fa-stopwatch"></i>                      
-                    </span>
-                    <span className="item-text">Abertura de Período</span>
-                  </a>
-                </li>
-                <li className={props.cbibl && "active"} >
-                  <a href="/cadastrar-bibl">
-                    <span className="item-icon">
-                      <i className="fa fa-file-o"></i>                      
-                    </span>
-                    <span className="item-text">Cadastrar Bi's/BL's</span>
-                  </a>
-                </li>
-                <li className={props.veiculos && "active"} >
-                  <a href="/veiculos">
-                    <span className="item-icon">
-                      <i className="fa fa-truck icon"></i>                      
-                    </span>
-                    <span className="item-text">Veículos em Operação</span>
-                  </a>
-                </li>
-                <li className={props.paralisacao && "active"} >
-                  <a href="/paralisacao">
+                    <span className="item-text">Operação</span>
+                  </div>
+                </li>                               
+
+
+                
+               {/* <li className={props.paralisacao && "active"} >
+                  <>
                     <span className="item-icon">
                       <i className="fa fa-exclamation-triangle"></i>                      
                     </span>
                     <span className="item-text">Paralisação</span>
-                  </a>
-                </li>
-                <li className={props.pesagem && "active"} >
-                  <a href="/pesagem">
+                  </>
+                </li> */}
+                {/*
+                <li onClick={()=> navigate("/pesagem")}  className={props.pesagem && "active"} >
+                  <div className="nav_bar" >
                     <span className="item-icon">
                       <i className="fa fa-balance-scale"></i>                      
                     </span>
                     <span className="item-text">Pesagem</span>
-                  </a>
+                  </div>
                 </li>
-                <li className={props.relatorios && "active"} >
-                  <a href="/relatorios">
+                  */}
+                <li onClick={()=> navigate("/Boletim")} className={props.cbibl && "active"} >
+                  <div className="nav_bar">
+                    <span className="item-icon">
+                      <i className="fa fa-file-o"></i>                      
+                    </span>
+                    <span className="item-text">Cadastrar Boletim</span>
+                  </div>
+                </li>
+
+                
+                <li onClick={()=> navigate("/Boletimgranel")} className={props.boletimgranel && "active"} >
+                  <div className="nav_bar">
+                    <span className="item-icon">
+                      <i className="fa fa-file-o"></i>                      
+                    </span>
+                    <span className="item-text">Cadastrar Boletim Granel</span>
+                  </div>
+                </li>
+
+                <li onClick={()=> navigate("/relatorios")} className={props.relatorios && "active"} >
+                  <div className="nav_bar" >
                     <span className="item-icon">
                       <i className="far fa-file-alt"></i>                      
                     </span>
                     <span className="item-text">Relatórios</span>
-                  </a>
+                  </div>
                 </li>
-                <li className={props.suporte && "active"} >
-                  <a href="/suporte">
+                <li onClick={()=> navigate("/suporte")}  className={props.suporte && "active"} >
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fas fa-sitemap icon"></i>                      
                     </span>
                     <span className="item-text">Suporte Técnico</span>
-                  </a>
+                  </div>
                 </li>
                 <li className="logout" onClick={() => [logout(), navigate("/")]}>
-                  <a >
+                  <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fas fa-sign-out-alt"></i>                      
                     </span>
                     <span className="item-text">Sair</span>
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

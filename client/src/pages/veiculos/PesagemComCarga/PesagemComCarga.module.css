@@ -1,0 +1,97 @@
+.content {
+	margin: 0 auto;
+	width: 95%;
+	color: #8A909B;
+	background-color: #F9FAFB;
+	display: grid;
+	border-radius: 5px;
+	padding: 15px 25px;
+
+}
+
+.nav {
+	font-size: 25px;
+	border-bottom: 1px solid #bbbbbb;
+	display: flex;
+}
+.nav div{
+	padding: 0 1vw;
+	margin-bottom: -1px;
+}
+.nav a{
+	text-decoration: none;
+	color: #bbbbbb;
+}
+
+.active{
+	color: #1f4d64;
+	border-bottom: 3px solid #1f4d64;
+}
+
+/*-----------------------------------------------*/
+
+
+
+.table {
+	margin-top: 1vh;
+}
+
+.sumario {
+	color: #8A909B;
+	background-color: #F9FAFB;
+	display: grid;
+	border-radius: 5px 5px 0 0;
+	padding: 10px 0 10px 20px;
+	
+	border-bottom: 1px solid #E9EBEE;
+	
+}
+
+.sumario div {
+	font-family: "Titillium Web", sans-serif;
+	font-size: 14px;
+	cursor: default;
+	text-align: center;
+	justify-content:center;
+	margin-right: 30px;
+}
+
+.flex {
+	display: flex;
+	justify-content:center;
+	
+	
+}
+
+.form_item {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	width: 60%;
+	margin-top: 1vh;
+	
+}
+
+.form_item div {
+	font-size: 16px;
+}
+
+.form_item input,select {
+	width: 100%;
+	padding: 10px 5px 5px 15px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.form_item input:focus,select:focus {
+	border: 1px solid #8ad4ee;
+	outline: 4px solid #8ad4ee80;
+}
+
+
+
+
+
+
+
+
+

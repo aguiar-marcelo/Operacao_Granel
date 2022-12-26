@@ -6,9 +6,15 @@ import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import style from "./CadastroNavio.module.css";
+import Input from "../../../components/Input";
+import SubmitButton from "../../../components/Button";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 const CadastroNavio = () => {
+
+
+  const navigate = useNavigate();
 
   const [navioList, setNavioList] = useState([]);
   const [busca, setBusca] = useState("");
@@ -31,89 +37,39 @@ const CadastroNavio = () => {
       <Brackground />
       <Container>
         <div className={style.content}>
-          <div className={style.nav}>
-            <a href="/navios">
-              <div>
+          <div className={style.nav}>            
+              <div onClick={()=> navigate("/navios")}>
                 Navios
-              </div>
-            </a>
-            <a >
+              </div>       
               <div className={style.active}>
                 Cadastrar Navio
               </div>
-            </a>
-
-
+            
           </div>
 
           <div className={style.flex}>
-
-            <div className={style.form_item}>
-              <div>Nome</div>
-              <input type="text" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>Lloyd / Imo</div>
-              <input type="text" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>País</div>
-              <select>
-                <option disabled selected></option>
-                <option value="" key="">Brasil</option>
-                <option value="" key="">França</option>
-              </select>
-            </div>
-
+          <Input
+           type={"text"} 
+           text={"Nome"} 
+           name={"name"} 
+           placeholder={"ex: The Guardian"}          
+          />          
+          <Input
+           type={"text"} 
+           text={"IMO/Loyds"} 
+           name={"name"} 
+           placeholder={"ex: 5841610"}      
+          />              
           </div>
-          <div className={style.flex}>
-
-            <div className={style.form_item}>
-              <div>Calado (m)</div>
-              <input type="number" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>Guindaste</div>
-              <select>
-                <option disabled selected></option>
-                <option value="" key="">Sim</option>
-                <option value="" key="">Não</option>
-              </select>
-            </div>
-
-            <div className={style.form_item}>
-              <div>Capacidade (Kg)</div>
-              <input type="number" />
-            </div>
-
+          <div className={style.SubmitButton}>
+            <SubmitButton text={"Cadastrar"}/>
           </div>
-          <div className={style.flex}>
-            <div className={style.form_item}>
-              <div>Tipo</div>
-              <input type="text" />
-            </div>
+          
+          
+          
 
-            <div className={style.form_item}>
-              <div>Porões</div>
-              <input type="number" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>Ativo</div>
-              <select>
-                <option disabled selected></option>
-                <option value="" key="">Sim</option>
-                <option value="" key="">Não</option>
-              </select>
-            </div>
-
-          </div>
-          <div className={style.form_item}>
-            <button>Cadastrar</button>
-          </div>
+          
+                    
 
         </div>
 

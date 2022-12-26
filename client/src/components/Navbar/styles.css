@@ -39,7 +39,6 @@
   overflow: hidden;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-transform: translateZ(0) scale(1, 1);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -70,8 +69,8 @@
   background-color: #1a3e50;
 }
 
-#menu div.vertical-menu nav div ul li:hover a,
-#menu div.vertical-menu nav div ul li.open a {
+#menu div.vertical-menu nav div ul li:hover div.nav_bar,
+#menu div.vertical-menu nav div ul li.open div.nav_bar {
   color: #fff;
 }
 
@@ -79,11 +78,11 @@
   background-color: #1e4e77;
 }
 
-#menu div.vertical-menu nav div ul li.active a {
+#menu div.vertical-menu nav div ul li.active div.nav_bar {
   color: #fff;
 }
 
-#menu div.vertical-menu nav div ul li a {
+#menu div.vertical-menu nav div ul li div.nav_bar {
   position: relative;
   display: table;
   border-collapse: collapse;
@@ -92,12 +91,11 @@
   font-family: arial;
   font-size: 17px;
   text-decoration: none;
-  -webkit-transform: translateZ(0) scale(1, 1);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-#menu div.vertical-menu nav div ul li a .item-icon {
+#menu div.vertical-menu nav div ul li div.nav_bar .item-icon {
   position: relative;
   display: table-cell;
   min-width: 60px;
@@ -109,7 +107,7 @@
 
 }
 
-#menu div.vertical-menu nav div ul li a .item-text {
+#menu div.vertical-menu nav div ul li div.nav_bar .item-text {
   position: relative;
   display: table-cell;
   vertical-align: middle;

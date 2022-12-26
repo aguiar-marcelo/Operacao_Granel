@@ -6,12 +6,18 @@ import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import style from "./Navios.module.css";
+import Dialog from '@mui/material/Dialog';
+import { Navigate, useNavigate } from "react-router-dom";
+import SubmitButton from "../../../components/Button";
 
+const Navios = (props) => {
 
-const Navios = () => {
+  const navigate = useNavigate();
 
   const [navioList, setNavioList] = useState([]);
   const [busca, setBusca] = useState("");
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     getNavios();
@@ -23,6 +29,14 @@ const Navios = () => {
     });
   }
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Navbar navios />
@@ -30,137 +44,99 @@ const Navios = () => {
       <Brackground />
       <Container>
         <div className={style.content}>
-          <div className={style.nav}>
-            <a href="/navios">
+          <div className={style.nav}>            
               <div className={style.active}>
                 Navios
               </div>
-            </a>
-            <a href="/navios/cadastro">
-              <div>
+                     
+              <div onClick={()=> navigate("/navios/cadastro")}>
                 Cadastrar Navio
-              </div>
-            </a>
+              </div>            
           </div>
 
           <div className={style.table}>
-          <div className={style.sumario}>
-            <div >NOME</div>
-            <div className={style.center}>LLOYD</div>
-            <div className={style.center}>IMO</div>
-            <div className={style.center}>PAÍS</div>
-            <div className={style.center}>CALADO (m)</div>
-            <div className={style.center}>GUINDASTE</div>
-            <div className={style.center}>CAPACIDADE</div>
-            <div className={style.center}>TIPO</div>
-            <div className={style.center}>LOA</div>
-            <div className={style.center}>PORÕES</div>
-            <div className={style.center}>ATIVO</div>
-            <div className={style.center}></div>
+            <div className={style.sumario}>
+              <div >NOME</div>
+              <div className={style.center}>LLOYD/IMO</div>
+              <div className={style.center}>Status</div>
+              <div className={style.center}></div>
+            </div>           
+                    <div className={style.table_item}>
+                      <div>Megazord</div>
+                      <div className={style.center}>554449</div>
+                      <div className={style.center}>Paralizado</div>                      
+                      <div className={style.center}>
+                      <button className={style.button_atraca} title="Nova Viagem" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
+                      </div>                      
+                    </div>   
+                    <div className={style.table_item}>
+                      <div>Megazord</div>
+                      <div className={style.center}>988411</div>
+                      <div className={style.center}>Paralizado</div>                      
+                      <div className={style.center}>
+                      <button className={style.button_atraca} title="Nova Atracação" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
+                      </div>                      
+                    </div>                        
           </div>
-
-          {navioList.length == 0 ?
-            <div className={style.zeronavio}>Nenhum navio registrado</div>
-            :
-            <div>
-              {navioList.filter((val) => {
-                if (busca == "") {
-                  return val
-                } else if (val.NOME_NAVIO.toLowerCase().includes(busca.toLowerCase())) {
-                  return val
-                }
-              }).map((val, key) => {
-
-                return (
-                  <div className={style.table_item}>
-                    <div>{val.NOME_NAVIO}</div>
-                    <div className={style.center}>{val.NUM_LLOYD}</div>
-                    <div className={style.center}>{val.IMO_NAVIO}</div>
-                    <div className={style.center}>{val.COD_PAIS}</div>
-                    <div className={style.center}>{val.CALADO}</div>
-                    <div className={style.center}>{val.GUINDASTE}</div>
-                    <div className={style.center}>{val.CAPAC_GUINDASTE}</div>
-                    <div className={style.center}>{val.TIPO_NAVIO}</div>
-                    <div className={style.center}>{val.LOA}</div>
-                    <div className={style.center}>{val.QTDE_PORAO}</div>
-                    <div className={style.center}>{val.ATIVO}</div>
-                    <div className={style.center}>
-                      <button className={style.button_atraca} title="Atracar"><i className="fa fa-anchor"></i> </button>
-                    </div>
-                  </div>
-                )
-              })}
-
-            </div>
-          }
         </div>
-
-          
-
-        </div>
-        {/* <div className={style.flex}>
-          <a href="/navios/cadastro">
-          <button className={style.button}>+ Novo navio</button>
-          </a>
-          <input
-            className={style.busca}
-            maxLength="11"
-            type="text"
-            placeholder='Pesquisar...'
-            onChange={(event) => {
-              setBusca(event.target.value);
-            }} />
-
-        </div>
-        <div className={style.table}>
-          <div className={style.sumario}>
-            <div>NOME</div>
-            <div className={style.center}>LLOYD</div>
-            <div className={style.center}>IMO</div>
-            <div className={style.center}>PAÍS</div>
-            <div className={style.center}>CALADO (m)</div>
-            <div className={style.center}>GUINDASTE</div>
-            <div className={style.center}>CAPACIDADE</div>
-            <div className={style.center}>TIPO</div>
-            <div className={style.center}>LOA</div>
-            <div className={style.center}>PORÕES</div>
-            <div className={style.center}>ATIVO</div>
-          </div>
-
-          {navioList.length == 0 ?
-            <div className={style.zeronavio}>Nenhum navio registrado</div>
-            :
-            <div>
-              {navioList.filter((val) => {
-                if (busca == "") {
-                  return val
-                } else if (val.NOME_NAVIO.toLowerCase().includes(busca.toLowerCase())) {
-                  return val
-                }
-              }).map((val, key) => {
-
-                return (
-                  <div className={style.table_item}>
-                    <div>{val.NOME_NAVIO}</div>
-                    <div className={style.center}>{val.NUM_LLOYD}</div>
-                    <div className={style.center}>{val.IMO_NAVIO}</div>
-                    <div className={style.center}>{val.COD_PAIS}</div>
-                    <div className={style.center}>{val.CALADO}</div>
-                    <div className={style.center}>{val.GUINDASTE}</div>
-                    <div className={style.center}>{val.CAPAC_GUINDASTE}</div>
-                    <div className={style.center}>{val.TIPO_NAVIO}</div>
-                    <div className={style.center}>{val.LOA}</div>
-                    <div className={style.center}>{val.QTDE_PORAO}</div>
-                    <div className={style.center}>{val.ATIVO}</div>
-                  </div>
-                )
-              })}
-
-            </div>
-          }
-        </div> */}
+        
 
       </Container>
+      <Dialog open={open} onClose={handleClose}>
+                
+
+        <div className={style.modal}>
+          <div className={style.title}>
+            <div className={style.active}>
+             Atracação
+            </div>
+          </div>
+
+          <div className={style.form_item}>
+            
+            <div>ETA</div>
+            <input type="text" />
+            
+          </div>
+
+          <div className={style.form_item}>
+            <div>ATA</div>
+            <input type="text" />
+          </div>
+
+          <div className={style.form_item}>
+            <div>Berço</div>
+            <input type="text" />
+          </div>
+          <div className={style.form_item}>
+            <div>Mudança de berço</div>
+            <input type="text" />
+          </div>
+
+          <div className={style.form_item}>
+            <div>Reatracação</div>
+            <input type="text" />
+          </div>
+
+          <div className={style.form_item}>
+            <div>Operador</div>
+            <input type="text" />
+          </div>
+
+          <div className={style.form_item}>
+            <div>Agente do navio</div>
+            <input type="text" />
+          </div>
+
+          <div className={style.submit}>
+            <SubmitButton text={"Cadastrar"} onClick={handleClose} className={style.form_item}/>
+             
+          </div>
+
+
+        </div>
+
+      </Dialog>
     </>
   );
 };

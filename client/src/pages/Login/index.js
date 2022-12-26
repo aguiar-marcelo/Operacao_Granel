@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Login = () => {
   const { login } = useAuth();
@@ -27,6 +28,7 @@ const Login = () => {
     navigate("/dashboard");//se tudo estiver ok, redireciona para Home
   };
 
+
   return (
     <>
       <div className={style.content}>
@@ -35,14 +37,17 @@ const Login = () => {
           </div>
           <div className={style.frase_box}>
             <div className={style.frase}> {/*transformar letreiro em component  */}
-              Qualquer hora, qualquer lugar
-              Controle
-              <span className={style.typewrite} data-type='[ 
-                                "sua carga !", 
-                                "seu navio !", 
-                                "suas operações !" 
-                            ]'>
-              </span>
+              Qualquer hora, qualquer lugar <br />
+              Controle <b>
+                <Typewriter
+                  words={['sua carga!', 'seu navio!', 'suas operações!']}
+                  loop={0}
+                  cursor
+                  cursorStyle='|'
+                  typeSpeed={100}
+                  deleteSpeed={80}
+                  delaySpeed={2000}
+                /></b>
             </div>
           </div>
         </div>
@@ -57,6 +62,11 @@ const Login = () => {
                   className={style.input}
                   type="text"
                   value={id}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      handleLogin()
+                    }
+                  }}
                   onChange={(e) => [setId(e.target.value), setError("")]}//começa digitar e some msg de erro
                   required
                 />
@@ -67,6 +77,11 @@ const Login = () => {
                   className={style.input}
                   type="password"
                   value={senha}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      handleLogin()
+                    }
+                  }}
                   onChange={(e) => [setSenha(e.target.value), setError("")]}
                   required
                 />
@@ -75,9 +90,10 @@ const Login = () => {
             </form>
             <div className={style.msg}>{error}</div>
             <div className={style.submit}>
-              <button onClick={handleLogin}>Entrar</button>
-              <a onClick={()=>alert("Contate o suporte!")}>&nbsp;Registre-se</a>
+              <button onClick={handleLogin} autoFocus>Entrar</button>
+              <a onClick={() => alert("Contate o suporte!")}>&nbsp;Registre-se</a>
             </div>
+
             <p className="direitos">Todos os direitos reservados &copy;</p>
           </div>
         </div>

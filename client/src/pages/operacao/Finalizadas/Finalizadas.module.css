@@ -6,6 +6,7 @@
 	display: grid;
 	border-radius: 5px;
 	padding: 15px 25px;
+
 }
 
 .nav {
@@ -17,11 +18,6 @@
 	padding: 0 1vw;
 	margin-bottom: -1px;
 }
-.nav div:hover{
-	color: #1f4d64;
-	border-bottom: 3px solid #1f4d64;
-}
-
 .nav a{
 	text-decoration: none;
 	color: #bbbbbb;
@@ -31,9 +27,6 @@
 	color: #1f4d64;
 	border-bottom: 3px solid #1f4d64;
 }
-
-
-
 
 /*-----------------------------------------------*/
 
@@ -88,28 +81,22 @@
 	border-left: 2px solid #ebebeb;
 }
 
-.submit {
-    width: 52%;
-	margin: 3 25px;	
-    margin-top: 10px;
-	 
-}
-
-.submit button{
-	
-	background: #051630;
-	width: 15%;
-    font-size: 15px;
-	color: white;
-	border: 0 none;
-	border-radius: 200px;
+.button_atraca{
+	background-color: #153240;
+	border-style: none;
+	outline: none;
+	border-radius: 80px;
+	padding: 2px 13px;
 	cursor: pointer;
-	padding: 9px ;
-	margin: 5px 15px auto 20px;
-
-    
+	color: #fff;
+	font-size: 16px;
+	word-spacing: 5px;
+	font-family: "Titillium Web", sans-serif;
+	border: 1px solid #36b8e700;
 }
-.submit button:hover{
-	justify-content: center;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.753), 0 0 0 5px #27AE60;
+
+
+.button_atraca:hover {
+	border: 1px solid #36b8e7;
+	outline: 3px solid #8ad4ee80;
 }

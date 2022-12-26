@@ -24,26 +24,8 @@ body{
     position: absolute;
     left: 23%;
     bottom: 10%;
-
-}
-.frase a{
-    font-weight: 700;
-}
-.typewrite:after{
-   content: '|';
-   margin-left: 5px;
-   opacity: 1;
-   animation: flash .6s infinite;
 }
 
-@keyframes flash{
-   0%, 100%{
-       opacity: 1;
-   }
-   50%{
-       opacity: 0;
-   }
-}
 
 .content{
     display:flex; 

@@ -5,7 +5,7 @@ import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 
 
-const Operacao = () => {
+const Finalizadas = (props) => {
 
   return (
     <>
@@ -14,10 +14,9 @@ const Operacao = () => {
       <Brackground />
       <Container>
         
-               
-        </Container>
+      </Container>
     </>
   );
 };
 
-export default Operacao;
+export default Finalizadas;
