@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 95%;
+	width: 80%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -17,6 +17,7 @@
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
+	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;
@@ -29,66 +30,74 @@
 }
 
 
-
-
 /*-----------------------------------------------*/
 
-.zeronavio {
-	font-size: 25px;
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	padding-top: 5vh;
-}
 
 .table {
-	margin-top: 3vh;
+	margin-top: 1vh;
 }
 
 .sumario {
 	color: #8A909B;
 	background-color: #F9FAFB;
-	display: grid;
+	display: flex;
+	justify-content: space-around;
 	border-radius: 5px 5px 0 0;
-	padding: 2px 0 2px 15px;
-	grid-template-columns: 1fr 1fr 2fr 2fr 1fr 2fr 2fr 1fr 1fr 2fr;
+	padding: 10px 0 ;
 	border-bottom: 1px solid #E9EBEE;
+	justify-items: center;
 }
 
 .sumario div {
 	font-family: "Titillium Web", sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	cursor: default;
+	width: 30%;
 	text-align: center;
 }
 
-.table_link{
-	text-decoration: none;
-}
-
-.table_item {
+.table_item {	
 	background-color: #ffffff;
 	color: #2B313F;
-	padding: 0 5px;
-	display: grid;
-	padding: 0 0 0 20px;
-	grid-template-columns: 1fr 1fr 2fr 2fr 1fr 2fr 2fr 1fr 1fr 2fr;
-	border-bottom: 1px solid #E9EBEE;
+	display: flex;
+	justify-content: space-around;
+	justify-items: center;
+	border-bottom: 1px solid #E9EBEE;	
 }
 
 .table_item:hover{
-	background-color: #dfdbdb;
+	background-color: #86ddff;
+	cursor: pointer;
 }
 
 .table_item div {
 	padding: 7px 0;
-	font-family: 'Roboto', sans-serif; 
-	font-size: 14px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 30%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	padding-bottom: 5px;
 }
 
-.sumario .border {
-	border-left: 2px solid #ebebeb;
+.button_atraca{
+	background-color: #153240;
+	border-style: none;
+	outline: none;
+	border-radius: 80px;
+	padding: 2px 13px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 16px;
+	word-spacing: 5px;
+	font-family: "Titillium Web", sans-serif;
+	border: 1px solid #36b8e700;
+	margin-right: 100px;
+}
+
+
+.button_atraca:hover {
+	border: 1px solid #36b8e7;
+	outline: 3px solid #8ad4ee80;
 }
 

@@ -17,6 +17,7 @@
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
+	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;

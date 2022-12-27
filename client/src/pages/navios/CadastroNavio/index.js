@@ -51,8 +51,7 @@ const CadastroNavio = () => {
           <Input
            type={"text"} 
            text={"Nome"} 
-           name={"name"} 
-           placeholder={"ex: The Guardian"}          
+           name={"name"}          
           />          
           <Input
            type={"text"} 

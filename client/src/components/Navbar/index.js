@@ -44,15 +44,15 @@ function Navbar(props) {
                   </div>
                  </li>
 
-                <li onClick={()=> navigate("/Viagens/TodasViagens")} className={props.viagens && "active"}>
+                <li onClick={()=> navigate("/operacoes")} className={props.operacao && "active"}>
                   <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-anchor"></i>                      
                     </span>
-                    <span className="item-text">Viagens</span>
+                    <span className="item-text">Operação</span>
                   </div>
                 </li>
-                <li onClick={()=> navigate("/operacao/em-andamento")} className={props.operacao && "active"}>
+               {/* <li onClick={()=> navigate("/operacao/em-andamento")} className={props.operacao && "active"}>
                   <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-calendar"></i>                      
@@ -63,7 +63,7 @@ function Navbar(props) {
 
 
                 
-               {/* <li className={props.paralisacao && "active"} >
+                <li className={props.paralisacao && "active"} >
                   <>
                     <span className="item-icon">
                       <i className="fa fa-exclamation-triangle"></i>                      
