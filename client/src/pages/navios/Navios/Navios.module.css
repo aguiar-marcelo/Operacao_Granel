@@ -13,11 +13,11 @@
 	font-size: 25px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
+	cursor: pointer;
 }
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
-	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;
@@ -102,9 +102,7 @@
 	padding-bottom: 5px;
 }
 
-.sumario .center {
-	border-left: 2px solid #ebebeb;
-}
+
 
 .button_atraca{
 	background-color: #153240;

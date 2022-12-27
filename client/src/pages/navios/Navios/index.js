@@ -57,23 +57,23 @@ const Navios = (props) => {
           <div className={style.table}>
             <div className={style.sumario}>
               <div >NOME</div>
-              <div className={style.center}>LLOYD/IMO</div>
-              <div className={style.center}>Status</div>
-              <div className={style.center}></div>
+              <div>LLOYD/IMO</div>
+              <div>STATUS</div>
+              <div></div>
             </div>           
                     <div className={style.table_item}>
                       <div>Megazord</div>
-                      <div className={style.center}>554449</div>
-                      <div className={style.center}>Paralizado</div>                      
-                      <div className={style.center}>
+                      <div>554449</div>
+                      <div>Paralizado</div>                      
+                      <div>
                       <button className={style.button_atraca} title="Nova Viagem" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
                       </div>                      
                     </div>   
                     <div className={style.table_item}>
                       <div>Megazord</div>
-                      <div className={style.center}>988411</div>
-                      <div className={style.center}>Paralizado</div>                      
-                      <div className={style.center}>
+                      <div>988411</div>
+                      <div>Paralizado</div>                      
+                      <div>
                       <button className={style.button_atraca} title="Nova Atracação" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
                       </div>                      
                     </div>                        

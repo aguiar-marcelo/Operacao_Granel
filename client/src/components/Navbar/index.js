@@ -80,7 +80,7 @@ function Navbar(props) {
                     <span className="item-text">Pesagem</span>
                   </div>
                 </li>
-                  */}
+                  
                 <li onClick={()=> navigate("/Boletim")} className={props.cbibl && "active"} >
                   <div className="nav_bar">
                     <span className="item-icon">
@@ -99,6 +99,7 @@ function Navbar(props) {
                     <span className="item-text">Cadastrar Boletim Granel</span>
                   </div>
                 </li>
+                */}
 
                 <li onClick={()=> navigate("/relatorios")} className={props.relatorios && "active"} >
                   <div className="nav_bar" >

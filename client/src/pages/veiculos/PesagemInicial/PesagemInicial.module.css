@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 95%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -13,6 +13,7 @@
 	font-size: 25px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
+	cursor: pointer;
 }
 .nav div{
 	padding: 0 1vw;
@@ -28,48 +29,9 @@
 	border-bottom: 3px solid #1f4d64;
 }
 
-.form_item button{
-	background: #27AE60;
-    font-size: 20px;
-	color: white;
-	font-family: 'Titillium Web', sans-serif;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	transition: 0.3s;
-	padding: 7px 45px;
-	margin-top: 25px;
-	margin-left: 2px;
-	
-}.form_item button:hover{
-	background: #27AE60;
-	box-shadow: 
-	0 0 0 3px #ffffffd8,
-	 0 0 0 4px #27AE60;
-}
-
-.table {
-	display: flex;
-	justify-content:space-between;
-}
-
-.form_item {	
-	width: 30%;
-	margin-top: 3vh;
-}
-
-.form_item div {
-	font-size: 16px;
-}
-
-.form_item input,select {
-	width: 80%;
-	padding: 10px 0;
-	transition: 0.1s;
-	margin-top: 3px;
-	font-size: 15px;
-	border-radius: 3px;
-	border: 1px solid #ccc;
-	
+.flex div{		
+	padding-left: 15px;
+	display: inline-block;
+	padding-bottom: 5px;
 }
 

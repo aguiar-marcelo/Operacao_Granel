@@ -7,7 +7,7 @@ const Select = ({ text, name, options, handleOnChange, value }) => {
         <div className={style.form_control}>
             <label htmlFor={name}>{text}:</label>   
             <select name={name} id={name}>                 
-            <option >mama</option>
+            <option ></option>
             {/*                         CONECTAR OPTIONS COM A API DO PROJETO, SE NAO O SELECT NAO VAI FUNCIONAR
             {options.map((option) => (
                 <option value={option.id} key={option.id}>

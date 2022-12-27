@@ -13,11 +13,11 @@
 	font-size: 25px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
+	cursor: pointer;
 }
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
-	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;

@@ -25,14 +25,18 @@ const CadastroMotorista = () => {
                         <div className={style.active}>
                             Cadastrar Motorista
                         </div>
+                        <div onClick={() => navigate("/veiculos/Motivacao")}>
+                            Motivação
+                        </div>
+                        <div onClick={() => navigate("/veiculos/PesagemInicial")}>
+                            Pesagem inicial
+                        </div>
                         <div onClick={() => navigate("/veiculos/PesagemComCarga")}>
                             Pesagem com carga
                         </div>
-                        <div onClick={() => navigate("/veiculos/PesagemInicial")}>
-                            pesagem inicial
-                        </div>
-                        <div onClick={() => navigate("/veiculos/Motivacao")}>
-                            Motivação
+                                               
+                        <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
+                             Última Pesagem
                         </div>
                     </div>
 

@@ -7,10 +7,12 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     // const [users, setUsers] = useState();
     const usersStorage = [
-        { "id": "maguiar", "password": "12345" },
+        { "id": "maguiar", "password": "12345", "nivel":"mestre" },
         { "id": "lucas", "password": "12345" },
         { "id": "rita", "password": "12345" },
-        { "id": "joao", "password": "12345" }
+        { "id": "joao", "password": "12345" },
+        { "id": "Anderson", "password": "12345" }
+
     ]
 
 

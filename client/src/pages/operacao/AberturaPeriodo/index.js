@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
-import Brackground from "../../components/Background";
-import Container from "../../components/Container";
-import Header from "../../components/Header";
-import style from "./Boletim.module.css";
-import Input from "../../components/Input";
-import SubmitButton from "../../components/Button";
+import React from "react";
+import Navbar from "../../../components/Navbar";
+import Brackground from "../../../components/Background";
+import Container from "../../../components/Container";
+import Header from "../../../components/Header";
+import { Navigate, useNavigate } from "react-router-dom";
+import style from "./AberturaPeriodo.module.css"
+import SubmitButton from "../../../components/Button";
+import Input from "../../../components/Input";
+import { useState } from "react";
 
-const Boletim = (props) => {
 
+const AberturaPeriodo = () => {
   const [TipoOp, setOP] = useState("");
   const [Periodo, setPeriodo] = useState("");
   const [Inicio, setInicio] = useState("");
@@ -34,24 +36,32 @@ const Boletim = (props) => {
   const [MotivoParalizacao, setMotivoParalizacao] = useState("");
   const [ObservacaoParalizacao, setObservacaoParalizacao] = useState("");
 
-
-
+  const navigate = useNavigate();
+  
   const handleSubmit = (evt) => {
     evt.preventDefault();
   }
 
+
   return (
     <>
-      <Navbar cbibl />
+      <Navbar operacao />
       <Header />
       <Brackground />
       <Container>
         <div className={style.content}>
           <div className={style.nav}>
-            <div className={style.active}>
-              Cadastramento De Boletim
+            <div onClick={() => navigate("/operacoes")}>
+                Voltar
             </div>
-          </div>
+            <div onClick={() => navigate("/operacao/0")}>
+                Sobre a operação
+            </div>
+            <div className={style.active}>
+                Boletim Abertura de periodo
+            </div>   
+                
+        </div>
 
 
           <form onChange={handleSubmit}>
@@ -92,11 +102,11 @@ const Boletim = (props) => {
             <SubmitButton text={'Cadastrar'} type={"submit"} />
             
           </form>
+                  
         </div>
       </Container>
-
     </>
   );
 };
 
-export default Boletim;
+export default AberturaPeriodo;

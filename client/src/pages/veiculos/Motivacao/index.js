@@ -5,6 +5,8 @@ import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import style from "./Motivacao.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import Input from "../../../components/Input";
+import SubmitButton from "../../../components/Button";
 
 const Motivacao = () => {
   const navigate = useNavigate();
@@ -20,49 +22,35 @@ const Motivacao = () => {
             <div onClick={() => navigate("/veiculos")}>
               Cadastrar Motorista
             </div>
-            <div onClick={() => navigate("/veiculos/PesagemComCarga")}>
-              Pesagem com carga
+            <div className={style.active}>
+              Motivação(?)
             </div>
             <div onClick={() => navigate("/veiculos/PesagemInicial")}>
-              pesagem inicial
+              Pesagem inicial
             </div>
-            <div className={style.active}>
-              Motivação
+            <div onClick={() => navigate("/veiculos/PesagemComCarga")}>
+              Pesagem com carga
+            </div>           
+            
+            <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
+              Última Pesagem
             </div>
           </div>
             <div className={style.flex}>
-
-              <div className={style.form_item}>
-                <div>Placa do CAVALO</div>
-                <input type="text" />
-              </div>
-
-              <div className={style.form_item}>
-                <div>Placa da CARRETA</div>
-                <input type="text" />
-              </div>
-
-              <div className={style.form_item}>
-                <div>Nome do motorista</div>
-                <input type="text" />
-              </div>
-
-              <div className={style.form_item}>
-                <div>CPF do motorista</div>
-                <input type="text" />
-              </div>
-
-            </div>
             <div className={style.flex}>
+            <Input type={"text"} text={"Modelo do veículo"} placeholder={"ex: 9 eixos"} />
+            <Input type={"text"} text={"Peso líquido"} placeholder={"ex: 40.000kg"} />
+          </div>
+          <div className={style.flex}>
+            <Input type={"datetime-local"} text={"Data e hora"} placeholder={"dd/mm/aaaa 00:00"} />
+            
+          </div>
+            
+          
+          
 
-              <div className={style.form_item}>
-                <div>SELECT PARA ESCOLHER O NAVIO </div>
-                <input type="number" />
-              </div>
             </div>
-            <div className={style.form_item}>
-              <button>Cadastrar</button>
-            </div>
+            <SubmitButton text={"Cadastrar"} />
 
           </div>
 

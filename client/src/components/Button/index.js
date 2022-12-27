@@ -2,10 +2,10 @@ import React from "react";
 import style from "./SubmitButton.module.css"
 
 
-const SubmitButton = ({ text }) => {
+const SubmitButton = ({ text, type }) => {
     return(
         <div className={style.form_control}>
-            <button className={style.btn}>{text}</button>     
+            <button type={type}className={style.btn}>{text}</button>     
             
         </div>
     )

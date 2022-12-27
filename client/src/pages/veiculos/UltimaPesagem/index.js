@@ -3,12 +3,12 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import style from "./PesagemComCarga.module.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import style from "./UltimaPesagem.module.css";
+import { useNavigate } from "react-router-dom";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
 
-const PesagemComCarga = () => {
+const UltimaPesagem = () => {
   const navigate = useNavigate();
 
   return (
@@ -28,38 +28,25 @@ const PesagemComCarga = () => {
             <div onClick={() => navigate("/veiculos/PesagemInicial")}>
               Pesagem inicial
             </div>
-            <div className={style.active}>
+            <div onClick={() => navigate("/veiculos/PesagemComCarga")}>
               Pesagem com carga
-            </div>           
+            </div>            
             
-            <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
+            <div className={style.active}>
               Última Pesagem
             </div>
           </div>
 
-
-
           <div className={style.flex}>
-            <Input type={"text"} text={"Modelo do veículo"} placeholder={"ex: 9 eixos"} />
-            <Input type={"text"} text={"Peso líquido"} placeholder={"ex: 40.000kg"} />
-          </div>
-          <div className={style.flex}>
-            <Input type={"datetime-local"} text={"Data e hora"} placeholder={"dd/mm/aaaa"} />
-            
-          </div>
-            
-          
-          <SubmitButton text={"Cadastrar"} />
-
-
-
+          <Input type={"datetime-local"} text={"Data e hora"} name={"name"} placeholder={"ex:...."} />          
+          <Input type={"text"} text={"Peso final do veículo"} name={"name"} placeholder={"ex:...."} />
+          </div>    
+          <SubmitButton text={"Cadastrar"}/>  
         </div>
-
-
-
       </Container>
+
     </>
   );
 };
 
-export default PesagemComCarga;
+export default UltimaPesagem;

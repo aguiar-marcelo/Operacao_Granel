@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 80%;
+	width: 95%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -17,7 +17,6 @@
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
-	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;
@@ -29,55 +28,77 @@
 	border-bottom: 3px solid #1f4d64;
 }
 
-
 /*-----------------------------------------------*/
 
+.busca {
+	width: 20%;
+	height: 25px;
+	font-family: 'News Cycle', sans-serif;
+	font-size: 17px;
+	outline: none;
+	border: 2px solid #91D1BA;
+	transition: 0.3s;
+	padding: 0.5em 1em;
+	font-size: 17px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 10px;
+}
+
+.busca:focus {
+	border: 3px solid #153240;
+}
+
+.zeronavio {
+	font-size: 25px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	padding-top: 5vh;
+}
 
 .table {
-	margin-top: 1vh;
+	margin-top: 3vh;
 }
 
 .sumario {
 	color: #8A909B;
 	background-color: #F9FAFB;
-	display: flex;
-	justify-content: space-around;
+	display: grid;
 	border-radius: 5px 5px 0 0;
-	padding: 10px 0 ;
+	padding: 10px 0 10px 20px;
+	grid-template-columns: 3fr 3fr 1fr 2fr 2fr 3fr 2fr 2fr 2fr;
 	border-bottom: 1px solid #E9EBEE;
-	justify-items: center;
 }
 
 .sumario div {
 	font-family: "Titillium Web", sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 	cursor: default;
-	width: 30%;
 	text-align: center;
 }
 
-.table_item {	
+.table_item {
 	background-color: #ffffff;
 	color: #2B313F;
-	display: flex;
-	justify-content: space-around;
-	justify-items: center;
-	border-bottom: 1px solid #E9EBEE;	
-}
-
-.table_item:hover{
-	background-color: #86ddff;
-	cursor: pointer;
+	padding: 0 5px;
+	display: grid;
+	padding: 0 0 0 20px;
+	grid-template-columns: 3fr 3fr 1fr 2fr 2fr 3fr 2fr 2fr 2fr;
+	border-bottom: 1px solid #E9EBEE;
 }
 
 .table_item div {
 	padding: 7px 0;
-	width: 30%;
-	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 16px;
-	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.sumario .center {
+	border-left: 2px solid #ebebeb;
 }
 
 .button_atraca{
@@ -92,7 +113,6 @@
 	word-spacing: 5px;
 	font-family: "Titillium Web", sans-serif;
 	border: 1px solid #36b8e700;
-	margin-right: 100px;
 }
 
 

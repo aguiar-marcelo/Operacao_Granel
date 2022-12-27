@@ -51,7 +51,7 @@ const CadastroNavio = () => {
           <Input
            type={"text"} 
            text={"Nome"} 
-           name={"name"}          
+           name={"name"}         
           />          
           <Input
            type={"text"} 
