@@ -1,10 +1,14 @@
 import React from "react";
+import { useEffect, useState } from 'react';
 import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import { useParams } from 'react-router-dom';
-import { Navigate, useNavigate } from "react-router-dom";
+import Pesagem from '@mui/material/Dialog';
+import Paralisacao from '@mui/material/Dialog';
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import SubmitButton from "../../../components/Button";
+import Input from "../../../components/Input";
 import style from "./Operacao.module.css"
 
 
@@ -13,6 +17,24 @@ const Operacao = () => {
 
   const navigate = useNavigate();
 
+  //modal de 2 pesagem
+  const [openA, setOpenA] = useState(true);
+  const AbrirPesagem = () => {
+    setOpenA(true);
+  };
+  const FecharPesagem = () => {
+    setOpenA(false);
+  };
+
+
+  //modal de 2 pesagem
+  const [openB, setOpenB] = useState(false);
+  const AbrirParalisacao = () => {
+    setOpenB(true);
+  };
+  const FecharParalisacao = () => {
+    setOpenB(false);
+  };
 
   return (
     <>
@@ -22,10 +44,10 @@ const Operacao = () => {
       <Container>
         <div className={style.content}>
           <div className={style.nav}>
-            <div className={style.active}>
+            <div onClick={() => navigate(`/operacoes`)} className={style.active}>
               Voltar
             </div>
-            <div onClick={()=> navigate(`/operacao/${id}/aberturaperiodo`)}>
+            <div onClick={() => navigate(`/operacao/${id}/aberturaperiodo`)}>
               Abrir Período
             </div>
           </div>
@@ -54,7 +76,7 @@ const Operacao = () => {
 
           <div className={style.flex}>
             <div className={style.veiculo}>
-              <button>+ PESAR VEÍCULO</button>
+              <button onClick={AbrirPesagem}>+ PESAR VEÍCULO</button>
               <div className={style.listaveiculos}>
                 <div className={style.veiculoitem}>
                   <i class="fa fa-truck"></i>
@@ -138,7 +160,7 @@ const Operacao = () => {
                 <button className={style.encerrar}>ENCERRAR ESSE PERIODO</button>
               </div>
               <div className={style.paralisacao}>
-                <button>INICIAR PARALISAÇÃO <i class="fa fa-exclamation-triangle"></i></button>
+                <button onClick={AbrirParalisacao}>INICIAR PARALISAÇÃO <i class="fa fa-exclamation-triangle"></i></button>
               </div>
 
             </div>
@@ -152,6 +174,99 @@ const Operacao = () => {
           </div>
         </div>
       </Container>
+      <Pesagem open={openA} onClose={FecharPesagem} >
+        <div className={style.modal}>
+
+          <div className={style.modal}>
+            <div className={style.title}>
+              2º Pesagem
+            </div>
+            <div className={style.form_item}>
+              <div>Selecione um dos veiculos que ja tiraram a Tara</div>
+              <select >
+                <option value="" key="" selected></option>
+                <option value="" key="">DSK2983</option>
+                <option value="" key="">FFK2983</option>
+                <option value="" key="">BVT9A28</option>
+              </select>
+            </div>
+            <div className={style.form_item}>
+
+              <div>Modelo do veículo</div>
+              <select >
+                <option value="" key="" selected></option>
+                <option value="" key="">9 eixos</option>
+                <option value="" key="">9 eixos</option>
+                <option value="" key="">9 eixos</option>
+              </select>
+
+            </div>
+
+            <div className={style.form_item}>
+              <div>Data e hora</div>
+              <input type="datetime-local" />
+            </div>
+
+            <div className={style.form_item}>
+              <div>Peso líquido carregado</div>
+              <input type="number" />
+            </div>
+
+
+            <div className={style.submit}>
+              <SubmitButton text={"Adicionar"} onClick={FecharPesagem} className={style.form_item} />
+            </div>
+          </div>
+
+        </div>
+      </Pesagem>
+      <Paralisacao open={openB} onClose={FecharParalisacao}>
+        <div className={style.modal}>
+          
+
+          <div className={style.modal}>
+            <div className={style.title}>
+              PAralisacao
+            </div>
+            <div className={style.form_item}>
+              <div>Selecione um dos veiculos que ja tiraram a Tara</div>
+              <select >
+                <option value="" key="" selected></option>
+                <option value="" key="">DSK2983</option>
+                <option value="" key="">FFK2983</option>
+                <option value="" key="">BVT9A28</option>
+              </select>
+            </div>
+            <div className={style.form_item}>
+
+              <div>Modelo do veículo</div>
+              <select >
+                <option value="" key="" selected></option>
+                <option value="" key="">9 eixos</option>
+                <option value="" key="">9 eixos</option>
+                <option value="" key="">9 eixos</option>
+              </select>
+
+            </div>
+
+            <div className={style.form_item}>
+              <div>Data e hora</div>
+              <input type="datetime-local" />
+            </div>
+
+            <div className={style.form_item}>
+              <div>Peso líquido carregado</div>
+              <input type="number" />
+            </div>
+
+
+            <div className={style.submit}>
+              <SubmitButton text={"Adicionar"} onClick={FecharPesagem} className={style.form_item} />
+            </div>
+          </div>
+
+        </div>
+      </Paralisacao>
     </>
   );
 };

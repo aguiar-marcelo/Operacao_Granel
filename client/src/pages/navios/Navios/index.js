@@ -5,10 +5,10 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import style from "./Navios.module.css";
 import Dialog from '@mui/material/Dialog';
 import { Navigate, useNavigate } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
+import style from "./Navios.module.css";
 
 const Navios = (props) => {
 

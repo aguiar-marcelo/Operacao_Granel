@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 98%;
+	width: 85%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -29,9 +29,10 @@
 	border-bottom: 3px solid #1f4d64;
 }
 
-.flex div{		
-	padding-left: 15px;
-	display: inline-block;
-	padding-bottom: 5px;
+/*---------------------------------------------------------*/
+
+.flex {	
+	display: flex;
+	justify-content: space-around;	
 }
 

@@ -3,10 +3,11 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import { Navigate, useNavigate } from "react-router-dom";
 import style from "./AberturaPeriodo.module.css"
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+
 import { useState } from "react";
 
 
@@ -37,7 +38,9 @@ const AberturaPeriodo = () => {
   const [ObservacaoParalizacao, setObservacaoParalizacao] = useState("");
 
   const navigate = useNavigate();
-  
+
+  let { id } = useParams();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
   }
@@ -51,17 +54,14 @@ const AberturaPeriodo = () => {
       <Container>
         <div className={style.content}>
           <div className={style.nav}>
-            <div onClick={() => navigate("/operacoes")}>
-                Voltar
-            </div>
-            <div onClick={() => navigate("/operacao/0")}>
-                Sobre a operação
+            <div onClick={() => navigate(`/operacao/${id}`)}>
+              Voltar
             </div>
             <div className={style.active}>
-                Boletim Abertura de periodo
-            </div>   
-                
-        </div>
+              Abrir Período
+            </div>
+
+          </div>
 
 
           <form onChange={handleSubmit}>
@@ -100,9 +100,9 @@ const AberturaPeriodo = () => {
               <Input text={'Boletim nº'} type={'text'} defaultValue={Nboletim} name={'tipoOP'} onChange={e => setNboletim(e.target.value)} />
             </div>
             <SubmitButton text={'Cadastrar'} type={"submit"} />
-            
+
           </form>
-                  
+
         </div>
       </Container>
     </>

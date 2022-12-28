@@ -1,0 +1,83 @@
+.titulo_pagina {
+    color: #000;
+    font-family: roboto, -apple-system, BlinkMacSystemFont, segoe ui, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+    color: #153240;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 260px;
+    width: 72%;
+    margin-top: 1%;
+}
+
+.container {
+    width: 65%;
+    height: 65vh;
+    flex-flow: row wrap;
+    border-radius: 9px;
+    background-color: #ffffff;
+    color: #153240;
+    margin: 25px;
+    margin-left: 260px;
+    box-shadow: 0 2px 2px 0 #00000024, 0 10px 15px 0 #0000001f, 0 3px 1px -2px #00000033;
+}
+
+.texto2 {
+    font-family: roboto, -apple-system, BlinkMacSystemFont, segoe ui, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+    color: #153240;
+    font-size: 19px;
+    margin: 1px;
+    margin-top: 3%;
+    margin-left: 20px;
+}
+
+.textobase {
+    font-family: roboto, -apple-system, BlinkMacSystemFont, segoe ui, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+    color: #153240;
+    font-size: 15px;
+    margin: 1px;
+    margin-top: 3%;
+    margin-left: 20px;
+}
+
+.texto3 {
+    font-family: roboto, -apple-system, BlinkMacSystemFont, segoe ui, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+    color: #153240;
+    font-size: 28px;
+    margin: 1px;
+    padding: 20px;
+    padding-top: 3%;
+    width: 60%;
+    
+}
+
+.links_box {
+    background-color: #ff000000;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+.quadrado {
+    font-size: 16px;
+    text-align: center;
+    width: 13vw;
+    height: 220px;
+    border-radius: 9px;
+    background-color: #f5f5f5;
+    padding: 2px;
+    margin-top: 5px;
+    box-shadow: 0 2px 2px 0 #00000024, 0 10px 15px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.quadrado i {
+    margin: auto;
+    margin-top: 2vh;
+    font-size: 45px;
+}
+
+.titulo{
+    font-weight: 700;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

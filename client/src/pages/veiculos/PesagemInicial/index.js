@@ -21,17 +21,8 @@ const PesagemInicial = () => {
             <div onClick={() => navigate("/veiculos")}>
               Cadastrar Motorista
             </div>
-            <div onClick={() => navigate("/veiculos/Motivacao")}>
-              Motivação
-            </div>
             <div className={style.active}>
               Pesagem inicial
-            </div>
-            <div onClick={() => navigate("/veiculos/PesagemComCarga")}>
-              Pesagem com carga
-            </div>         
-            <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
-              Última Pesagem
             </div>
           </div>
           <div className={style.flex}>

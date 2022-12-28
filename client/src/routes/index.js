@@ -13,7 +13,6 @@ import Relatorios from "../pages/Relatorios";
 import Suporte from "../pages/Suporte";
 import PesagemComCarga from "../pages/veiculos/PesagemComCarga";
 import PesagemInicial from "../pages/veiculos/PesagemInicial";
-import Motivacao from "../pages/veiculos/Motivacao";
 import CadastroMotorista from "../pages/veiculos/CadastroMotorista";
 import AberturaPeriodo from "../pages/operacao/AberturaPeriodo";
 
@@ -43,7 +42,6 @@ const RoutesApp = () => {
                     <Route exact path="/veiculos/pesagemcomcarga" element={<Private Item={PesagemComCarga} />} />
                     <Route exact path="/veiculos/pesageminicial" element={<Private Item={PesagemInicial} />} />
                     <Route exact path="/veiculos/ultimapesagem" element={<Private Item={UltimaPesagem} />} />
-                    <Route exact path="/veiculos/motivacao" element={<Private Item={Motivacao} />} />
                     <Route path="/" element={<Private Item={Dashboard} />} />
                     <Route path="*" element={<Private Item={Dashboard} />} />
                 </Routes>
