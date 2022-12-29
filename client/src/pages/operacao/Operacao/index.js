@@ -18,7 +18,7 @@ const Operacao = () => {
   const navigate = useNavigate();
 
   //modal de 2 pesagem
-  const [openA, setOpenA] = useState(true);
+  const [openA, setOpenA] = useState(false);
   const AbrirPesagem = () => {
     setOpenA(true);
   };
@@ -28,7 +28,7 @@ const Operacao = () => {
 
 
   //modal de 2 pesagem
-  const [openB, setOpenB] = useState(false);
+  const [openB, setOpenB] = useState(true);
   const AbrirParalisacao = () => {
     setOpenB(true);
   };
@@ -220,52 +220,64 @@ const Operacao = () => {
 
         </div>
       </Pesagem>
-      <Paralisacao open={openB} onClose={FecharParalisacao}>
-        <div className={style.modal}>
-          
+      <Paralisacao open={openB} onClose={FecharParalisacao} fullWidth={true}>
 
-          <div className={style.modal}>
-            <div className={style.title}>
-              PAralisacao
-            </div>
+        <div className={style.modalb}>
+          <div className={style.title}>
+            Paralisação
+          </div>
+          <div className={style.form_item}>
+            <div>Motivo</div>
+            <select className={style.motivo}>
+              <option value="" key="" selected></option>
+              <option value="" key="">DSK2983</option>
+              <option value="" key="">FFK2983</option>
+              <option value="" key="">BVT9A28</option>
+            </select>
+          </div>
+
+          <div className={style.flexb}>
+
+            <div>
+              <div className={style.form_item}>
+                <div>Início (horário)</div>
+                <input type="datetime-local" />
+              </div>
+              <div className={style.form_item}>
+                <div>Paralisação total neste período?</div>
+                <label className={style.radio_box}>
+                  <input
+                    type="radio"
+                    name="total"
+                    value={"Sim"}
+                  />
+                  Sim
+                  <span className={style.checkmark}></span>
+                </label>
+
+                <label className={style.radio_box}>
+                  <input
+                    type="radio"
+                    name="total"
+                    value={"Não"}
+                  />
+                  Não
+                  <span className={style.checkmark}></span>
+                </label>
+              </div></div>
             <div className={style.form_item}>
-              <div>Selecione um dos veiculos que ja tiraram a Tara</div>
-              <select >
-                <option value="" key="" selected></option>
-                <option value="" key="">DSK2983</option>
-                <option value="" key="">FFK2983</option>
-                <option value="" key="">BVT9A28</option>
-              </select>
-            </div>
-            <div className={style.form_item}>
 
-              <div>Modelo do veículo</div>
-              <select >
-                <option value="" key="" selected></option>
-                <option value="" key="">9 eixos</option>
-                <option value="" key="">9 eixos</option>
-                <option value="" key="">9 eixos</option>
-              </select>
+              <div>Observações</div>
+              <textarea cols="35" rows="7"></textarea>
 
-            </div>
-
-            <div className={style.form_item}>
-              <div>Data e hora</div>
-              <input type="datetime-local" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>Peso líquido carregado</div>
-              <input type="number" />
-            </div>
-
-
-            <div className={style.submit}>
-              <SubmitButton text={"Adicionar"} onClick={FecharPesagem} className={style.form_item} />
             </div>
           </div>
 
+          <div className={style.submitb}>
+            <button>Iniciar</button>
+          </div>
         </div>
+
       </Paralisacao>
     </>
   );

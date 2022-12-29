@@ -78,6 +78,20 @@
 	overflow-y: auto;
 }
 
+.listaveiculos::-webkit-scrollbar {
+	width: 10px;
+}
+
+.listaveiculos::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+.listaveiculos::-webkit-scrollbar-thumb {
+	background: #1f4d64;
+	border-radius: 10px;
+}
+
 .veiculoitem {
 	display: flex;
 	justify-content: space-around;
@@ -144,8 +158,9 @@
 }
 
 
-/*----------------------------modal-----------------------------------*/
+/*----------------------------modal -----------------------------*/
 
+/*modal A*/
 .modal {
 	padding: 0.7vw;
 	padding-top: 0.3vw;
@@ -184,12 +199,13 @@ input {
 	width: 100%;
 }
 
-.modal input[type=datetime-local],input[type=number] {
+.modal input[type=datetime-local],
+input[type=number] {
 	width: 97%;
 }
 
 
-.modal select:focus,
+.modalb select:focus,
 input:focus {
 	border: 1px solid #8ad4ee;
 	outline: 3px solid #8ad4ee80;
@@ -199,4 +215,84 @@ input:focus {
 	margin-top: 1vw;
 	display: flex;
 	justify-content: center;
+}
+
+/*modal B*/
+.modalb {
+	padding: 1.4vw;
+	padding-top: 0.3vw;
+	overflow: hidden;
+}
+
+.flexb {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form_item {
+	margin-top: 1vw;
+}
+
+.form_item div {
+	font-size: 20px;
+}
+
+.modalb select,
+input {
+	font-size: 16px;
+	padding: 8px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.modalb select {
+	width: 100%;
+}
+
+.modalb input[type=datetime-local],
+input[type=number] {
+	width: 97%;
+}
+
+.modalb textarea {
+	width: 100%;
+}
+
+
+.modalb select:focus,
+input:focus,
+textarea:focus {
+	border: 1px solid #8ad4ee;
+	outline: 3px solid #8ad4ee80;
+}
+
+.submitb {
+	margin-top: 1vw;
+	display: flex;
+	justify-content: center;
+}
+
+.submitb button {
+	background: #ae2727;
+	font-size: 20px;
+	color: white;
+	font-family: 'Titillium Web', sans-serif;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	transition: 0.3s;
+	padding: 7px 45px;
+	margin-top: 25px;
+	margin-left: 2px;
+
+}
+
+.submitb button:hover {
+	background: #ff0000;
+	box-shadow:
+		0 0 0 3px #ffffffd8,
+		0 0 0 4px #ff0000;
 }
