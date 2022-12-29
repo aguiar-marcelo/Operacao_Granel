@@ -28,7 +28,7 @@ const Operacao = () => {
 
 
   //modal de 2 pesagem
-  const [openB, setOpenB] = useState(true);
+  const [openB, setOpenB] = useState(false);
   const AbrirParalisacao = () => {
     setOpenB(true);
   };
@@ -268,7 +268,7 @@ const Operacao = () => {
             <div className={style.form_item}>
 
               <div>Observações</div>
-              <textarea cols="35" rows="7"></textarea>
+              <textarea cols="30" rows="7"></textarea>
 
             </div>
           </div>
