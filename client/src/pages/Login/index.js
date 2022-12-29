@@ -6,7 +6,7 @@ import { Typewriter } from 'react-simple-typewriter'
 
 const Login = () => {
   const { login } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
