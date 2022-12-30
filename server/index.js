@@ -23,16 +23,6 @@ db.connect(function (err) {
 })
 
 
-// //READ
-// app.get("/users", (req, res) => {
-//     db.query("SELECT * FROM USUARIO", (err, result) => {
-//         if (err) {
-//             console.log(err)
-//         } else {
-//             res.send(result)
-//         }
-//     });
-// });
 
 //READ
 app.get("/navio", (req, res) => {
@@ -40,7 +30,18 @@ app.get("/navio", (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            res.send(result)
+            res.send(result)            
+        }
+    })
+})
+
+app.get("/operacoes", (req, res) => {
+    
+    db.query("SELECT * FROM OPERACAO", (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)            
         }
     })
 })

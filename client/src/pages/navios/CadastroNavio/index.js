@@ -37,38 +37,52 @@ const CadastroNavio = () => {
       <Brackground />
       <Container>
         <div className={style.content}>
-          <div className={style.nav}>            
-              <div onClick={()=> navigate("/navios")}>
-                Navios
-              </div>       
-              <div className={style.active}>
-                Cadastrar Navio
-              </div>
-            
+          <div className={style.nav}>
+            <div onClick={() => navigate("/navios")}>
+              Navios
+            </div>
+            <div className={style.active}>
+              Cadastrar Navio
+            </div>
+
           </div>
 
-          <div className={style.flex}>
-          <Input
-           type={"text"} 
-           text={"Nome"} 
-           name={"name"}         
-          />          
-          <Input
-           type={"text"} 
-           text={"IMO/Loyds"} 
-           name={"name"} 
-           placeholder={"ex: 5841610"}      
-          />              
-          </div>
-          <div className={style.SubmitButton}>
-            <SubmitButton text={"Cadastrar"}/>
-          </div>
-          
-          
-          
+          <div className="columns">
+            <div className="column is-4">
+              <Input
+                type={"text"}
+                text={"Nome do navio"}
+                name={"name"}
+              />
 
-          
-                    
+            </div>
+            <div className="column is-4">
+              <Input
+                type={"text"}
+                text={"IMO/Loyds"}
+                name={"name"}
+                placeholder={"ex: 5841610"}
+              />
+
+
+            </div>
+
+          </div>
+          <div className="columns">
+            <div className="column is-5">
+              <SubmitButton text={"Cadastrar"} />
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
 
         </div>
 

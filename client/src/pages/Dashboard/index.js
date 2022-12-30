@@ -5,7 +5,7 @@ import Brackground from "../../components/Background";
 import Container from "../../components/Container";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
-import Select from "../../components/Select";
+import Select from "../../components/select";
 import SubmitButton from "../../components/Button"
 
 

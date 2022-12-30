@@ -125,17 +125,21 @@
 	outline: 3px solid #8ad4ee80;
 }
 
-/*css modal separado-----------------------------------------
+/*CSS DO MODAL */
 
 
+.modal {  
+    border-radius: 20px;
+    display: grid;	
+	padding: 1vh;
+	width: 900px;
+}
 
 
-
-
-FAZER CSS DO MODAL 
-
-
-
-*/
+.title{
+	text-align: center;
+	font-weight: 600;
+	font-size: 25px;
+}
 
 

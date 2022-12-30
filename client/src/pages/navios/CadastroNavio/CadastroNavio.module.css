@@ -29,9 +29,8 @@
 	border-bottom: 3px solid #1f4d64;
 }
 
-.flex div{		
-	padding-left: 15px;
-	display: inline-block;
-	padding-bottom: 5px;
+.SubmitButton{
+	margin-top: 10px;
 }
+
 
