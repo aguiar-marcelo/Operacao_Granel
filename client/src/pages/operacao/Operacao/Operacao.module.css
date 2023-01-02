@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 80%;
+	width: 90%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -34,6 +34,100 @@
 
 /*-----------------------------------------------*/
 
+.flex {
+	margin-top: 1vw;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	color: #153240;
+	padding: 0 5px;
+}
+
+.periodo {
+	text-align: center;
+	color: #1f4d64;
+	font-size: 27px;
+	font-weight: 700;
+
+}
+
+.data {
+	font-weight: 600;
+	font-size: 22px;
+	letter-spacing: -1px;
+	margin-top: -8px;
+	border-top: 2px solid #d9d9d9;
+}
+
+
+.status div {
+	position: relative;
+	top: 50%;
+	font-size: 22px;
+	font-weight: 600;
+	transform: translateY(-50%);
+	background-color: #F6BFBF;
+	color: #C00000;
+	padding: 4px 7px;
+	border-radius: 3px;
+}
+
+.tara{
+	background-color: #F0F3F5;
+	width: 40%;
+	border: 1px dashed #153240;
+	font-weight: 600;
+	padding-top: 5px;
+}
+
+.sumario{
+	display: flex;
+	justify-content: space-around;
+	margin: 5px 0;
+}
+.sumario div{
+	border-right: 1px solid #1f4d6473;
+	width: 34%;
+}
+
+.lista{
+	background-color: #fff;
+	height: 220px;
+	width: 95%;
+	margin: auto;
+}
+
+.item{
+	display: flex;
+	justify-content: space-between;
+}.item div{
+	width: 30%;
+	font-weight: 400;
+	border-top: 1px solid #707070;
+}
+
+.autos{
+	background-color: #bff6e1;
+	width: 25%;
+
+}
+
+.motivo{
+	background-color: #bfc7f6;
+	width: 35%;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* 
 .flex {
 	margin-top: 2vw;
 	display: flex;
@@ -157,9 +251,9 @@
 }
 
 
-/*----------------------------modal -----------------------------*/
+----------------------------modal -----------------------------
 
-/*modal A*/
+modal A
 .modal {
 	padding: 0.7vw;
 	padding-top: 0.3vw;
@@ -216,7 +310,7 @@ input:focus {
 	justify-content: center;
 }
 
-/*modal B*/
+modal B
 .modalb {
 	padding: 1.4vw;
 	padding-top: 0.3vw;
@@ -294,4 +388,4 @@ textarea:focus {
 	box-shadow:
 		0 0 0 3px #ffffffd8,
 		0 0 0 4px #ff0000;
-}
+} */

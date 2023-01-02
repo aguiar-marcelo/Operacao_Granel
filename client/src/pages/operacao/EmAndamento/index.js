@@ -36,12 +36,12 @@ const EmAndamento = () => {
             <div className={style.table_item} onClick={()=> navigate("/operacao/0")}>
               <div>HONG YUAN</div>
               <div>33</div>
-              <div>ATRACAÇÃO</div>
+              <div>Aguardando autos</div>
             </div>
             <div className={style.table_item} onClick={()=> navigate("/operacao/1")}>
               <div>THE GUARDIAN</div>
               <div>38</div>
-              <div>LIBERAÇÃO</div>
+              <div>operando</div>
             </div>
           </div>
         </div>

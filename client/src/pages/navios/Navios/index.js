@@ -7,9 +7,11 @@ import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import style from "./Navios.module.css";
 import Dialog from '@mui/material/Dialog';
+import Detalhes from '@mui/material/Dialog';
 import { Navigate, useNavigate } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
+
 
 const Navios = (props) => {
 
@@ -17,8 +19,8 @@ const Navios = (props) => {
 
   const [navioList, setNavioList] = useState([]);
   const [busca, setBusca] = useState("");
+ 
 
-  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     getNavios();
@@ -30,12 +32,24 @@ const Navios = (props) => {
     });
   }
 
+  const [open, setOpen] = useState(false);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+
+  const [openA, setOpenA] = useState(true);
+
+  const DetalhesNavio = () => {
+    setOpenA(true);
+  };
+  const FecharDetalhesNavio = () => {
+    setOpenA(false);
   };
 
   return (
@@ -55,14 +69,15 @@ const Navios = (props) => {
             </div>
           </div>
 
-          <div className={style.table}>
+          <div  className={style.table}>
             <div className={style.sumario}>
               <div >NOME</div>
               <div>LLOYD/IMO</div>
               <div>STATUS</div>
               <div></div>
             </div>
-            <div className={style.table_item}>
+            
+              <div onClick={DetalhesNavio} className={style.table_item}>
               <div>Megazord</div>
               <div>554449</div>
               <div>Paralizado</div>
@@ -70,6 +85,8 @@ const Navios = (props) => {
                 <button className={style.button_atraca} title="Nova Viagem" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
               </div>
             </div>
+            
+            
             <div className={style.table_item}>
               <div>Megazord</div>
               <div>988411</div>
@@ -123,6 +140,40 @@ const Navios = (props) => {
         </div>
 
       </Dialog>
+
+
+      <Detalhes maxWidth={false} open={openA} onClose={FecharDetalhesNavio}>
+      <div className={style.modal}>
+          <div className={style.title}>
+            <div className={style.active}>
+              Detalhes do Navio
+            </div>
+          </div>
+          <div className={style.contentmodal}>
+          <div>Aguardando atracação <i className="fa fa-ship icon"></i></div>
+          </div>
+          <div className={style.modal2}>
+             <div className={style.contentmodal2}>
+             Nome: HONG YUAN
+             </div>
+             <div className={style.contentmodal2}>
+             RAP: 1234/2023
+             </div>
+             <div className={style.contentmodal2}>
+             Operador Portuário: 45787651567
+             </div>
+             <div className={style.contentmodal2}>
+             IMO/ Loyds: 3
+             </div>
+             <div className={style.contentmodal2}>
+             Agente do Navio: MSC 
+             </div>
+              
+          </div>
+
+          
+        </div>
+      </Detalhes>
     </>
   );
 };

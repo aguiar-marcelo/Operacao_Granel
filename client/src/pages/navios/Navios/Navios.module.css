@@ -142,4 +142,27 @@
 	font-size: 25px;
 }
 
+.contentmodal{
+	justify-content: space-around;
+	text-align:center;
+	background-color: #B2C3CC;
+	padding: 10px 0px 15px 0px;
+	margin-inline: 200px;
+	font-size: 30px;
+	border-radius: 10px;
+	color: #1F4D64;
+	margin-top: 10px;
+	
+}
+.modal2{
+	text-align: center;
+	margin-top: 20px;
+	color: #1F4D64;
+	font-size: 20px;
+	font-weight: 600;
+}
+.contentmodal2{
+	margin-bottom: 15px;
+}
+
 

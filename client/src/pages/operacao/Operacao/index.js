@@ -44,15 +44,49 @@ const Operacao = () => {
       <Container>
         <div className={style.content}>
           <div className={style.nav}>
-            <div onClick={() => navigate(`/operacoes`)} className={style.active}>
+            <div onClick={() => navigate(`/operacoes`)} >
               Voltar
             </div>
-            <div onClick={() => navigate(`/operacao/${id}/aberturaperiodo`)}>
-              Abrir Período
+            <div onClick={() => navigate(`/operacao/${id}/aberturaperiodo`)} className={style.active}>
+              Dashboard Período
             </div>
           </div>
 
           <div className={style.flex}>
+            <div className={style.periodo}>
+              13H - 19H
+              <div className={style.data}>
+                02/01/2023
+              </div>
+            </div>
+            <div className={style.status}>
+              <div>
+              <i class="fa fa-truck"></i> AGUARDANDO AUTOS
+              </div>
+            </div>
+          </div>
+          <div className={style.flex}>
+            <div className={style.tara}>
+                1º Pesagem (Tara)
+                <div className={style.sumario}>
+                  <div>CAVALO</div>
+                  <div>CARRETA</div>
+                  <div>HORÁRIO</div>
+                </div>
+                <div className={style.lista}>
+                  <div className={style.item}>
+                    <div>BLL2799</div>
+                    <div>BZR5656</div>
+                    <div>17:12</div>
+                  </div>
+                </div>
+            </div>
+            <div className={style.autos}>b
+            </div>
+            <div className={style.motivo}>c
+            </div>
+          </div>
+          {/*<div className={style.flex}>
             <div>
               Total manifestado
               <div className={style.peso}>
@@ -74,7 +108,7 @@ const Operacao = () => {
           </div>
 
 
-          <div className={style.flex}>
+           <div className={style.flex}>
             <div className={style.veiculo}>
               <button onClick={AbrirPesagem}>+ PESAR VEÍCULO</button>
               <div className={style.listaveiculos}>
@@ -171,10 +205,10 @@ const Operacao = () => {
               </div>
               <button>FINALIZAR OPERAÇÃO</button>
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
-      <Pesagem open={openA} onClose={FecharPesagem} >
+      {/* <Pesagem open={openA} onClose={FecharPesagem} >
         <div className={style.modal}>
 
           <div className={style.modal}>
@@ -278,7 +312,7 @@ const Operacao = () => {
           </div>
         </div>
 
-      </Paralisacao>
+      </Paralisacao> */}
     </>
   );
 };

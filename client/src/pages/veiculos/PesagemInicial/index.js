@@ -34,11 +34,9 @@ const PesagemInicial = () => {
           <Input type={"text"} text={"Selecione a balança"} name={"name"} placeholder={"Fazer select"} />
           <Input type={"text"} text={"BL ou DI"} name={"name"} placeholder={"ex: 10kg...."} />
           <Input type={"text"} text={"Selecione o navio"} name={"name"} placeholder={"ex: Fazer select"} /> 
-          </div>
-          <div className={style.flex}>
           <Input type={"datetime-local"} text={"Data e hora"} name={"name"} placeholder={"ex:...."} />
-          
           </div>
+          
           <SubmitButton text={"Cadastrar"}/>     
         </div>
       </Container>

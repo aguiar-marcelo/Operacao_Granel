@@ -28,9 +28,15 @@ const CadastroMotorista = () => {
                             Pesagem inicial
                         </div>
                     </div>
-                    <div className={style.flex}>
-                        <Input type={"text"} text={"Nome do motorista"} name={"nome"} placeholder={""} />
-                        <Input type={"text"} text={"CPF do motorista"} name={"cpf"} placeholder={"ex:000.000.000-00"} />
+                    <div className={'columns '}>
+
+                        <div className={'column is-4'}>
+                            <Input type={"text"} text={"Nome do motorista"} name={"nome"} placeholder={""} />
+                        </div>
+                        <div className={'column is-2'}>
+                            <Input type={"text"} text={"CPF do motorista"} name={"cpf"} placeholder={"ex:000.000.000-00"} />
+                        </div>
+                        
                     </div>
                     <SubmitButton text={"Cadastrar"} />
                 </div>

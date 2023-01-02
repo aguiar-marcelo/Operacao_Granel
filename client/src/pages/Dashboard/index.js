@@ -25,6 +25,8 @@ const Dashboard = () => {
       <Select name={"alguma coisa"} text={"selecione a categoria"}/>
 
       <SubmitButton text={"alguma coisa"}/>
+      
+     
 
     
       
