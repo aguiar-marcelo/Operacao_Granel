@@ -61,29 +61,143 @@ const Operacao = () => {
             </div>
             <div className={style.status}>
               <div>
-              <i class="fa fa-truck"></i> AGUARDANDO AUTOS
+                <i class="fa fa-truck"></i> AGUARDANDO AUTOS
               </div>
             </div>
           </div>
           <div className={style.flex}>
             <div className={style.tara}>
-                1º Pesagem (Tara)
-                <div className={style.sumario}>
-                  <div>CAVALO</div>
-                  <div>CARRETA</div>
-                  <div>HORÁRIO</div>
+              1º Pesagem (Tara)
+              <div className={style.sumario}>
+                <div>CAVALO</div>
+                <div>CARRETA</div>
+                <div>HORÁRIO</div>
+              </div>
+              <div className={style.lista}>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
                 </div>
-                <div className={style.lista}>
-                  <div className={style.item}>
-                    <div>BLL2799</div>
-                    <div>BZR5656</div>
-                    <div>17:12</div>
-                  </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
                 </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+                <div className={style.item}>
+                  <div>BLL2799</div>
+                  <div>BZR5656</div>
+                  <div>17:12</div>
+                </div>
+
+              </div>
             </div>
-            <div className={style.autos}>b
+            <div className={style.autos}>
+              <div><i class="fa fa-stopwatch"></i> 13h x 14h = 1 Autos</div>
+              <div><i class="fa fa-stopwatch"></i> 14h x 15h = 2 Autos</div>
+              <div><i class="fa fa-stopwatch"></i> 15h x 16h = 3 Autos</div>
+              <div><i class="fa fa-stopwatch"></i> 16h x 17h = 4 Autos</div>
+              <div><i class="fa fa-stopwatch"></i> 17h x 18h = 4 Autos</div>
+              <div><i class="fa fa-stopwatch"></i> 18h x 19h = 4 Autos</div>
             </div>
-            <div className={style.motivo}>c
+            <div className={style.motivo}>
+              <div className={style.sumariob}>
+                <div className={style.motivobox}>MOTIVO</div>
+                <div className={style.sumariobox}>DURAÇÃO</div>
+              </div>
+              <div className={style.listab}>
+                <div className={style.itemb}>
+                  <div className={style.motivoitem}>Chuva</div>
+                  <div className={style.sumarioitem}>00:35</div>
+                </div>
+                <div className={style.itemb}>
+                  <div className={style.motivoitem}>Manuten. GRCMAC</div>
+                  <div className={style.sumarioitem}>00:35</div>
+                </div>
+                <div className={style.itemb}>
+                  <div className={style.motivoitem}>Manuten. gerador</div>
+                  <div className={style.sumarioitem}>00:25</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={style.flex}>
+            <div className={style.pesos}>
+              <div>
+                DESCARREGADO
+                <div>43.520 KG</div>
+              </div>
+              <div>
+                DESCARREGADO
+                <div>43.520 KG</div>
+              </div>
+              <div>
+                DESCARREGADO
+                <div>43.520 KG</div>
+              </div>
+              <div>
+                DESCARREGADO
+                <div>43.520 KG</div>
+              </div>
+              <div>
+                DESCARREGADO
+                <div>43.520 KG</div>
+              </div>
             </div>
           </div>
           {/*<div className={style.flex}>

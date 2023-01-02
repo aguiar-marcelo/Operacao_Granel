@@ -43,7 +43,7 @@ const Navios = (props) => {
   };
 
 
-  const [openA, setOpenA] = useState(true);
+  const [openA, setOpenA] = useState(false);
 
   const DetalhesNavio = () => {
     setOpenA(true);
@@ -87,7 +87,7 @@ const Navios = (props) => {
             </div>
             
             
-            <div className={style.table_item}>
+            <div onClick={DetalhesNavio} className={style.table_item}>
               <div>Megazord</div>
               <div>988411</div>
               <div>Paralizado</div>

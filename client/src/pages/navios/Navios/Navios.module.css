@@ -87,8 +87,14 @@
 	grid-template-columns: 2fr 1fr 2fr 2fr ;
 	justify-items: center;
 	border-bottom: 1px solid #E9EBEE;	
-	justify-content: space-between;	
+	justify-content: space-between;
 
+}
+.table_item:hover{	
+	transition: all 0.5s;
+	cursor: pointer;	
+    background-color:#86ddff;
+    
 }
 
 .table_item div {
@@ -133,6 +139,8 @@
     display: grid;	
 	padding: 1vh;
 	width: 900px;
+	
+
 }
 
 
@@ -151,15 +159,14 @@
 	font-size: 30px;
 	border-radius: 10px;
 	color: #1F4D64;
-	margin-top: 10px;
-	
+	margin-top: 20px;	
 }
 .modal2{
 	text-align: center;
 	margin-top: 20px;
 	color: #1F4D64;
 	font-size: 20px;
-	font-weight: 600;
+	font-weight: 600;		
 }
 .contentmodal2{
 	margin-bottom: 15px;
