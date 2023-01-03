@@ -10,7 +10,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
 import style from "./Operacao.module.css"
-
+//a
 
 const Operacao = () => {
   let { id } = useParams();
