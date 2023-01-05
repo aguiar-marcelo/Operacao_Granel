@@ -11,6 +11,7 @@
 
 .nav {
 	font-size: 25px;
+	margin-top: -10px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
 }
@@ -35,7 +36,7 @@
 /*-----------------------------------------------*/
 
 .flex {
-	margin-top: 1vw;
+	margin-top: 0.7vw;
 	display: flex;
 	justify-content: space-between;
 	text-align: center;
@@ -122,6 +123,8 @@
 	width: 30%;
 	font-weight: 400;
 	color: #585858;
+
+
 }
 
 .autos {
@@ -193,6 +196,7 @@
 	display: flex;
 	justify-content: space-between;
 	border-top: 1px solid #d8d8d8;
+	font-weight: 500;
 }
 
 .motivoitem {
@@ -226,4 +230,34 @@
 	color: #000;
 	font-size: 18px;
 	font-weight: 300;
+	margin-top: -5px;
+}
+
+
+.abrirp{
+	background-color: #b80000;
+	color: #ffffff;
+	border: none;
+	padding: 8px 28px;
+	font-weight: 500;
+	border-radius: 3px;
+	cursor: pointer;
+}.abrirp:hover{
+	background-color: #ff0000;
+}
+.navio{
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.finalizar{
+	background-color: #0A883F;
+	color: #ffffff;
+	border: none;
+	padding: 8px 28px;
+	font-weight: 500;
+	border-radius: 3px;
+	cursor: pointer;
+}.finalizar:hover{
+	background-color: #00df5d;
 }

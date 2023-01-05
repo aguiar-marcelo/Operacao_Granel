@@ -6,7 +6,7 @@ import Header from "../../../components/Header";
 import style from "./CadastroMotorista.module.css";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const CadastroMotorista = () => {
@@ -21,6 +21,11 @@ const CadastroMotorista = () => {
             <Container>
                 <div className={style.content}>
                     <div className={style.nav}>
+                    <div className={style.nav}>
+                        <div onClick={() => navigate("/veiculos/BuscarMotorista")} >
+                            Buscar Motorista
+                        </div>                        
+                    </div>
                         <div className={style.active}>
                             Cadastrar Motorista
                         </div>
@@ -33,12 +38,17 @@ const CadastroMotorista = () => {
                         <div className={'column is-4'}>
                             <Input type={"text"} text={"Nome do motorista"} name={"nome"} placeholder={""} />
                         </div>
-                        <div className={'column is-2'}>
-                            <Input type={"text"} text={"CPF do motorista"} name={"cpf"} placeholder={"ex:000.000.000-00"} />
+                        <div className={'column is-3'}>
+                            <Input type={"text"} text={"CNH do motorista"} name={"CNH"} placeholder={"ex: 000.000.000"} />
                         </div>
+                        <div className={'column is-2'}>
+                            <Input type={"text"} text={"CPF do motorista"} name={"cpf"} placeholder={"ex: 000.000.000-00"} />
+                        </div>
+
                         
                     </div>
                     <SubmitButton text={"Cadastrar"} />
+                    
                 </div>
             </Container>
         </>

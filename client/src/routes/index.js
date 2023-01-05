@@ -15,6 +15,7 @@ import PesagemComCarga from "../pages/veiculos/PesagemComCarga";
 import PesagemInicial from "../pages/veiculos/PesagemInicial";
 import CadastroMotorista from "../pages/veiculos/CadastroMotorista";
 import AberturaPeriodo from "../pages/operacao/AberturaPeriodo";
+import BuscarMotorista from "../pages/veiculos/BuscarMotorista";
 
 //recebe item, no caso Home
 const Private = ({ Item }) => {
@@ -42,6 +43,7 @@ const RoutesApp = () => {
                     <Route exact path="/veiculos/pesagemcomcarga" element={<Private Item={PesagemComCarga} />} />
                     <Route exact path="/veiculos/pesageminicial" element={<Private Item={PesagemInicial} />} />
                     <Route exact path="/veiculos/ultimapesagem" element={<Private Item={UltimaPesagem} />} />
+                    <Route exact path="/veiculos/BuscarMotorista" element={<Private Item={BuscarMotorista} />} />
                     <Route path="/" element={<Private Item={Dashboard} />} />
                     <Route path="*" element={<Private Item={Dashboard} />} />
                 </Routes>

@@ -18,6 +18,11 @@ const PesagemInicial = () => {
       <Container>
         <div className={style.content}>
           <div className={style.nav}>
+            <div className={style.nav}>
+              <div onClick={() => navigate("/veiculos/BuscarMotorista")} >
+                Buscar Motorista
+              </div>
+            </div>
             <div onClick={() => navigate("/veiculos")}>
               Cadastrar Motorista
             </div>
@@ -26,18 +31,18 @@ const PesagemInicial = () => {
             </div>
           </div>
           <div className={style.flex}>
-          <Input type={"text"} text={"Transportadora"} name={"name"} placeholder={"ex:...."} />
-          <Input type={"text"} text={"Peso vazio (Tara)"} name={"name"} placeholder={"ex:...."} />
-          <Input type={"text"} text={"Destino"} name={"name"} placeholder={"ex:...."} />
+            <Input type={"text"} text={"Transportadora"} name={"name"} placeholder={"ex:...."} />
+            <Input type={"text"} text={"Peso vazio (Tara)"} name={"name"} placeholder={"ex:...."} />
+            <Input type={"text"} text={"Destino"} name={"name"} placeholder={"ex:...."} />
           </div>
           <div className={style.flex}>
-          <Input type={"text"} text={"Selecione a balança"} name={"name"} placeholder={"Fazer select"} />
-          <Input type={"text"} text={"BL ou DI"} name={"name"} placeholder={"ex: 10kg...."} />
-          <Input type={"text"} text={"Selecione o navio"} name={"name"} placeholder={"ex: Fazer select"} /> 
-          <Input type={"datetime-local"} text={"Data e hora"} name={"name"} placeholder={"ex:...."} />
+            <Input type={"text"} text={"Selecione a balança"} name={"name"} placeholder={"Fazer select"} />
+            <Input type={"text"} text={"BL ou DI"} name={"name"} placeholder={"ex: 10kg...."} />
+            <Input type={"text"} text={"Selecione o navio"} name={"name"} placeholder={"ex: Fazer select"} />
+            <Input type={"datetime-local"} text={"Data e hora"} name={"name"} placeholder={"ex:...."} />
           </div>
-          
-          <SubmitButton text={"Cadastrar"}/>     
+
+          <SubmitButton text={"Cadastrar"} />
         </div>
       </Container>
     </>

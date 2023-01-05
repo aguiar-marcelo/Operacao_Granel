@@ -91,9 +91,9 @@
 
 }
 .table_item:hover{	
-	transition: all 0.5s;
+	transition: all 0.4s;
 	cursor: pointer;	
-    background-color:#86ddff;
+    background-color:#99D4F2;
     
 }
 
@@ -137,7 +137,7 @@
 .modal {  
     border-radius: 20px;
     display: grid;	
-	padding: 1vh;
+	padding: 7%;
 	width: 900px;
 	
 
@@ -172,4 +172,16 @@
 	margin-bottom: 15px;
 }
 
+.selecti {
+	margin-top: 12px;
+	margin-bottom: 15px;
+	border: 1px dashed #153240a2;
+	margin-right: 20px;
+	margin-top: 20px;	
+	background-color: #F0F3F5;
+	padding: 5%;
+}
+.submit{
+	text-align: center;
+}
 

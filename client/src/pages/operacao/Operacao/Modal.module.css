@@ -1,0 +1,138 @@
+.modal {
+	margin: 0 auto;
+	width: 100%;
+	background-color: #F9FAFB;
+	display: grid;
+	border-radius: 5px;
+	padding:  15px;
+	color: #1f4d64;
+}
+
+.nav {
+	font-size: 25px;
+	margin-top: -10px;
+	border-bottom: 1px solid #bbbbbb;
+	color: #8A909B;
+	display: flex;
+}
+
+.nav div {
+	padding: 0 1vw;
+	margin-bottom: -1px;
+	cursor: pointer;
+}
+
+.nav a {
+	text-decoration: none;
+	color: #bbbbbb;
+}
+
+.active {
+	color: #1f4d64;
+	border-bottom: 3px solid #1f4d64;
+}
+
+/*-----------------------------------------------*/
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+    width: 90%;
+    margin:1.5% auto ;
+}
+
+.periodo {
+	text-align: center;
+	font-size: 27px;
+	font-weight: 700;
+    margin: auto 0;
+}
+
+.data {
+	font-weight: 600;
+	font-size: 22px;
+	letter-spacing: -1px;
+	margin-top: -8px;
+	border-top: 2px solid #d9d9d9;
+}
+
+.motorista{
+    width: 60%;
+    border: 1px dashed #1f4d64;
+    padding: 5px 10px;
+	margin-top: 1%;
+    background-color: #e8ecef;
+    color: #3b3d3f;
+}.motorista b{
+    color: #1f4d64;
+    font-weight: 600;
+}
+
+.inputbox{
+    width: 33%;
+}.inputbox input{
+	font-size: 16px;
+	width: 90%;
+	padding: 3px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}.inputbox input:focus {
+	border: 1px solid #8ad4ee;
+	outline: 2px solid #8ad4ee80;
+}
+
+.textbox{
+    width: 100%;
+}.textbox textarea{
+	font-size: 16px;
+	width: 100%;
+	padding: 3px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}.textbox textarea:focus {
+	border: 1px solid #8ad4ee;
+	outline: 2px solid #8ad4ee80;
+}
+
+.navio{
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.finalizar{
+	background-color: #0b9c48;
+	color: #ffffff;
+	border: none;
+	padding: 8px 28px;
+	font-weight: 500;
+	border-radius: 3px;
+	cursor: pointer;
+}.finalizar:hover{
+	background-color: #07c455;
+}
+
+/**/
+
+.selectbox{
+	width: 90%;
+	margin: 1.5% auto ;
+}.selectbox select{
+	font-size: 16px;
+	width: 100%;
+	padding: 3px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}.selectbox select:focus {
+	border: 1px solid #8ad4ee;
+	outline: 2px solid #8ad4ee80;
+}
+

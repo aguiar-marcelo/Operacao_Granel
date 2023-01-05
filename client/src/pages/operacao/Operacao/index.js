@@ -10,7 +10,8 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
 import style from "./Operacao.module.css"
-//a
+import modal from "./Modal.module.css"
+
 
 const Operacao = () => {
   let { id } = useParams();
@@ -27,7 +28,7 @@ const Operacao = () => {
   };
 
 
-  //modal de 2 pesagem
+  //modal de paralisacao
   const [openB, setOpenB] = useState(false);
   const AbrirParalisacao = () => {
     setOpenB(true);
@@ -47,7 +48,7 @@ const Operacao = () => {
             <div onClick={() => navigate(`/operacoes`)} >
               Voltar
             </div>
-            <div onClick={() => navigate(`/operacao/${id}/aberturaperiodo`)} className={style.active}>
+            <div className={style.active}>
               Dashboard Período
             </div>
           </div>
@@ -61,7 +62,7 @@ const Operacao = () => {
             </div>
             <div className={style.status}>
               <div>
-                <i class="fa fa-truck"></i> AGUARDANDO AUTOS
+                <i class="fa fa-truck"></i>&nbsp;&nbsp;AGUARDANDO AUTOS
               </div>
             </div>
           </div>
@@ -87,7 +88,7 @@ const Operacao = () => {
                 <div className={style.item}>
                   <div>BLL2799</div>
                   <div>BZR5656</div>
-                  <div>17:12</div>
+                  <div>04:12</div>
                 </div>
                 <div className={style.item}>
                   <div>BLL2799</div>
@@ -122,7 +123,7 @@ const Operacao = () => {
                 <div className={style.item}>
                   <div>BLL2799</div>
                   <div>BZR5656</div>
-                  <div>17:12</div>
+                  <div>22:12</div>
                 </div>
                 <div className={style.item}>
                   <div>BLL2799</div>
@@ -144,7 +145,6 @@ const Operacao = () => {
                   <div>BZR5656</div>
                   <div>17:12</div>
                 </div>
-
               </div>
             </div>
             <div className={style.autos}>
@@ -183,250 +183,125 @@ const Operacao = () => {
                 <div>43.520 KG</div>
               </div>
               <div>
-                DESCARREGADO
+                MANIFESTADO
                 <div>43.520 KG</div>
               </div>
               <div>
-                DESCARREGADO
+                PRODUTO
                 <div>43.520 KG</div>
               </div>
               <div>
-                DESCARREGADO
-                <div>43.520 KG</div>
+                EQUIPAMENTO
+                <div>MOEGA 4</div>
               </div>
               <div>
-                DESCARREGADO
-                <div>43.520 KG</div>
+                AUTOS
+                <div>8</div>
               </div>
             </div>
           </div>
-          {/*<div className={style.flex}>
-            <div>
-              Total manifestado
-              <div className={style.peso}>
-                450000 KG
-              </div>
-            </div>
-            <div>
-              Total descarregado
-              <div className={style.peso}>
-                150000 KG
-              </div>
-            </div>
-            <div>
-              Status
-              <div className={style.status}>
-                Operando
-              </div>
-            </div>
+          <div className={style.flex}>
+            <button
+              className={style.abrirp}
+              onClick={AbrirParalisacao}>
+              ABRIR PARALISAÇÃO
+            </button>
+            <div className={style.navio}><i className="fa fa-ship icon"></i>&nbsp;&nbsp;&nbsp;HONG YUAN</div>
+            <button
+              className={style.finalizar}>
+              FINALIZAR OPERAÇÃO
+            </button>
           </div>
-
-
-           <div className={style.flex}>
-            <div className={style.veiculo}>
-              <button onClick={AbrirPesagem}>+ PESAR VEÍCULO</button>
-              <div className={style.listaveiculos}>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-                <div className={style.veiculoitem}>
-                  <i class="fa fa-truck"></i>
-                  <div className={style.placa}>KDJ3948</div>
-                  <div className={style.horario}>12:30</div>
-                </div>
-
-              </div>
-            </div>
-            <div className={style.row}>
-              <div>
-                Período aberto
-                <div className={style.peso}>
-                  07:00 - 13:00
-                </div>
-                <button className={style.encerrar}>ENCERRAR ESSE PERIODO</button>
-              </div>
-              <div className={style.paralisacao}>
-                <button onClick={AbrirParalisacao}>INICIAR PARALISAÇÃO <i class="fa fa-exclamation-triangle"></i></button>
-              </div>
-
-            </div>
-
-            <div className={style.finalizar}>
-              <div className={style.detalhes}>
-                **Colocação de máquina de rechego a bordo
-              </div>
-              <button>FINALIZAR OPERAÇÃO</button>
-            </div>
-          </div> */}
         </div>
       </Container>
-      {/* <Pesagem open={openA} onClose={FecharPesagem} >
-        <div className={style.modal}>
-
-          <div className={style.modal}>
-            <div className={style.title}>
-              2º Pesagem
+      <Pesagem open={openA} onClose={FecharPesagem} fullWidth>
+        <div className={modal.modal}>
+          <div className={modal.nav}>
+            <div>Voltar</div>
+            <div className={modal.active}>2º Pesagem</div>
+          </div>
+          <div className={modal.flex}>
+            <div className={modal.periodo}>
+              13H - 19H
+              <div className={modal.data}>
+                02/01/2023
+              </div>
             </div>
-            <div className={style.form_item}>
-              <div>Selecione um dos veiculos que ja tiraram a Tara</div>
-              <select >
-                <option value="" key="" selected></option>
-                <option value="" key="">DSK2983</option>
-                <option value="" key="">FFK2983</option>
-                <option value="" key="">BVT9A28</option>
-              </select>
-            </div>
-            <div className={style.form_item}>
-
-              <div>Modelo do veículo</div>
-              <select >
-                <option value="" key="" selected></option>
-                <option value="" key="">9 eixos</option>
-                <option value="" key="">9 eixos</option>
-                <option value="" key="">9 eixos</option>
-              </select>
-
-            </div>
-
-            <div className={style.form_item}>
-              <div>Data e hora</div>
-              <input type="datetime-local" />
-            </div>
-
-            <div className={style.form_item}>
-              <div>Peso líquido carregado</div>
-              <input type="number" />
-            </div>
-
-
-            <div className={style.submit}>
-              <SubmitButton text={"Adicionar"} onClick={FecharPesagem} className={style.form_item} />
+            <div className={modal.motorista}>
+              <div><b>Motorista: </b>Adilson de Jesus</div>
+              <div><b>Cavalo: </b>BLL-2799</div>
+              <div><b>Carreta: </b>BLL-2799</div>
+              <div><b>1º Pesagem (tara): </b>41.500 KG</div>
             </div>
           </div>
-
+          <div className={modal.flex}>
+            <div className={modal.inputbox}>
+              2º Pesagem
+              <input type="text" />
+            </div>
+            <div className={modal.inputbox}>
+              Data
+              <input type="text" />
+            </div>
+            <div className={modal.inputbox}>
+              Horário
+              <input type="text" />
+            </div>
+          </div>
+          <div className={modal.flex}>
+            <div className={modal.textbox}>
+              Observação
+              <textarea rows="4"></textarea>
+            </div>
+          </div>
+          <div className={modal.flex}>
+            <div className={style.navio}><i className="fa fa-ship icon"></i>&nbsp;&nbsp;&nbsp;HONG YUAN</div>
+            <button className={style.finalizar}>REGISTRAR 2ºPESAGEM</button>
+          </div>
         </div>
       </Pesagem>
-      <Paralisacao open={openB} onClose={FecharParalisacao} fullWidth={true}>
-
-        <div className={style.modalb}>
-          <div className={style.title}>
-            Paralisação
+      <Paralisacao open={openB} onClose={FecharParalisacao} fullWidth>
+        <div className={modal.modal}>
+          <div className={modal.nav}>
+            <div>Voltar</div>
+            <div className={modal.active}>Abertura de Paralisação</div>
           </div>
-          <div className={style.form_item}>
-            <div>Motivo</div>
-            <select className={style.motivo}>
-              <option value="" key="" selected></option>
-              <option value="" key="">DSK2983</option>
-              <option value="" key="">FFK2983</option>
-              <option value="" key="">BVT9A28</option>
-            </select>
-          </div>
-
-          <div className={style.flexb}>
-
-            <div>
-              <div className={style.form_item}>
-                <div>Início (horário)</div>
-                <input type="datetime-local" />
+          <div className={modal.flex}>
+            <div className={modal.periodo}>
+              13H - 19H
+              <div className={modal.data}>
+                02/01/2023
               </div>
-              <div className={style.form_item}>
-                <div>Paralisação total neste período?</div>
-                <label className={style.radio_box}>
-                  <input
-                    type="radio"
-                    name="total"
-                    value={"Sim"}
-                  />
-                  Sim
-                  <span className={style.checkmark}></span>
-                </label>
-
-                <label className={style.radio_box}>
-                  <input
-                    type="radio"
-                    name="total"
-                    value={"Não"}
-                  />
-                  Não
-                  <span className={style.checkmark}></span>
-                </label>
-              </div></div>
-            <div className={style.form_item}>
-
-              <div>Observações</div>
-              <textarea cols="30" rows="7"></textarea>
-
+            </div>
+            <div className={modal.inputbox}>
+              Início
+              <input type="text" />
+            </div>
+            <div className={modal.inputbox}>
+              Término
+              <input type="text" />
             </div>
           </div>
-
-          <div className={style.submitb}>
-            <button>Iniciar</button>
+          <div className={modal.selectbox}>
+            Motivo
+            <select></select>
+          </div>
+          <div className={modal.selectbox}>
+            Complemento
+            <select></select>
+          </div>
+          <div className={modal.flex}>
+            <div className={modal.textbox}>
+              Observação
+              <textarea rows="4"></textarea>
+            </div>
+          </div>
+          <div className={modal.flex}>
+            <div className={style.navio}><i className="fa fa-ship icon"></i>&nbsp;&nbsp;&nbsp;HONG YUAN</div>
+            <button className={style.finalizar}>REGISTRAR PARALISAÇÃO</button>
           </div>
         </div>
-
-      </Paralisacao> */}
+      </Paralisacao>
     </>
   );
 };

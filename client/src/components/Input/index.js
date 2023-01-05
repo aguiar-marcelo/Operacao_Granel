@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Input.module.css"
 
 
-const Input = ({ type, text, name, placeholder, handleOnChange, value }) => {
+const Input = ({ type, text, name, placeholder, handleOnChange, value}) => {
     return(
         <div className={style.form_control}>
             <label htmlFor={name}>{text}:</label>
@@ -12,6 +12,7 @@ const Input = ({ type, text, name, placeholder, handleOnChange, value }) => {
             placeholder={placeholder} 
             onChange={handleOnChange}
             value={value} 
+            
             />
         </div>
     )
