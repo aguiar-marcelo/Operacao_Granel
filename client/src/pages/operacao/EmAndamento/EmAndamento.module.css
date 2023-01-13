@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 80%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -63,11 +63,12 @@
 	justify-content: space-around;
 	justify-items: center;
 	border-bottom: 1px solid #E9EBEE;	
+	cursor: pointer;
 }
 
 .table_item:hover{
-	background-color: #86ddff;
-	cursor: pointer;
+	background-color: #cef1ff;
+	
 }
 
 .table_item div {

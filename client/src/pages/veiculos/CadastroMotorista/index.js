@@ -21,16 +21,20 @@ const CadastroMotorista = () => {
             <Container>
                 <div className={style.content}>
                     <div className={style.nav}>
-                    <div className={style.nav}>
-                        <div onClick={() => navigate("/veiculos/BuscarMotorista")} >
-                            Buscar Motorista
-                        </div>                        
-                    </div>
-                        <div className={style.active}>
-                            Cadastrar Motorista
-                        </div>
-                        <div onClick={() => navigate("/veiculos/pesageminicial")}>
-                            Pesagem inicial
+                        <div className={style.nav}>
+                            <div onClick={() => navigate("/veiculos/BuscarMotorista")} >
+                                Buscar Motorista
+                            </div>
+
+                            <div className={style.active}>
+                                Cadastrar Motorista
+                            </div>
+                            <div onClick={() => navigate("/veiculos/pesageminicial")}>
+                                Pesagem inicial
+                            </div>
+                            <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
+                Pesagem Final
+              </div>
                         </div>
                     </div>
                     <div className={'columns '}>
@@ -45,10 +49,10 @@ const CadastroMotorista = () => {
                             <Input type={"text"} text={"CPF do motorista"} name={"cpf"} placeholder={"ex: 000.000.000-00"} />
                         </div>
 
-                        
+
                     </div>
                     <SubmitButton text={"Cadastrar"} />
-                    
+
                 </div>
             </Container>
         </>

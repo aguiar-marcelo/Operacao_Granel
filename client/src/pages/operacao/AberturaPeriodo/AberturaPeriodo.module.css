@@ -1,27 +1,26 @@
 .content {
 	margin: 0 auto;
-	width: 80%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
 	border-radius: 5px;
 	padding: 15px 25px;
+
 }
 
 .nav {
 	font-size: 25px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
-	cursor: pointer;
-
 }
+
 .nav div{
-	
 	padding: 0 1vw;
 	margin-bottom: -1px;
+	cursor: pointer;
 }
 .nav a{
-	
 	text-decoration: none;
 	color: #bbbbbb;
 }
@@ -30,24 +29,33 @@
 	color: #1f4d64;
 	border-bottom: 3px solid #1f4d64;
 }
-.flex{
-    display: flex;
-    justify-content: space-around;
 
-
-}
-
-@media (max-width: 600px)
-{
-    .flex{
-        display: inline;  
-    }
-
+.modal {  
+    border-radius: 20px;
+	padding: 3%;
 
 }
 
-.flex div{		
-	padding-left: 15px;
-	padding-bottom: 5px;  
+.title{
+	text-align: center;
+	font-weight: 600;
+	font-size: 25px;
 }
-
+.selecti{
+	
+	margin-bottom: 15px;
+	border: 1px dashed #153240a2;
+	margin-right: 20px;
+	margin-top: 20px;	
+	background-color: #F0F3F5;
+	padding: 5%;
+}
+.submit{
+	text-align: center;
+}
+.conexo{
+	margin-top: 20px;
+}
+.agente{
+	width: 100%;
+}

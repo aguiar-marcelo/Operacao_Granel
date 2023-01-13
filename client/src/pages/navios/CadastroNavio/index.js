@@ -44,9 +44,8 @@ const CadastroNavio = () => {
             <div className={style.active}>
               Cadastrar Navio
             </div>
-
           </div>
-
+          
           <div className="columns">
             <div className="column is-4">
               <Input
@@ -54,19 +53,24 @@ const CadastroNavio = () => {
                 text={"Nome do navio"}
                 name={"name"}
               />
-
             </div>
             <div className="column is-4">
               <Input
                 type={"text"}
                 text={"IMO/Loyds"}
                 name={"name"}
-                placeholder={"ex: 5841610"}
               />
-
-
             </div>
-
+          </div>
+          <div className="columns">
+          <div className="column is-3">
+              <Input
+                type={"text"}
+                text={"Bandeira"}
+                name={"name"}
+                placeholder={"ex: China"}
+              />
+            </div>
           </div>
           <div className="columns">
             <div className="column is-5">

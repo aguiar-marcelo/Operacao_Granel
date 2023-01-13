@@ -34,6 +34,17 @@ function Navbar(props) {
                     <span className="item-text">Navios</span>
                   </div>
                 </li>
+                {/*
+                <li onClick={()=> navigate("/Arqueacao")}  className={props.Arqueacao && "active"} >
+                  <div className="nav_bar" >
+                    <span className="item-icon">
+                      <i className="fa fa-balance-scale"></i>                      
+                    </span>
+                    <span className="item-text">Arqueação</span>
+                  </div>
+                </li>
+                */}
+                
 
                 <li onClick={()=> navigate("/veiculos")} className={props.veiculos && "active"} >
                   <div className="nav_bar">
@@ -43,6 +54,7 @@ function Navbar(props) {
                     <span className="item-text">Veículos</span>
                   </div>
                  </li>
+                 
 
                 <li onClick={()=> navigate("/operacoes")} className={props.operacao && "active"}>
                   <div className="nav_bar">
@@ -71,16 +83,9 @@ function Navbar(props) {
                     <span className="item-text">Paralisação</span>
                   </>
                 </li> */}
-                {/*
-                <li onClick={()=> navigate("/pesagem")}  className={props.pesagem && "active"} >
-                  <div className="nav_bar" >
-                    <span className="item-icon">
-                      <i className="fa fa-balance-scale"></i>                      
-                    </span>
-                    <span className="item-text">Pesagem</span>
-                  </div>
-                </li>
-                  
+                
+                
+                  {/*
                 <li onClick={()=> navigate("/Boletim")} className={props.cbibl && "active"} >
                   <div className="nav_bar">
                     <span className="item-icon">

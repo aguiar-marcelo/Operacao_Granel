@@ -5,17 +5,18 @@ import EmAndamento from "../pages/operacao/EmAndamento";
 import Operacao from "../pages/operacao/Operacao";
 import CadastroNavio from "../pages/navios/CadastroNavio";
 import Navios from "../pages/navios/Navios";
+import CadastroOperacao from "../pages/navios/CadastroOperacao";
+import CadastroCarga from "../pages/navios/CadastroCarga";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
-import Pesagem from "../pages/Pesagem";
 import UltimaPesagem from "../pages/veiculos/UltimaPesagem";
 import Relatorios from "../pages/Relatorios";
 import Suporte from "../pages/Suporte";
-import PesagemComCarga from "../pages/veiculos/PesagemComCarga";
 import PesagemInicial from "../pages/veiculos/PesagemInicial";
 import CadastroMotorista from "../pages/veiculos/CadastroMotorista";
 import AberturaPeriodo from "../pages/operacao/AberturaPeriodo";
 import BuscarMotorista from "../pages/veiculos/BuscarMotorista";
+import Detalhes from "../pages/navios/Detalhes";
 
 //recebe item, no caso Home
 const Private = ({ Item }) => {
@@ -32,18 +33,19 @@ const RoutesApp = () => {
                 <Routes>
                     <Route exact path="/navios" element={<Private Item={Navios} />} />
                     <Route exact path="/navios/cadastro" element={<Private Item={CadastroNavio} />} />
-                    <Route exact path="/operacoes" element={<Private Item={EmAndamento} />} />                 
-                    <Route exact path="/operacao/:id" element={<Private Item={Operacao} />} />  
-                    <Route exact path="/operacao/:id/aberturaperiodo" element={<Private Item={AberturaPeriodo} />} />                     
-                    <Route exact path="/dashboard" element={<Private Item={Dashboard} />} />                    
-                    <Route exact path="/pesagem" element={<Private Item={Pesagem} />} />
+                    <Route exact path="/navios/detalhes" element={<Private Item={Detalhes} />} />
+                    <Route exact path="/cadastro-operacao" element={<Private Item={CadastroOperacao} />} />
+                    <Route exact path="/cadastro-carga" element={<Private Item={CadastroCarga} />} />
+                    <Route exact path="/operacoes" element={<Private Item={EmAndamento} />} />
+                    <Route exact path="/operacao/:id" element={<Private Item={Operacao} />} />
+                    <Route exact path="/operacao/:id/aberturaperiodo" element={<Private Item={AberturaPeriodo} />} />
+                    <Route exact path="/dashboard" element={<Private Item={Dashboard} />} />
                     <Route exact path="/relatorios" element={<Private Item={Relatorios} />} />
                     <Route exact path="/suporte" element={<Private Item={Suporte} />} />
                     <Route exact path="/veiculos" element={<Private Item={CadastroMotorista} />} />
-                    <Route exact path="/veiculos/pesagemcomcarga" element={<Private Item={PesagemComCarga} />} />
                     <Route exact path="/veiculos/pesageminicial" element={<Private Item={PesagemInicial} />} />
                     <Route exact path="/veiculos/ultimapesagem" element={<Private Item={UltimaPesagem} />} />
-                    <Route exact path="/veiculos/BuscarMotorista" element={<Private Item={BuscarMotorista} />} />
+                    <Route exact path="/veiculos/buscarmotorista" element={<Private Item={BuscarMotorista} />} />
                     <Route path="/" element={<Private Item={Dashboard} />} />
                     <Route path="*" element={<Private Item={Dashboard} />} />
                 </Routes>

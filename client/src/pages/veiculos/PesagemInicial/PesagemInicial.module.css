@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 85%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -34,5 +34,27 @@
 .flex {	
 	display: flex;
 	justify-content: space-around;	
+	
 }
 
+.align{
+	margin-left: 20px;
+}
+
+.box{
+	width: 96%;
+	margin-right: 150px;
+	margin-top: 30px;
+	background-color: #F0F3F5;
+	border: 1px dashed #153240a2;
+	padding: 10px;
+}
+.placas{
+	display: flex;
+	justify-content: space-around;
+	
+	margin-right: 5px;
+}
+.radio{
+	margin-top: 15px;
+}

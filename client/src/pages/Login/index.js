@@ -67,7 +67,7 @@ const Login = () => {
                       handleLogin()
                     }
                   }}
-                  onChange={(e) => [setId(e.target.value), setError("")]}//começa digitar e some msg de erro
+                  onChange={(e) => [setId(e.target.value), setError("")]}//começa digitar e some msg de erro 
                   required
                 />
                 <label>Usúario</label>

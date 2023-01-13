@@ -5,14 +5,13 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import style from "./Navios.module.css";
-import Dialog from '@mui/material/Dialog';
 import Detalhes from '@mui/material/Dialog';
 import { Navigate, useNavigate } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
 import Select from "../../../components/select";
-
+import style from "./Navios.module.css";
+import modal from "./Modal.module.css";
 
 const Navios = (props) => {
 
@@ -20,8 +19,6 @@ const Navios = (props) => {
 
   const [navioList, setNavioList] = useState([]);
   const [busca, setBusca] = useState("");
-
-
 
   useEffect(() => {
     getNavios();
@@ -33,27 +30,14 @@ const Navios = (props) => {
     });
   }
 
-  
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-
   const [openA, setOpenA] = useState(false);
-
-  const DetalhesNavio = () => {    
+  const DetalhesNavio = () => {
     setOpenA(true);
   };
   const FecharDetalhesNavio = () => {
     setOpenA(false);
   };
+
 
 
   return (
@@ -67,7 +51,6 @@ const Navios = (props) => {
             <div className={style.active}>
               Navios
             </div>
-
             <div onClick={() => navigate("/navios/cadastro")}>
               Cadastrar Navio
             </div>
@@ -75,155 +58,130 @@ const Navios = (props) => {
 
           <div className={style.table}>
             <div className={style.sumario}>
-              <div >NOME</div>
-              <div>LLOYD/IMO</div>
+              <div>NOME</div>
+              <div>IMO/LLOYD</div>
+              <div>BANDEIRA</div>
               <div>STATUS</div>
-              <div></div>
             </div>
 
-            <div onClick={DetalhesNavio} className={style.table_item}>
-              <div>Megazord</div>
+            <div className={style.table_item} onClick={DetalhesNavio}>
+              <div>HONG YUAN</div>
               <div>554449</div>
-              <div>Paralizado</div>
-              <div>
-                <button className={style.button_atraca} title="Nova Viagem" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
-              </div>
+              <div>CHINA</div>
+              <div>Aguardando Atracação</div>
             </div>
-            <div onClick={DetalhesNavio} className={style.table_item}>
-              <div>Megazord</div>
-              <div>988411</div>
+            <div className={style.table_item} onClick={DetalhesNavio}>
+              <div>THE GUARDIAN</div>
+              <div>164729</div>
+              <div>BRASIL</div>
               <div>Paralizado</div>
-              <div>
-                <button className={style.button_atraca} title="Nova Atracação" onClick={handleClickOpen}><i className="fa fa-anchor"></i> </button>
-              </div>
             </div>
           </div>
         </div>
       </Container>
 
-      <Dialog maxWidth={true} open={open} onClose={handleClose}>
-        <div className={style.modal}>
-          <div className={style.title}>
-            <div className={style.active}>
-              Preparação pra Início da Operação
+
+
+      <Detalhes open={openA} onClose={FecharDetalhesNavio} fullWidth>
+        <div className={modal.modal}>
+          <div className={modal.nav}>
+            <div onClick={FecharDetalhesNavio}>Voltar</div>
+            <div className={modal.active}>Detalhes do Navio</div>
+          </div>
+
+          <div className={modal.center}>
+            <div className={modal.status}><i className="fa fa-ship icon"></i>&nbsp;&nbsp;AGUARDANDO ATRACAÇÃO</div>
+          </div>
+          <div className={modal.flex}>
+            <div className={modal.detalhebox}>
+              <div><b>Nome:</b> HONG YUAN</div>
+            </div>
+            <div className={modal.detalhebox}>
+              <div><b>IMO:</b> 554449</div>
+            </div>
+            <div className={modal.detalhebox}>
+              <div><b>Bandeira:</b> CHINA</div>
             </div>
           </div>
-          <div className={"columns"}>
-            <div className={"column"} >
-
-              <div className={style.selecti}>
-                <div class="control">
-                  <div>
-                    Grab
-                  </div>
-                  <label class="radio">
-                    <input type="radio" value="empilhadeira" name="grab" />Próprio
-                  </label>
-                  <label class="radio">
-                    <input type="radio" value="escavadeira." name="grab" />Alugado
-                  </label>
-                </div>
+          <div className={modal.center}>
+            <div className={modal.cargas}>
+              DI/BL cadastrados
+              <div className={modal.sumario}>
+                <div>TIPO</div>
+                <div>CÓDIGO</div>
+                <div>IMPORTADOR</div>
+                <div>PRODUTO</div>
+                <div>QT. MANIFESTADA</div>
               </div>
-              <Input text={'Data e hora'} type={'datetime-local'} name={'ETA'} />
-              <Input text={'Homens em terra'} type={'text'} name={'ETA'} />
-              <Input text={'ATA'} type={'text'} name={'ETA'} />
-              <Input text={'Produto'} type={'text'} name={'ETA'} />
-              <Input text={'Plataforma'} type={'text'} name={'ETA'} />
-
-            </div>
-            <div className={"column"} >
-
-
-              <div className={style.selecti}>
-                <div class="control">
-                  <div>
-                    Requisição
-                  </div>
-                  <label class="radio">
-                    <input type="radio" value="empilhadeira" name="Requisicao" /> Empilhadeira
-                  </label>
-                  <label class="radio">
-                    <input type="radio" value="escavadeira." name="Requisicao" /> Escavadeira
-                  </label>
+              <div className={modal.lista}>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
                 </div>
-              </div>
-              <Input text={'ETA'} type={'text'} name={'ETA'} />
-
-
-              <Input text={'Porão'} type={'text'} name={'ETA'} />
-              <Input text={'Moega'} type={'text'} name={'moega'} />
-              <Input text={'Homens a Bordo'} type={'text'} name={'ETA'} />
-              <Input text={'Agente select'} type={'text'} name={'ETA'} />
-            </div>
-            <div className={"column is-4"} >
-              <div className={style.selecti}>
-                <div class="control">
-                  <div>
-                    Gerador
-                  </div>
-
-                  <label class="radio">
-
-                    <input type="radio" value="empilhadeira" name="gerador" />Próprio
-                  </label>
-                  <label class="radio">
-                    <input type="radio" value="escavadeira." name="gerador" />Alugado
-                  </label>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
                 </div>
-              </div>
-              <div className={style.selecti}>
-                Conexo
-                <div>
-                  <input type="radio" value="Serrapilheira." name="conexo" /> Arrumação da Serrapilheira
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
                 </div>
-                <input type="radio" value="Female" name="conexo" /> Mudança de Berço/Puxada
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
+                </div>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
+                </div>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
+                </div>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
+                </div>
+                <div className={modal.item}>
+                  <div>BL</div>
+                  <div>05</div>
+                  <div>YARA BRASIL FERT.</div>
+                  <div>URÉIA</div>
+                  <div>40000KG</div>
+                </div>
+
               </div>
-              <Select name={"alguma coisa"} text={"Operador"} />
-              <Input text={'Gaiola de segurança'} type={'text'} name={'ETA'} />
-              <Input text={'Berço'} type={'text'} name={'ETA'} />
-
-
             </div>
           </div>
-          <div className={style.submit}>
-            <SubmitButton text={"Iniciar Operação"} onClick={handleClose} className={style.form_item} />
+          <div className={modal.flex}>
+            <button className={modal.finalizar}onClick={() => navigate("/cadastro-carga")}>
+              EDITAR CARGA</button>
+            <button className={modal.finalizar} onClick={() => navigate("/cadastro-operacao")}
+            >INICIAR OPERAÇÃO</button>
           </div>
         </div>
 
-      </Dialog>
-
-
-      <Detalhes maxWidth={false} open={openA} onClose={FecharDetalhesNavio}>
-        <div className={style.modal}>
-          <div className={style.title}>
-            <div className={style.active}>
-              Detalhes do Navio
-            </div>
-          </div>
-          <div className={style.contentmodal}>
-            <div>Aguardando atracação <i className="fa fa-ship icon"></i></div>
-          </div>
-          <div className={style.modal2}>
-            <div className={style.contentmodal2}>
-              Nome: HONG YUAN
-            </div>
-            <div className={style.contentmodal2}>
-              RAP: 1234/2023
-            </div>
-            <div className={style.contentmodal2}>
-              Operador Portuário: 45787651567
-            </div>
-            <div className={style.contentmodal2}>
-              IMO/ Loyds: 3
-            </div>
-            <div className={style.contentmodal2}>
-              Agente do Navio: MSC
-            </div>
-
-          </div>
-
-
-        </div>
       </Detalhes>
     </>
   );

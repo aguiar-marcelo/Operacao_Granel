@@ -7,6 +7,7 @@ import style from "./PesagemInicial.module.css";
 import { useNavigate } from "react-router-dom";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
+import Select from "../../../components/select";
 
 const PesagemInicial = () => {
   const navigate = useNavigate();
@@ -22,27 +23,69 @@ const PesagemInicial = () => {
               <div onClick={() => navigate("/veiculos/BuscarMotorista")} >
                 Buscar Motorista
               </div>
+
+              <div onClick={() => navigate("/veiculos")}>
+                Cadastrar Motorista
+              </div>
+              <div className={style.active}>
+                Pesagem inicial
+              </div>
+              <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
+                Pesagem Final
+              </div>
             </div>
-            <div onClick={() => navigate("/veiculos")}>
-              Cadastrar Motorista
-            </div>
-            <div className={style.active}>
-              Pesagem inicial
-            </div>
-          </div>
-          <div className={style.flex}>
-            <Input type={"text"} text={"Transportadora"} name={"name"} placeholder={"ex:...."} />
-            <Input type={"text"} text={"Peso vazio (Tara)"} name={"name"} placeholder={"ex:...."} />
-            <Input type={"text"} text={"Destino"} name={"name"} placeholder={"ex:...."} />
-          </div>
-          <div className={style.flex}>
-            <Input type={"text"} text={"Selecione a balança"} name={"name"} placeholder={"Fazer select"} />
-            <Input type={"text"} text={"BL ou DI"} name={"name"} placeholder={"ex: 10kg...."} />
-            <Input type={"text"} text={"Selecione o navio"} name={"name"} placeholder={"ex: Fazer select"} />
-            <Input type={"datetime-local"} text={"Data e hora"} name={"name"} placeholder={"ex:...."} />
           </div>
 
-          <SubmitButton text={"Cadastrar"} />
+
+          <div className={style.align}>
+            <div className="columns">
+              <div className="column is-4">
+                <div className={style.box}>
+                  <div>Motorista: Adilson de Jesus Silva Ferreira</div>
+                  <div>CPF: 460.050.968-42</div>
+                  <div>CNH: 002.566.58-65 </div>
+                </div>
+                <div className={style.radio}>
+                  <div className="control">
+                    <label className="radio">
+                      <input type="radio" value="Pesagem completa" name="gerador" />Pesagem completa
+                    </label>
+                    <label className="radio">
+                      <input type="radio" value="Pesagem moega" name="gerador" />Pesagem moega
+                    </label>
+                  </div>
+                </div>
+
+                <Select text={"Selecione o navio"} />
+                <Input type={"text"} text={"Transportadora"} name={"name"} placeholder={"ex: IC transporte"} />
+                <Input type={"text"} text={"Peso vazio (Tara)"} name={"name"} placeholder={"ex: 1000kg"} />
+
+              </div>
+              <div className="column is-3">
+                <Input type={"text"} text={"Produto"} name={"name"} placeholder={"Ex: Uréia"} />
+                <Input type={"text"} text={"Destino"} name={"name"} placeholder={"ex: Limeira"} />
+                <div className={style.placas}>
+                  <Input type={"text"} text={"Placa 1"} name={"name"} placeholder={"ex: 0a00aaa"} />
+                  <Input type={"text"} text={"Placa 2"} name={"name"} placeholder={"ex: 0a00aaa"} />
+                  <Input type={"text"} text={"Placa 3"} name={"name"} placeholder={"ex: 0a00aaa"} />
+                </div>
+                <Select text={"Modelo do veículo"} />
+
+              </div>
+
+              <div className="column is-4">
+
+                <Select text={"Selecione a balança"} />
+                <Select text={"DI'S"} />
+                <Select text={"BL'S"} />
+
+                <Input type={"datetime-local"} text={"Data e hora"} name={"name"} />
+              </div>
+            </div>
+
+          </div>
+          <SubmitButton text={"Cadastrar"} className={style.button} />
+
         </div>
       </Container>
     </>

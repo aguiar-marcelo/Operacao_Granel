@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 96%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -32,83 +32,54 @@
 
 /*-----------------------------------------------*/
 
-.busca {
-	width: 20%;
-	height: 25px;
-	font-family: 'News Cycle', sans-serif;
-	font-size: 17px;
-	outline: none;
-	border: 2px solid #91D1BA;
-	transition: 0.3s;
-	padding: 0.5em 1em;
-	font-size: 17px;
-	font-family: 'Montserrat', sans-serif;
-	border-radius: 10px;
-}
-
-.busca:focus {
-	border: 3px solid #153240;
-}
-
-.zeronavio {
-	font-size: 25px;
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	padding-top: 5vh;
-}
 
 .table {
-	margin-top: 3vh;
+	margin-top: 1vh;
 }
 
 .sumario {
 	color: #8A909B;
 	background-color: #F9FAFB;
-	display: grid;
+	display: flex;
+	justify-content: space-around;
 	border-radius: 5px 5px 0 0;
-	padding: 10px 0 10px 20px;
-	grid-template-columns: 2fr 1fr 2fr 2fr ;
+	padding: 10px 0 ;
 	border-bottom: 1px solid #E9EBEE;
 	justify-items: center;
 }
 
 .sumario div {
 	font-family: "Titillium Web", sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	cursor: default;
+	width: 30%;
 	text-align: center;
 }
 
 .table_item {	
 	background-color: #ffffff;
-	color: #2B313F;	
-	display: grid;
-	padding: 0 0 0 20px;
-	grid-template-columns: 2fr 1fr 2fr 2fr ;
+	color: #2B313F;
+	display: flex;
+	justify-content: space-around;
 	justify-items: center;
 	border-bottom: 1px solid #E9EBEE;	
-	justify-content: space-between;
-
+	cursor: pointer;
 }
-.table_item:hover{	
-	transition: all 0.4s;
-	cursor: pointer;	
-    background-color:#99D4F2;
-    
+
+.table_item:hover{
+	background-color: #cef1ff;
+	
 }
 
 .table_item div {
 	padding: 7px 0;
+	width: 30%;
+	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	padding-bottom: 5px;
 }
-
-
 
 .button_atraca{
 	background-color: #153240;
@@ -131,57 +102,4 @@
 	outline: 3px solid #8ad4ee80;
 }
 
-/*CSS DO MODAL */
-
-
-.modal {  
-    border-radius: 20px;
-    display: grid;	
-	padding: 7%;
-	width: 900px;
-	
-
-}
-
-
-.title{
-	text-align: center;
-	font-weight: 600;
-	font-size: 25px;
-}
-
-.contentmodal{
-	justify-content: space-around;
-	text-align:center;
-	background-color: #B2C3CC;
-	padding: 10px 0px 15px 0px;
-	margin-inline: 200px;
-	font-size: 30px;
-	border-radius: 10px;
-	color: #1F4D64;
-	margin-top: 20px;	
-}
-.modal2{
-	text-align: center;
-	margin-top: 20px;
-	color: #1F4D64;
-	font-size: 20px;
-	font-weight: 600;		
-}
-.contentmodal2{
-	margin-bottom: 15px;
-}
-
-.selecti {
-	margin-top: 12px;
-	margin-bottom: 15px;
-	border: 1px dashed #153240a2;
-	margin-right: 20px;
-	margin-top: 20px;	
-	background-color: #F0F3F5;
-	padding: 5%;
-}
-.submit{
-	text-align: center;
-}
 

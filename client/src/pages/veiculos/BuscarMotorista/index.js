@@ -7,7 +7,7 @@ import Header from "../../../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
-import style from "./BuscarMotorista.module.css"
+import style from "./BuscarMotorista.module.css";
 
 
 const BuscarMotorista = () => {
@@ -22,14 +22,19 @@ const BuscarMotorista = () => {
             <Container>
                 <div className={style.content}>
                     <div className={style.nav}>
-                        <div className={style.active} >
-                            Buscar Motorista
-                        </div>
-                        <div onClick={() => navigate("/veiculos")}>
-                            Cadastrar Motorista
-                        </div>
-                        <div onClick={() => navigate("/veiculos/pesageminicial")}>
-                            Pesagem inicial
+                        <div className={style.nav}>
+                            <div className={style.active}>
+                                Buscar Motorista
+                            </div>
+                            <div onClick={() => navigate("/veiculos")}>
+                                Cadastrar Motorista
+                            </div>
+                            <div onClick={() => navigate("/veiculos/PesagemInicial")}>
+                                Pesagem Inicial
+                            </div>
+                            <div onClick={() => navigate("/veiculos/UltimaPesagem")} >
+                                Pesagem Final
+                            </div>
                         </div>
                     </div>
 
@@ -58,28 +63,28 @@ const BuscarMotorista = () => {
 
                     </div>
                     <div className={style.cabecario}>
-                            Histórico
-                        </div>
+                        Histórico
+                    </div>
                     <div className={style.flex}>
-                        
+
 
                         <div className={style.formulario}>
 
 
                             <div className={'columns'} >
-                                <div className={'column'} >
+                                <div className={'column is-one-fifth'} >
                                     CAVALO
                                 </div>
-                                <div className={'column'} >
+                                <div className={'column is-one-fifth'} >
                                     CARRETA
                                 </div>
-                                <div className={'column'} >
+                                <div className={'column is-one-fifth'} >
                                     PRODUTO
                                 </div>
-                                <div className={'column'} >
+                                <div className={'column is-one-fifth'} >
                                     TRANSPORTADORA
                                 </div>
-                                <div className={'column'} >
+                                <div className={'column is-2'} >
                                     DATA
                                 </div>
 
@@ -89,7 +94,7 @@ const BuscarMotorista = () => {
 
 
                                 <div className={'columns'}>
-                                    <div className={'column '}>
+                                    <div className={'column is-one-fifth'}>
                                         <div>BLL-2799 </div>
                                         <div>BLL-2799 </div>
                                         <div>BLL-2799 </div>
@@ -99,7 +104,7 @@ const BuscarMotorista = () => {
                                         <div>BLL-2799 </div>
 
                                     </div>
-                                    <div className={'column is-2.5'}>
+                                    <div className={'column is-one-fifth'}>
                                         <div>BZR-5656</div>
                                         <div>BZR-5656</div>
                                         <div>BZR-5656</div>
@@ -109,7 +114,7 @@ const BuscarMotorista = () => {
                                         <div>BZR-5656</div>
 
                                     </div>
-                                    <div className={'column is-2'}>
+                                    <div className={'column is-one-fifth'}>
                                         <div>KCL</div>
                                         <div>KCL</div>
                                         <div>KCL</div>
@@ -118,7 +123,7 @@ const BuscarMotorista = () => {
                                         <div>KCL</div>
                                         <div>KCL</div>
                                     </div>
-                                    <div className={'column is-3'}>
+                                    <div className={'column is-one-fifth'}>
                                         <div>TRANSCOPA</div>
                                         <div>TRANSCOPA</div>
                                         <div>TRANSCOPA</div>
@@ -128,7 +133,7 @@ const BuscarMotorista = () => {
                                         <div>TRANSCOPA</div>
 
                                     </div>
-                                    <div className={'column is-2'}>
+                                    <div className={'column is-one-fifth'}>
                                         <div>24/05/2022</div>
                                         <div>24/05/2022</div>
                                         <div>24/05/2022</div>

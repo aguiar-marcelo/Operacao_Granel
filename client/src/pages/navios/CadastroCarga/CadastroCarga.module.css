@@ -1,0 +1,141 @@
+.content {
+	margin: 0 auto;
+	width: 98%;
+	color: #8A909B;
+	background-color: #F9FAFB;
+	display: grid;
+	border-radius: 5px;
+	padding: 15px 25px;
+}
+
+.nav {
+	font-size: 25px;
+	border-bottom: 1px solid #bbbbbb;
+	display: flex;
+	cursor: pointer;
+}
+.nav div{
+	padding: 0 1vw;
+	margin-bottom: -1px;
+}
+.nav a{
+	text-decoration: none;
+	color: #bbbbbb;
+}
+
+.active{
+	color: #1f4d64;
+	border-bottom: 3px solid #1f4d64;
+}
+
+
+/*-----------------------------------------------*/
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	color: #153240;
+	padding: 0 5px;
+
+}
+
+
+.navio{
+	margin-top: 20px;
+	font-size: 25px;
+	font-weight: 700;
+	color: #1F4D64;
+}
+
+
+.cargas {
+	background-color: #F0F3F5;
+	width: 100%;
+	border: 1px dashed #153240a2;
+	font-weight: 600;
+	padding-top: 5px;
+    text-align: center;
+	color: #1F4D64;
+}
+
+.sumario {
+	display: grid;
+	grid-template-columns: 0.6fr 1fr 1fr 1fr 3fr 1fr 1fr 2fr 1fr;
+	margin: 5px 0;
+	margin-right: 12px;
+	font-size: 13px;
+}
+
+.sumario div {
+	border-right: 1px solid #1f4d6473;
+	width: auto;
+}
+
+.listatitulo{
+	color: #1F4D64;
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 5px;
+}
+
+.lista {
+	background-color: #fff;
+	height: 100px;
+	width: 99%;
+	margin: auto;
+	margin-bottom: 8px;
+	overflow-y: auto;
+}
+
+.lista::-webkit-scrollbar {
+	width: 10px;
+}
+
+.lista::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 3px grey;
+}
+
+.lista::-webkit-scrollbar-thumb {
+	background: #1f4d64;
+	border-radius: 10px;
+}
+
+.item {
+	display: grid;
+	grid-template-columns: 0.6fr 1fr 1fr 1fr 3fr 1fr 1fr 2fr 1fr;
+	border-top: 1px solid #d8d8d8;
+}
+
+.item div {
+	width: auto;
+	font-weight: 400;
+	font-size: 15px;
+	color: #585858;
+}
+
+.item i{
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.delete{
+	color: rgb(199, 0, 0);
+}
+.edit{
+	color: #1f4d64;
+}
+
+.total{
+	color: #1F4D64;
+	font-size: 15px;
+	text-align: center;
+	font-weight: 600;
+	margin: auto 0;
+}.total div{
+	background-color: #F0F3F5;
+	color: #000;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 5px 20px;
+	border: 1px dashed #153240a2;
+}

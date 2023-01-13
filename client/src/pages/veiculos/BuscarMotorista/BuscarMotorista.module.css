@@ -1,6 +1,6 @@
 .content {
 	margin: 0 auto;
-	width: 90%;
+	width: 98%;
 	color: #8A909B;
 	background-color: #F9FAFB;
 	display: grid;
@@ -11,28 +11,19 @@
 
 .nav {
 	font-size: 25px;
-	margin-top: -10px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
-}
-
-.nav div {
-	padding: 0 1vw;
-	margin-bottom: -1px;
 	cursor: pointer;
 }
-
-.nav a {
-	text-decoration: none;
-	color: #bbbbbb;
+.nav div{
+	padding: 0 1vw;
+	margin-bottom: -1px;
 }
 
-.active {
+.active{
 	color: #1f4d64;
 	border-bottom: 3px solid #1f4d64;
 }
-
-
 /*-----------------------------------------------*/
 
 .flex {

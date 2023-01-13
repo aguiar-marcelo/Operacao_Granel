@@ -13,11 +13,11 @@
 	font-size: 25px;
 	border-bottom: 1px solid #bbbbbb;
 	display: flex;
+	cursor: pointer;
 }
 .nav div{
 	padding: 0 1vw;
 	margin-bottom: -1px;
-	cursor: pointer;
 }
 .nav a{
 	text-decoration: none;
@@ -30,14 +30,12 @@
 }
 
 
-
 /*-----------------------------------------------*/
 
 .flex {
 	margin-top: 0.7vw;
 	display: flex;
 	justify-content: space-between;
-	text-align: center;
 	color: #153240;
 	padding: 0 5px;
 }
@@ -243,8 +241,10 @@
 	background-color: #ff0000;
 }
 .navio{
+	margin-top: 20px;
 	font-size: 25px;
 	font-weight: 700;
+	color: #1F4D64;
 }
 
 .finalizar{

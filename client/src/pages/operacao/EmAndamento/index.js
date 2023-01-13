@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import style from "./EmAndamento.module.css"
 
 
@@ -24,6 +24,8 @@ const EmAndamento = () => {
             <div className={style.active}>
               Operações em andamento
             </div>
+
+            
           </div>
 
           <div className={style.table}>
