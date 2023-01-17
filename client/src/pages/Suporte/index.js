@@ -33,16 +33,21 @@ const Suporte = () => {
               <p className={style.titulo}>Telefone</p>
               <p>+55 (13) 2101-8356</p>
             </div>
-            <div className={style.quadrado}>
+            <a href="https://wa.me/13981651345">
+              <div className={style.quadrado}>
               <i class="fas fa fa-whatsapp icon2"></i>
               <p className={style.titulo}>WhatsApp</p>
               <p>+55 (13) 98165-1345</p>
             </div>
-            <div className={style.quadrado}>
+            </a>
+            <a href="mailto:suporte@rodrimar.com.br" subject="suporte">
+              <div className={style.quadrado}>
               <i class="fas fa-envelope-open-text icon2"></i>
               <p className={style.titulo}>E-mail</p>
               <p>suporte@rodrimar.com.br</p>
             </div>
+            </a>
+            
           </div>
         </div>
       </Container>

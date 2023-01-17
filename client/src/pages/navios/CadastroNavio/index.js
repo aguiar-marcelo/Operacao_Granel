@@ -11,7 +11,6 @@ import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
 import style from "./CadastroNavio.module.css";
 import MaskedInput from "../../../components/InputMask";
-import { response } from "express";
 
 const CadastroNavio = () => {
 
@@ -35,9 +34,12 @@ const CadastroNavio = () => {
       imo: imo,
       bandeira: bandeira
     })
-      .then(function (response) {
-        console.log(response);
-        return response.data.sqlMessage
+      .then(function (res) {
+        console.log(res);
+        res.data.sqlMessage ?
+          showAlert(res.data.sqlMessage, 'error') :
+          showAlert('Navio cadastrado com sucesso!', 'success');
+
       });
   }
 
@@ -47,23 +49,16 @@ const CadastroNavio = () => {
   }
 
   const validaDados = () => {
-    // if (!nome | !imo | !bandeira) {//mensagem de erro caso nao preencha todos campos
-    //   showAlert('Preencha todos os campos!', 'error')
-    //   return;
-    // }
-
-    // if (imo.length < 7) {//mensagem de erro caso nao preencha todos campos
-    //   showAlert('Imo deve conter 7 digitos!', 'error')
-    //   return;
-    // }
-
-    // addNavio()
-    // if(response.length){
-    //   console.log("foii");
-    // }else{console.log("nao foi");}
-    showAlert('Navio cadastrado com sucesso!', 'success')
+    if (!nome | !imo | !bandeira) {
+      showAlert('Preencha todos os campos!', 'error')
+      return;
+    }
+    if (imo.length < 7) {
+      showAlert('Imo deve conter 7 digitos!', 'error')
+      return;
+    }
+    addNavio();
   }
-
 
   return (
     <>
@@ -82,6 +77,7 @@ const CadastroNavio = () => {
           </div>
 
           <div className="columns">
+
             <div className="column is-4">
               <Input
                 type={"text"}
@@ -116,6 +112,7 @@ const CadastroNavio = () => {
             </div>
           </div>
         </div>
+
       </Container>
     </>
   );

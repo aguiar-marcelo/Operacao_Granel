@@ -8,11 +8,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import SubmitButton from "../../../components/Button";
 import Input from "../../../components/Input";
 import style from "./BuscarMotorista.module.css";
+import MaskedInput from "../../../components/InputMask";
 
 
 const BuscarMotorista = () => {
 
     const navigate = useNavigate();
+
+    const [busca, setBusca] = useState();
+
+    const [values, setValues] = useState({});
+    function handleChange(event) {
+        setValues({
+            ...values,
+            [event.target.name]: event.target.value
+        });
+    }
 
     return (
         <>
@@ -39,9 +50,16 @@ const BuscarMotorista = () => {
                     </div>
 
                     <div className={'columns'}>
-                        <div className={'column is-4'}>
+                        <div className={'column is-2'}>
                             <div className={style.periodo}>
-                                <Input text={'Buscar CPF'} name={'buscarmotorista'} placeholder={'ex: 000.000.000-00'} />
+                                <MaskedInput
+                                    text={'Buscar CPF'}
+                                    name={'cpf'}
+                                    mask={'999.999.999-99'}
+                                    value={values.busca}
+                                    placeholder={'000.000.000-00'}
+                                    onChange={(e) => [setValues(e.target.value.toUpperCase())]}
+                                />
                             </div>
 
                         </div>

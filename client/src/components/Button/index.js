@@ -2,10 +2,11 @@ import React from "react";
 import style from "./SubmitButton.module.css"
 
 
-const SubmitButton = ({ text, type, func }) => {
+const SubmitButton = ({ text, type, onClick }) => {
     return(
         <div className={style.form_control}>
-            <button type={type}className={style.btn} onClick={func}>{text}</button>                 
+            <button type={type}className={style.btn} onClick={onClick}>{text}</button>     
+            
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
@@ -9,9 +9,14 @@ import SubmitButton from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
 
 
+
 const CadastroMotorista = () => {
 
     const navigate = useNavigate();
+
+    const [cnh, setCnh] = useState();
+    const [cpf, setCpf] = useState();
+    const [nome, setNome] = useState();
 
     return (
         <>
@@ -33,8 +38,8 @@ const CadastroMotorista = () => {
                                 Pesagem inicial
                             </div>
                             <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
-                Pesagem Final
-              </div>
+                                Pesagem Final
+                            </div>
                         </div>
                     </div>
                     <div className={'columns '}>

@@ -44,7 +44,9 @@ app.post('/navio/criar', (req, res) => {
         [nome, imo, bandeira], (err, result) => {
             if (err) {
                 res.send(err)
+                console.log(err)
             } else {
+                res.send("sucesso")
                 console.log('navio adicionado!');
             }
         }

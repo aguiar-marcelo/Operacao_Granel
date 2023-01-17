@@ -8,9 +8,27 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
 import Select from "../../../components/select";
+import { useState } from "react";
 
 const PesagemInicial = () => {
   const navigate = useNavigate();
+
+
+  const [pesagem, setPesagem] = useState();
+  const [navio, setNavio] = useState();
+  const [transportadora, setTransportadora] = useState();
+  const [tara, setTara] = useState();
+  const [produto, setProduto] = useState();
+  const [destino, setDestino] = useState();
+  const [placa1, setPlaca1] = useState();
+  const [placa2, setPlaca2] = useState();
+  const [placa3, setPlaca3] = useState();
+  const [modelo, setModelo] = useState();
+  const [balanca, setBalanca] = useState();
+  const [di, setDi] = useState();
+  const [bl, setBl] = useState();
+  const [data, setData] = useState();
+  
   return (
     <>
       <Navbar veiculos />

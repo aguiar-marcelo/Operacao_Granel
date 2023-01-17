@@ -8,11 +8,10 @@ export const AuthProvider = ({ children }) => {
     // const [users, setUsers] = useState();
     const usersStorage = [
         { "id": "maguiar", "password": "12345", "nivel": "mestre", "nmcompleto": "Marcelo Aguiar Rocha dos Santos", "depto": "TI/STS" },
-        { "id": "lrodrigues", "password": "12345", "nivel": "mestre", "nmcompleto": "Lucas Carvalho Rodrigues", "depto": "TI/STS" },
-        { "id": "joao", "password": "12345", "nivel": "mestre", "nmcompleto": "João Roberto Archiolli", "depto": "TI/STS" },
-        { "id": "arodrigues", "password": "12345", "nivel": "mestre", "nmcompleto": "Anderson Rodrigues Pinto", "depto": "TI/STS" },
+        { "id": "lucas", "password": "12345", "nivel": "mestre", },
+        { "id": "joao", "password": "12345", "nivel": "mestre", },
+        { "id": "Anderson", "password": "12345", "nivel": "mestre", },
     ]
-    //mestre - diretor - supervisor - 
 
 
     // const getUsers = () => {

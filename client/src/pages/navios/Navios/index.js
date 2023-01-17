@@ -80,7 +80,38 @@ const Navios = (props) => {
         </div>
       </Container>
 
+      {/* {containerList.filter((val) => {
+            if (busca == "") {
+              return val
+            } else if (val.nome.toLowerCase().includes(busca.toLowerCase()) || val.cliente.toLowerCase().includes(busca.toLowerCase()) || val.tipo.toLowerCase().includes(busca.toLowerCase()) || val.status.toLowerCase().includes(busca.toLowerCase()) || val.categoria.toLowerCase().includes(busca.toLowerCase())) {
+              return val
+            }
+          }).map((val, key) => {
 
+            return (
+              <div className={style.table_item}>
+                <div>{val.nome}</div>
+                <div>{val.cliente}</div>
+                <div className={style.center}>{val.tipo}</div>
+                <div className={style.center}>{val.status}</div>
+                <div className={style.center}>{val.categoria}</div>
+                <div className={style.icons}>
+
+                  <i class="fas fa-trash-alt"
+                    title="Deletar"
+                    onClick={() => { deleteContainer(val.id) }}>
+                  </i>
+
+                  <EditContainer container={val} />
+
+                  <i class="fas fa-retweet"
+                    title="Movimentações"
+                    onClick={() => { Direction(val.id) }}>
+                  </i>
+                </div>
+              </div>
+            )
+          })} */}
 
       <Detalhes open={openA} onClose={FecharDetalhesNavio} fullWidth>
         <div className={modal.modal}>

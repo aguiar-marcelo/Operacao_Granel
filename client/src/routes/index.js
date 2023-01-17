@@ -18,6 +18,8 @@ import AberturaPeriodo from "../pages/operacao/AberturaPeriodo";
 import BuscarMotorista from "../pages/veiculos/BuscarMotorista";
 import Detalhes from "../pages/navios/Detalhes";
 
+
+
 //recebe item, no caso Home
 const Private = ({ Item }) => {
     const { signed } = useAuth();
