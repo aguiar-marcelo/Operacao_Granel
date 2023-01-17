@@ -24,7 +24,7 @@ db.connect(function (err) {
 
 
 
-//READ
+//NAVIOS
 app.get("/navio", (req, res) => {
     db.query("SELECT * FROM NAVIO", (err, result) => {
         if (err) {
@@ -35,17 +35,21 @@ app.get("/navio", (req, res) => {
     })
 })
 
-app.get("/operacoes", (req, res) => {
-    
-    db.query("SELECT * FROM OPERACAO", (err, result) => {
-        if (err) {
-            console.log(err)
-        } else {
-            res.send(result)            
-        }
-    })
-})
+app.post('/navio/criar', (req, res) => {
+    const nome = req.body.nome
+    const imo = req.body.imo
+    const bandeira = req.body.tipo
 
+    db.query('INSERT INTO NAVIO (NOME_NAVIO, IMO_NAVIO, BANDEIRA) VALUES (?,?,?)',
+        [nome, imo, bandeira], (err, result) => {
+            if (err) {
+                res.send(err)
+            } else {
+                console.log('navio adicionado!');
+            }
+        }
+    )
+})
 
 //RODAR API
 app.listen(8080, () => { console.log("servidor rodando na porta 8080...") });

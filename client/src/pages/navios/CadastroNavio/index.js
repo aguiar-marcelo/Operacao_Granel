@@ -1,34 +1,69 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import { Navigate, useNavigate } from "react-router-dom";
+import { SnackbarProvider, useSnackbar } from 'notistack';
 import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import style from "./CadastroNavio.module.css";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
-import { Navigate, useNavigate } from "react-router-dom";
-
+import style from "./CadastroNavio.module.css";
+import MaskedInput from "../../../components/InputMask";
+import { response } from "express";
 
 const CadastroNavio = () => {
 
-
   const navigate = useNavigate();
 
-  const [navioList, setNavioList] = useState([]);
-  const [busca, setBusca] = useState("");
+  const [nome, setNome] = useState("");
+  const [imo, setImo] = useState("");
+  const [bandeira, setBandeira] = useState("");
 
-  useEffect(() => {
-    getNavios();
-
-  }, [])
-
-  const getNavios = () => {
-    Axios.get('http://localhost:8080/navio').then((response) => {
-      setNavioList(response.data)
+  const [values, setValues] = useState({});
+  function handleChange(event) {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value
     });
   }
+
+  const addNavio = () => {
+    Axios.post('http://localhost:8080/navio/criar', {
+      nome: nome,
+      imo: imo,
+      bandeira: bandeira
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.data.sqlMessage
+      });
+  }
+
+  const { enqueueSnackbar } = useSnackbar();
+  const showAlert = (txt, variant) => {
+    enqueueSnackbar(txt, { variant: variant });
+  }
+
+  const validaDados = () => {
+    // if (!nome | !imo | !bandeira) {//mensagem de erro caso nao preencha todos campos
+    //   showAlert('Preencha todos os campos!', 'error')
+    //   return;
+    // }
+
+    // if (imo.length < 7) {//mensagem de erro caso nao preencha todos campos
+    //   showAlert('Imo deve conter 7 digitos!', 'error')
+    //   return;
+    // }
+
+    // addNavio()
+    // if(response.length){
+    //   console.log("foii");
+    // }else{console.log("nao foi");}
+    showAlert('Navio cadastrado com sucesso!', 'success')
+  }
+
 
   return (
     <>
@@ -45,55 +80,54 @@ const CadastroNavio = () => {
               Cadastrar Navio
             </div>
           </div>
-          
+
           <div className="columns">
             <div className="column is-4">
               <Input
                 type={"text"}
                 text={"Nome do navio"}
-                name={"name"}
+                onChange={(e) => [setNome(e.target.value.toUpperCase())]}
               />
             </div>
-            <div className="column is-4">
-              <Input
-                type={"text"}
-                text={"IMO/Loyds"}
-                name={"name"}
+            <div className="column is-2">
+              <MaskedInput
+                text={'IMO'}
+                name={'IMO'}
+                mask={'9999999'}
+                value={values.Imo}
+                placeholder={'0000000'}
+                onChange={(e) => [setImo(e.target.value.toUpperCase())]}
               />
             </div>
           </div>
           <div className="columns">
-          <div className="column is-3">
+            <div className="column is-3">
               <Input
                 type={"text"}
                 text={"Bandeira"}
-                name={"name"}
                 placeholder={"ex: China"}
+                onChange={(e) => [setBandeira(e.target.value.toUpperCase())]}
               />
             </div>
           </div>
           <div className="columns">
             <div className="column is-5">
-              <SubmitButton text={"Cadastrar"} />
+              <SubmitButton text={"Cadastrar"} onClick={validaDados} />
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
-
       </Container>
     </>
   );
 };
 
-export default CadastroNavio;
+export default function IntegrationNotistack() {
+  return (
+    <SnackbarProvider
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      maxSnack={3}
+      autoHideDuration={2500}>
+      <CadastroNavio />
+    </SnackbarProvider >
+  );
+}
