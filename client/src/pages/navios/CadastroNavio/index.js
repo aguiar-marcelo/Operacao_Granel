@@ -19,6 +19,7 @@ const CadastroNavio = () => {
   const [nome, setNome] = useState("");
   const [imo, setImo] = useState("");
   const [bandeira, setBandeira] = useState("");
+  const usuario = JSON.parse(localStorage.getItem("user_token")).id;
 
   const [values, setValues] = useState({});
   function handleChange(event) {
@@ -28,18 +29,20 @@ const CadastroNavio = () => {
     });
   }
 
+  
   const addNavio = () => {
-    Axios.post('http://localhost:8080/navio/criar', {
+    Axios.post('http://grifo:8080/navio/criar', {
       nome: nome,
       imo: imo,
-      bandeira: bandeira
+      bandeira: bandeira,
+      status: 'INATIVO',
+      usuario: usuario
     })
       .then(function (res) {
         console.log(res);
         res.data.sqlMessage ?
           showAlert(res.data.sqlMessage, 'error') :
           showAlert('Navio cadastrado com sucesso!', 'success');
-
       });
   }
 

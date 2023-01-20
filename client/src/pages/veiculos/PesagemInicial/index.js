@@ -4,11 +4,15 @@ import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import style from "./PesagemInicial.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
 import Select from "../../../components/select";
 import { useState } from "react";
+import Axios from "axios";
+import { SnackbarProvider, useSnackbar } from 'notistack';
+
+
 
 const PesagemInicial = () => {
   const navigate = useNavigate();
@@ -28,7 +32,33 @@ const PesagemInicial = () => {
   const [di, setDi] = useState();
   const [bl, setBl] = useState();
   const [data, setData] = useState();
-  
+  const [motorista, setMotorista] = useState({});
+
+
+  const getMotorista = () => {
+    Axios.get(`http://grifo:8080/motorista/busca/${cpf}`,)
+      .then(function (res) {
+        console.log(res.data);
+      });
+  }
+
+  const [values, setValues] = useState({});
+  function handleChange(event) {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  const { enqueueSnackbar } = useSnackbar();
+  const showAlert = (txt, variant) => {
+    enqueueSnackbar(txt, { variant: variant });
+  }
+  let { nome } = useParams();
+  let { cpf } = useParams();
+  let { cnh } = useParams();
+
+
   return (
     <>
       <Navbar veiculos />
@@ -110,4 +140,13 @@ const PesagemInicial = () => {
   );
 };
 
-export default PesagemInicial;
+export default function IntegrationNotistack() {
+  return (
+    <SnackbarProvider
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      maxSnack={3}
+      autoHideDuration={2500}>
+      <PesagemInicial />
+    </SnackbarProvider >
+  );
+}

@@ -26,12 +26,20 @@ function Navbar(props) {
                     <span className="item-text">Dashboard</span>
                   </div>
                 </li>
-                <li onClick={()=> navigate("/navios")} className={props.navios && "active"} >
+                <li onClick={()=> navigate("/navios")} className={props.navs && "active"} >
                   <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-ship icon"></i>                      
                     </span>
                     <span className="item-text">Navios</span>
+                  </div>
+                </li>
+                <li onClick={()=> navigate("/cargas")} className={props.cargas && "active"} >
+                  <div className="nav_bar">
+                    <span className="item-icon">
+                      <i className="fa fa-area-chart"></i>                      
+                    </span>
+                    <span className="item-text">Cargas</span>
                   </div>
                 </li>
                 {/*
@@ -46,7 +54,7 @@ function Navbar(props) {
                 */}
                 
 
-                <li onClick={()=> navigate("/veiculos")} className={props.veiculos && "active"} >
+                <li onClick={()=> navigate("/veiculos/BuscarMotorista")} className={props.veiculos && "active"} >
                   <div className="nav_bar">
                     <span className="item-icon">
                       <i className="fa fa-truck icon"></i>                      
@@ -131,6 +139,9 @@ function Navbar(props) {
                   </div>
                 </li>
               </ul>
+              <div className='version'>
+                v. 1.0
+              </div>
             </div>
           </nav>
         </div>

@@ -9,8 +9,7 @@
 	transition: 0.3s;
 	padding: 7px 45px;
 	margin-top: 25px;
-	margin-left: 2px;
-	
+	margin-left: 2px;	
 }.form_control button:hover{
 	background: #27AE60;
 	box-shadow: 

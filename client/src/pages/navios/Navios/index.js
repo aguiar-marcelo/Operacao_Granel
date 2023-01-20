@@ -17,16 +17,16 @@ const Navios = (props) => {
 
   const navigate = useNavigate();
 
-  const [navioList, setNavioList] = useState([]);
-  const [busca, setBusca] = useState("");
+  const [naviosList, setNaviosList] = useState([]);
+  const [i, setI] = useState(0);
 
   useEffect(() => {
-    getNavios();
+    
   }, [])
 
   const getNavios = () => {
-    Axios.get('http://localhost:8080/navio').then((response) => {
-      setNavioList(response.data)
+    Axios.get('http://grifo:8080/navio').then((response) => {
+      setNaviosList(response.data)
     });
   }
 
@@ -38,11 +38,13 @@ const Navios = (props) => {
     setOpenA(false);
   };
 
-
-
+  const DetalharNavio = (index) => {
+    setI(naviosList[index]);
+  }
+getNavios();
   return (
     <>
-      <Navbar navios />
+      <Navbar navs />
       <Header />
       <Brackground />
       <Container>
@@ -64,152 +66,50 @@ const Navios = (props) => {
               <div>STATUS</div>
             </div>
 
-            <div className={style.table_item} onClick={DetalhesNavio}>
-              <div>HONG YUAN</div>
-              <div>554449</div>
-              <div>CHINA</div>
-              <div>Aguardando Atracação</div>
-            </div>
-            <div className={style.table_item} onClick={DetalhesNavio}>
-              <div>THE GUARDIAN</div>
-              <div>164729</div>
-              <div>BRASIL</div>
-              <div>Paralizado</div>
-            </div>
+            {naviosList.map((val, key) => {
+              return (
+                <div className={style.table_item}
+                  onClick={() => [DetalhesNavio(), DetalharNavio(key)]}>
+                  <div>{val.NOME_NAVIO || "-"}</div>
+                  <div>{val.IMO_NAVIO || "-"}</div>
+                  <div>{val.BANDEIRA || "-"}</div>
+                  <div>{val.STATUS || "-"}</div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </Container>
-
-      {/* {containerList.filter((val) => {
-            if (busca == "") {
-              return val
-            } else if (val.nome.toLowerCase().includes(busca.toLowerCase()) || val.cliente.toLowerCase().includes(busca.toLowerCase()) || val.tipo.toLowerCase().includes(busca.toLowerCase()) || val.status.toLowerCase().includes(busca.toLowerCase()) || val.categoria.toLowerCase().includes(busca.toLowerCase())) {
-              return val
-            }
-          }).map((val, key) => {
-
-            return (
-              <div className={style.table_item}>
-                <div>{val.nome}</div>
-                <div>{val.cliente}</div>
-                <div className={style.center}>{val.tipo}</div>
-                <div className={style.center}>{val.status}</div>
-                <div className={style.center}>{val.categoria}</div>
-                <div className={style.icons}>
-
-                  <i class="fas fa-trash-alt"
-                    title="Deletar"
-                    onClick={() => { deleteContainer(val.id) }}>
-                  </i>
-
-                  <EditContainer container={val} />
-
-                  <i class="fas fa-retweet"
-                    title="Movimentações"
-                    onClick={() => { Direction(val.id) }}>
-                  </i>
-                </div>
-              </div>
-            )
-          })} */}
 
       <Detalhes open={openA} onClose={FecharDetalhesNavio} fullWidth>
         <div className={modal.modal}>
           <div className={modal.nav}>
             <div onClick={FecharDetalhesNavio}>Voltar</div>
-            <div className={modal.active}>Detalhes do Navio</div>
+            <div className={modal.active}>Detalhes do Navio </div>
           </div>
 
           <div className={modal.center}>
-            <div className={modal.status}><i className="fa fa-ship icon"></i>&nbsp;&nbsp;AGUARDANDO ATRACAÇÃO</div>
+            <div className={modal.status}><i className="fa fa-ship icon">
+            </i>&nbsp;&nbsp;{i.STATUS || "-"}</div>
           </div>
           <div className={modal.flex}>
             <div className={modal.detalhebox}>
-              <div><b>Nome:</b> HONG YUAN</div>
+              <div><b>Nome:</b> {i.NOME_NAVIO || "-"}</div>
             </div>
             <div className={modal.detalhebox}>
-              <div><b>IMO:</b> 554449</div>
+              <div><b>IMO:</b> {i.IMO_NAVIO || "-"}</div>
             </div>
             <div className={modal.detalhebox}>
-              <div><b>Bandeira:</b> CHINA</div>
-            </div>
-          </div>
-          <div className={modal.center}>
-            <div className={modal.cargas}>
-              DI/BL cadastrados
-              <div className={modal.sumario}>
-                <div>TIPO</div>
-                <div>CÓDIGO</div>
-                <div>IMPORTADOR</div>
-                <div>PRODUTO</div>
-                <div>QT. MANIFESTADA</div>
-              </div>
-              <div className={modal.lista}>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-
-              </div>
+              <div><b>Bandeira:</b> {i.BANDEIRA || "-"}</div>
             </div>
           </div>
           <div className={modal.flex}>
-            <button className={modal.finalizar}onClick={() => navigate("/cadastro-carga")}>
-              EDITAR CARGA</button>
-            <button className={modal.finalizar} onClick={() => navigate("/cadastro-operacao")}
-            >INICIAR OPERAÇÃO</button>
+            {/* <button className={modal.finalizar} onClick={() => navigate("/cadastro-carga")}>
+              EDITAR CARGA</button> */}
+            <button className={modal.finalizar}
+              onClick={() => navigate(`/operacao/cadastro/${i.NOME_NAVIO}/${i.COD_NAVIO}`)}>
+              INICIAR OPERAÇÃO
+            </button>
           </div>
         </div>
 

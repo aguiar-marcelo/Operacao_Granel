@@ -109,6 +109,7 @@
 	margin-right: 150px;
 	margin-top: 30px;
 	background-color: #F0F3F5;
+	color: #1F4D64;
 	border: 1px dashed #153240a2;
 	padding: 10px;
 
@@ -122,3 +123,9 @@
 	color:#153240	
 }
 
+.submit2{
+	display: flex;
+    justify-content: end;
+    margin-top: -70px;
+    margin-right: -5px;
+}

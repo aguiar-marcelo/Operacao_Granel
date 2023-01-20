@@ -81,3 +81,10 @@
     margin-top: 2vh;
     margin-bottom: 2vh;
 }
+
+a{
+    color: #153240;
+}
+a:hover{
+    color: #4400ff;
+}

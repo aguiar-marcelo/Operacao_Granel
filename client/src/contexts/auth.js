@@ -8,9 +8,9 @@ export const AuthProvider = ({ children }) => {
     // const [users, setUsers] = useState();
     const usersStorage = [
         { "id": "maguiar", "password": "12345", "nivel": "mestre", "nmcompleto": "Marcelo Aguiar Rocha dos Santos", "depto": "TI/STS" },
-        { "id": "lucas", "password": "12345", "nivel": "mestre", },
-        { "id": "joao", "password": "12345", "nivel": "mestre", },
-        { "id": "Anderson", "password": "12345", "nivel": "mestre", },
+        { "id": "lucas", "password": "12345", "nivel": "mestre","nmcompleto": "Lucas Rodrigues", "depto": "TI/STS" },
+        { "id": "joao", "password": "12345", "nivel": "mestre", "nmcompleto": "Joao Roberto Archiolli", "depto": "TI/STS"},
+        { "id": "arodrigues", "password": "12345", "nivel": "mestre","nmcompleto": "Anderson Rodrigues", "depto": "TI/STS" },
     ]
 
 
@@ -44,8 +44,8 @@ export const AuthProvider = ({ children }) => {
         if (hasUser?.length) {//caso exista esse usuario, verifica se id e senha esta correto
             if (hasUser[0].id === id && hasUser[0].password === password) {
                 //gera token
-                const nome = usersStorage[0].nmcompleto;
-                const departamento = usersStorage[0].depto;
+                const nome = hasUser[0].nmcompleto;
+                const departamento = hasUser[0].depto;
                 const token = Math.random().toString(36).substring(2);//gera token aleatorio
                 localStorage.setItem("user_token", JSON.stringify({ id, token, nome, departamento }));
                 setUser({ id, password, nome, departamento });
