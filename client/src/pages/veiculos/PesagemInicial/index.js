@@ -36,7 +36,7 @@ const PesagemInicial = () => {
 
 
   const getMotorista = () => {
-    Axios.get(`http://grifo:8080/motorista/busca/${cpf}`,)
+    Axios.get(`http://grifo:8080/motorista/busca/${nome}/${cpf}/${cnh}`,)
       .then(function (res) {
         console.log(res.data);
       });
@@ -89,9 +89,9 @@ const PesagemInicial = () => {
             <div className="columns">
               <div className="column is-4">
                 <div className={style.box}>
-                  <div>Motorista: Adilson de Jesus Silva Ferreira</div>
-                  <div>CPF: 460.050.968-42</div>
-                  <div>CNH: 002.566.58-65 </div>
+                  <div>Motorista: {nome}</div>
+                  <div>CPF: {cpf}</div>
+                  <div>CNH: {cnh} </div>
                 </div>
                 <div className={style.radio}>
                   <div className="control">

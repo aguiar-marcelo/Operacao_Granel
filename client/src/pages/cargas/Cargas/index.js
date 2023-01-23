@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import Navbar from "../../../components/Navbar";
+import { SnackbarProvider, useSnackbar } from 'notistack';
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
@@ -15,12 +16,25 @@ const Cargas = () => {
   const navigate = useNavigate();
 
   const [operacoesList, setOperacoesList] = useState([]);
+  const [cargas, setCargas] = useState([]);
   const [i, setI] = useState(0);
+
+  useEffect(() => {
+    getOperacoes()
+  }, [])
 
   const getOperacoes = () => {
     Axios.get('http://grifo:8080/operacao').then((response) => {
       setOperacoesList(response.data)
     });
+  }
+
+  const getCargas = (id) => {
+    Axios.get(`http://grifo:8080/carga/busca/${id}`,)
+      .then(function (res) {
+        console.log(res.data);
+        setCargas(res.data);
+      });
   }
 
   const [openA, setOpenA] = useState(false);
@@ -30,11 +44,11 @@ const Cargas = () => {
   const FecharDetalhesOp = () => {
     setOpenA(false);
   };
-   const DetalharOp = (index) => {
+  const DetalharOp = (index) => {
     setI(operacoesList[index]);
   }
 
-  getOperacoes();
+    ;
   return (
     <>
       <Navbar cargas />
@@ -58,8 +72,8 @@ const Cargas = () => {
             {operacoesList.map((val, key) => {
               return (
                 <div className={style.table_item}
-                onClick={()=>[DetalhesOp(),DetalharOp(key)] }>
-                  <div>{val.NOME_NAVIO || "-"}</div>
+                  onClick={() => [DetalhesOp(), DetalharOp(key), getCargas(val.COD_OPERACAO)]}>
+                  <div>{val.NOME_NAVIO || "-"} </div>
                   <div>{val.NOME_BERCO || "-"}</div>
                   <div>{val.STATUS_OPERACAO || "-"}</div>
                 </div>
@@ -74,7 +88,7 @@ const Cargas = () => {
         <div className={modal.modal}>
           <div className={modal.nav}>
             <div onClick={FecharDetalhesOp}>Voltar</div>
-            <div className={modal.active}>Detalhes do Navio</div>
+            <div className={modal.active}>Detalhes da Operação</div>
           </div>
 
           <div className={modal.center}>
@@ -99,71 +113,32 @@ const Cargas = () => {
                 <div>QT. MANIFESTADA</div>
               </div>
               <div className={modal.lista}>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-                <div className={modal.item}>
-                  <div>BL</div>
-                  <div>05</div>
-                  <div>YARA BRASIL FERT.</div>
-                  <div>URÉIA</div>
-                  <div>40000KG</div>
-                </div>
-
+                {cargas.length == 0 ?
+                  "nenhuma carga identificada"
+                  :
+                  cargas.map((val) => {
+                    return (<div className={modal.item}>
+                      <div>{val.TIPO}</div>
+                      <div>{val.NUMERO}</div>
+                      <div>{val.IMPORTADOR}</div>
+                      <div>{val.PRODUTO}</div>
+                      <div>{val.QTDE_MANIFESTADA}</div>
+                    </div>
+                    )
+                  })}
               </div>
             </div>
           </div>
           <div className={modal.flex}>
-            <button className={modal.finalizar} onClick={() => navigate("/cadastro-carga")}>
-              EDITAR CARGA</button>
-            <button className={modal.finalizar} onClick={() => navigate("/cadastro-operacao")}
-            >INICIAR OPERAÇÃO</button>
+            {i.STATUS_OPERACAO == 'AGUARDANDO DI/BL' ?
+              <button className={modal.finalizar}
+                onClick={() => navigate(`/cargas/cadastro/${i.NOME_NAVIO}/${i.COD_OPERACAO}`)}>
+                EDITAR CARGA
+              </button>
+              :
+              <div className={modal.center}>Não é possivel adicionar mais DI/Bl nesta operação</div>
+
+            }
           </div>
         </div>
 
@@ -172,4 +147,13 @@ const Cargas = () => {
   );
 };
 
-export default Cargas;
+export default function IntegrationNotistack() {
+  return (
+    <SnackbarProvider
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      maxSnack={3}
+      autoHideDuration={2500}>
+      <Cargas />
+    </SnackbarProvider >
+  );
+}

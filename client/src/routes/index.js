@@ -38,7 +38,7 @@ const RoutesApp = () => {
                     <Route exact path="/navios/cadastro" element={<Private Item={CadastroNavio} />} />
                     <Route exact path="/navios/detalhes" element={<Private Item={Detalhes} />} />
                     <Route exact path="/operacao/cadastro/:nome/:id" element={<Private Item={CadastroOperacao} />} />
-                    <Route exact path="/carga/cadastro/" element={<Private Item={CadastroCarga} />} />
+                    <Route exact path="/cargas/cadastro/:nome/:id" element={<Private Item={CadastroCarga} />} />
                     <Route exact path="/cargas" element={<Private Item={Cargas} />} />
                     <Route exact path="/operacoes" element={<Private Item={EmAndamento} />} />
                     <Route exact path="/operacao/:id" element={<Private Item={Operacao} />} />

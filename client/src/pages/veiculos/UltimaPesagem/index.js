@@ -7,7 +7,11 @@ import style from "./UltimaPesagem.module.css";
 import { useNavigate } from "react-router-dom";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
+import MaskedInput from "../../../components/InputMask";
 import { useState } from "react";
+import Axios from "axios";
+import { SnackbarProvider, useSnackbar } from 'notistack';
+import moment from "moment";
 
 const UltimaPesagem = () => {
   const navigate = useNavigate();
@@ -15,6 +19,42 @@ const UltimaPesagem = () => {
   const [cpf, setCpf] = useState();
   const [pesofinal, setPesofinal] = useState();
   const [data, setData] = useState();
+  const [busca, setBusca] = useState();
+  const [motorista, setMotorista] = useState({});
+
+
+
+  const getMotorista = () => {
+    Axios.get(`http://grifo:8080/motorista/busca/${busca}`,)
+      .then(function (res) {
+        console.log(res.data);
+        res.data.length > 0 ?
+          setMotorista(res.data[0], showAlert('Dados do motorista', 'success')) :
+          showAlert('Motorista não cadastrado', 'error');
+      });
+  }
+  const [values, setValues] = useState({});
+  function handleChange(event) {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  const { enqueueSnackbar } = useSnackbar();
+  const showAlert = (txt, variant) => {
+      enqueueSnackbar(txt, { variant: variant });
+  }
+
+  const validaDados = () => {
+    if (!busca) {
+      showAlert('Digite um CPF válido!', 'error')
+      return;
+    }
+    getMotorista();
+  }
+
+
 
   return (
     <>
@@ -31,7 +71,7 @@ const UltimaPesagem = () => {
               <div onClick={() => navigate("/veiculos")}>
                 Cadastrar Motorista
               </div>
-              <div onClick={() => navigate("/veiculos/PesagemInicial")}>
+              <div>
                 Pesagem Inicial
               </div>
               <div className={style.active}>
@@ -42,25 +82,38 @@ const UltimaPesagem = () => {
           <div className={'columns'}>
             <div className={'column is-2'}>
               <div className={style.periodo}>
-                <Input text={'Buscar CPF'} name={'buscarmotorista'} placeholder={'ex: 000.000.000-00'} />
+                <MaskedInput
+                  text={'Buscar CPF'}
+                  name={'cpf'}
+                  mask={'999.999.999-99'}
+                  placeholder={'000.000.000-00'}
+                  onChange={(e) => [setBusca(e.target.value)]}
+
+                />
               </div>
 
             </div>
             <div className={'column'}>
               <div className={style.submit}>
-                <SubmitButton text={'Buscar'} />
+                <SubmitButton text={'Buscar'} onClick={validaDados}/>
               </div>
             </div>
 
-            <div className={style.box}>
-              <div>Motorista: Adilson de Jesus Silva Ferreira</div>
-              <div>CPF: 460.050.968-42</div>
-              <div>CNH: 002.566.58-65 </div>
+            <div className="column is-5">
+              <div className={style.box}>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="content">
+                      <div>Motorista: {motorista.NOME_MOTORISTA}</div>
+                      <div>CPF: {motorista.CPF_MOTORISTA}</div>
+                      <div>CNH: {motorista.CNH_MOTORISTA}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-
-
-
           <div className="columns">
             <div className="column">
               <div className={style.flex}>
@@ -100,11 +153,20 @@ const UltimaPesagem = () => {
 
             </div>
           </div>
-          <div className="column">
+          <div className="columns">
             <div className="column">
               <div className={style.input}>
-                <Input type={'text'} text={'Peso do veículo carregado'} placeholder={'10.000kg'} />
-                <Input type={'datetime-local'} text={'Peso do veículo carregado'} />
+                <div className={style.input2}>                  
+                  <MaskedInput
+                  text={'Peso do veículo carregado'}
+                  mask={'99.999 kg'}
+                  placeholder={'1.000 kg'}
+                  onChange={(e) => [setPesofinal(e.target.value)]}
+                />
+                </div>                
+                <Input type={'date'} text={'Peso do veículo carregado'} 
+                onChange={moment().format("DD/MM/YYYY")}
+               />
               </div>
             </div>
           </div>
@@ -118,4 +180,13 @@ const UltimaPesagem = () => {
   );
 };
 
-export default UltimaPesagem;
+export default function IntegrationNotistack() {
+  return (
+      <SnackbarProvider
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          maxSnack={3}
+          autoHideDuration={2500}>
+          <UltimaPesagem />
+      </SnackbarProvider >
+  );
+}

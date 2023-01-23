@@ -7,7 +7,7 @@ import style from "./CadastroMotorista.module.css";
 import Input from "../../../components/Input";
 import SubmitButton from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
-import  Axios  from "axios";
+import Axios from "axios";
 import MaskedInput from "../../../components/InputMask";
 import { SnackbarProvider, useSnackbar } from 'notistack';
 
@@ -74,9 +74,6 @@ const CadastroMotorista = () => {
 
                             <div className={style.active}>
                                 Cadastrar Motorista
-                            </div>
-                            <div>
-                                Pesagem inicial
                             </div>
                             <div onClick={() => navigate("/veiculos/UltimaPesagem")}>
                                 Pesagem Final

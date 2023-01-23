@@ -18,7 +18,6 @@ const BuscarMotorista = () => {
 
     const [busca, setBusca] = useState();
     const [motorista, setMotorista] = useState({});
-    const [historico, setHistorico] = useState();
 
 
     const getMotorista = () => {
@@ -53,11 +52,11 @@ const BuscarMotorista = () => {
     }
 
     const validaPesagem = () => {
-        if (motorista.CPF_MOTORISTA == undefined){
+        if (motorista.CPF_MOTORISTA == undefined) {
             showAlert('Digite um CPF válido!', 'error')
             return;
         }
-        else{
+        else {
             navigate(`/veiculos/PesagemInicial/${motorista.NOME_MOTORISTA}/${motorista.CPF_MOTORISTA}/${motorista.CNH_MOTORISTA}`)
         }
     }
@@ -76,9 +75,6 @@ const BuscarMotorista = () => {
                             </div>
                             <div onClick={() => navigate("/veiculos")}>
                                 Cadastrar Motorista
-                            </div>
-                            <div>
-                                Pesagem Inicial
                             </div>
                             <div onClick={() => navigate("/veiculos/UltimaPesagem")} >
                                 Pesagem Final
@@ -111,13 +107,19 @@ const BuscarMotorista = () => {
 
                         </div>
 
-
-                        <div className={style.box}>
-                            <div>Motorista: {motorista.NOME_MOTORISTA}</div>
-                            <div>CPF: {motorista.CPF_MOTORISTA}</div>
-                            <div>CNH: {motorista.CNH_MOTORISTA}</div>
-                            <div className={style.submit2}>
-                                <SubmitButton text={'Pesar'} onClick={validaPesagem}/>
+                        <div className="column is-5">
+                            <div className={style.box}>
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="content">
+                                            <div>Motorista: {motorista.NOME_MOTORISTA}</div>
+                                            <div>CPF: {motorista.CPF_MOTORISTA}</div>
+                                            <div>CNH: {motorista.CNH_MOTORISTA}</div>
+                                            <div className={style.submit2}>
+                                                <SubmitButton text={'Pesar'} onClick={validaPesagem} /></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -151,10 +153,8 @@ const BuscarMotorista = () => {
 
                             </div>
                             <div className={style.lista}>
-
-
-
-                                <div className={'columns'}>
+                                nenhum histórico encontrado
+                                {/* <div className={'columns'}>
                                     <div className={'column is-one-fifth'}>
                                         <div>BLL-2799 </div>
                                         <div>BLL-2799 </div>
@@ -205,7 +205,7 @@ const BuscarMotorista = () => {
 
                                     </div>
 
-                                </div>
+                                </div> */}
 
                             </div>
                         </div>

@@ -126,9 +126,11 @@
   left: 0;
 }
 .version{
-  margin-left: 10px;
+  margin-left: 5px;
   margin-top: 150px;
-  padding: 5%;
+  padding: 4%;
+  color: #999;
+
 }
 
 /*

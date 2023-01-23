@@ -82,7 +82,7 @@
 
 .sumario {
 	display: grid;
-	grid-template-columns: 1fr 1.5fr 3fr 1.5fr 2fr;
+	grid-template-columns: 0.6fr 1.5fr 3fr 1.5fr 1.5fr;
 	margin: 5px 0;
 	margin-right: 12px;
 	font-size: 13px;
@@ -117,15 +117,18 @@
 
 .item {
 	display: grid;
-	grid-template-columns: 1fr 1.5fr 3fr 1.5fr 2fr;
+	margin-right: 12px;
+	grid-template-columns: 0.6fr 1.5fr 3fr 1.5fr 1.5fr;
 	border-top: 1px solid #d8d8d8;
 }
 
 .item div {
-	width: auto;
 	font-weight: 400;
 	font-size: 14px;
 	color: #585858;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
 }
 
 

@@ -28,7 +28,7 @@ const CadastroOperacao = () => {
   let { nome } = useParams();
 
   const [empresas, setEmpresas] = useState();
-  const [agentes, setAgentes] = useState();
+  const [clientes, setClientes] = useState();
   const [bercos, setBercos] = useState();
 
   const [empresa, setEmpresa] = useState("");
@@ -37,7 +37,6 @@ const CadastroOperacao = () => {
   const [previsao, setPrevisao] = useState("");
   const [rap, setRap] = useState("");
   const [berco, setBerco] = useState("");
-  const [agora, setagr] = useState("");
   const usuario = JSON.parse(localStorage.getItem("user_token")).id;
 
   const getEmpresas = () => {
@@ -46,8 +45,8 @@ const CadastroOperacao = () => {
     });
   }
   const getAgentes = () => {
-    Axios.get('http://grifo:8080/agentes').then((response) => {
-      setAgentes(response.data);
+    Axios.get('http://grifo:8080/clientes').then((response) => {
+      setClientes(response.data);
     });
   }
   const getBercos = () => {
@@ -73,7 +72,7 @@ const CadastroOperacao = () => {
       berco: berco,
       eta: eta,
       previsao: previsao,
-      status: 'INATIVO',
+      status: 'AGUARDANDO DI/BL',
       usuario: usuario,
       data: getDate()
     })
@@ -84,6 +83,7 @@ const CadastroOperacao = () => {
           showAlert('Nova Operação cadastrada com sucesso!', 'success');
       });
   }
+
 
   const validaDados = () => {
     console.log(getDate());
@@ -126,16 +126,15 @@ const CadastroOperacao = () => {
               </select>
             </div>
             <div className={style.form_control}>
-              <label>AGENTE:</label>
+              <label>Agente:</label>
               <select onChange={(e) => [setAgente(e.target.value)]}>
                 <option disabled selected>Selecione uma opção</option>
-                {agentes?.map((val, key) => {
+                {clientes?.map((val, key) => {
                   return (
-                    <option value={val.COD_AGENTE}>{val.NOME_AGENTE}</option>
+                    <option value={val.COD_CLIENTE}>{val.NOME_CLIENTE}</option>
                   )
                 })}
               </select>
-
             </div>
           </div>
           <div className={style.flex}>
