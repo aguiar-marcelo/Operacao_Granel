@@ -16,16 +16,17 @@ import moment from "moment";
 const UltimaPesagem = () => {
   const navigate = useNavigate();
 
-  const [cpf, setCpf] = useState();
-  const [pesofinal, setPesofinal] = useState();
+  const usuario = JSON.parse(localStorage.getItem("user_token")).id;
   const [data, setData] = useState();
   const [busca, setBusca] = useState();
   const [motorista, setMotorista] = useState({});
-
-
+  const [codmotorista, setCodmotorista] = useState('');
+  const [pesobruto, setPesobruto] = useState('');
+  const [databruto, setDatabruto] = useState('');
+  const [cpf, setCpf] = useState('');
 
   const getMotorista = () => {
-    Axios.get(`http://grifo:8080/motorista/busca/${busca}`,)
+    Axios.get(`http://grifo:8080/ultimapesagem/busca/${busca}`,)
       .then(function (res) {
         console.log(res.data);
         res.data.length > 0 ?
@@ -33,25 +34,51 @@ const UltimaPesagem = () => {
           showAlert('Motorista não cadastrado', 'error');
       });
   }
-  const [values, setValues] = useState({});
-  function handleChange(event) {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value
+
+
+  const addPesagem = () => {
+    Axios.put(`http://grifo:8080/ultimapesagem`, {
+      peso3: pesobruto,
+      data: databruto,
+      usuario: usuario,
+      status:'3',
+      id: motorista.ID_CARREGAMENTO
+    }).then(function (res) {
+      console.log(res);
+      res.data.sqlMessage ?
+        showAlert(res.data.sqlMessage, 'error') :
+        showAlert('Pesagem cadastrada com sucesso!', 'success');
+        setTimeout(() => {
+          navigate("/veiculos/BuscarMotorista")
+        }, 2000);
     });
+  }
+
+
+  const getDate = () => {
+    return new Date().toISOString().slice(0, 19).replace('T', ' ');
   }
 
   const { enqueueSnackbar } = useSnackbar();
   const showAlert = (txt, variant) => {
-      enqueueSnackbar(txt, { variant: variant });
+    enqueueSnackbar(txt, { variant: variant });
   }
 
   const validaDados = () => {
     if (!busca) {
-      showAlert('Digite um CPF válido!', 'error')
-      return;
+      return showAlert('Digite um CPF válido!', 'error');
+    } else {
+      getMotorista();
     }
-    getMotorista();
+  }
+
+  const validaPesagem = () => {
+    if (!busca | !pesobruto | !databruto) {
+      showAlert('Digite um CPF válido, ou preencha todos os campos!', 'error');
+      return
+    }
+    addPesagem()
+
   }
 
 
@@ -70,9 +97,6 @@ const UltimaPesagem = () => {
               </div>
               <div onClick={() => navigate("/veiculos")}>
                 Cadastrar Motorista
-              </div>
-              <div>
-                Pesagem Inicial
               </div>
               <div className={style.active}>
                 Pesagem Final
@@ -95,7 +119,7 @@ const UltimaPesagem = () => {
             </div>
             <div className={'column'}>
               <div className={style.submit}>
-                <SubmitButton text={'Buscar'} onClick={validaDados}/>
+                <SubmitButton text={'Buscar'} onClick={validaDados} />
               </div>
             </div>
 
@@ -104,9 +128,9 @@ const UltimaPesagem = () => {
                 <div class="card">
                   <div class="card-content">
                     <div class="content">
-                      <div>Motorista: {motorista.NOME_MOTORISTA}</div>
-                      <div>CPF: {motorista.CPF_MOTORISTA}</div>
-                      <div>CNH: {motorista.CNH_MOTORISTA}</div>
+                      <div><b className={style.name}>Motorista:</b> {motorista.NOME_MOTORISTA}</div>
+                      <div><b className={style.name}>CPF:</b> {motorista.CPF_MOTORISTA}</div>
+                      <div><b className={style.name}>CNH:</b> {motorista.CNH_MOTORISTA}</div>
                     </div>
                   </div>
                 </div>
@@ -114,7 +138,7 @@ const UltimaPesagem = () => {
 
             </div>
           </div>
-          <div className="columns">
+          {/* <div className="columns">
             <div className="column">
               <div className={style.flex}>
                 <div>Peso inicial<br /><div></div></div>
@@ -152,26 +176,28 @@ const UltimaPesagem = () => {
             <div className="column">
 
             </div>
-          </div>
+          </div> */}
           <div className="columns">
             <div className="column">
               <div className={style.input}>
-                <div className={style.input2}>                  
+                <div className={style.input2}>
                   <MaskedInput
-                  text={'Peso do veículo carregado'}
-                  mask={'99.999 kg'}
-                  placeholder={'1.000 kg'}
-                  onChange={(e) => [setPesofinal(e.target.value)]}
+                    text={'Peso do veículo carregado'}
+                    mask={'99.999 kg'}
+                    placeholder={'1.000 kg'}
+                    onChange={(e) => [setPesobruto(e.target.value)]}
+                  />
+                </div>
+                <Input type={'datetime-local'} text={'Data e Hora'}
+                  onChange={(e) => setDatabruto(e.target.value)}
                 />
-                </div>                
-                <Input type={'date'} text={'Peso do veículo carregado'} 
-                onChange={moment().format("DD/MM/YYYY")}
-               />
               </div>
             </div>
           </div>
 
-          <SubmitButton text={"Cadastrar"} />
+          <SubmitButton text={"Cadastrar"}
+            onClick={validaPesagem}
+          />
 
         </div>
       </Container>
@@ -182,11 +208,11 @@ const UltimaPesagem = () => {
 
 export default function IntegrationNotistack() {
   return (
-      <SnackbarProvider
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          maxSnack={3}
-          autoHideDuration={2500}>
-          <UltimaPesagem />
-      </SnackbarProvider >
+    <SnackbarProvider
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      maxSnack={3}
+      autoHideDuration={2500}>
+      <UltimaPesagem />
+    </SnackbarProvider >
   );
 }

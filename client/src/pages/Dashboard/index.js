@@ -18,19 +18,7 @@ const Dashboard = () => {
     <Brackground />
     <Container>
     <h1>Dashboard</h1> <br/>
-      <h2>teste teste teste teste</h2>
-
-     
-
-      <Input type={"text"} text={"nome"} name={"name"} placeholder={"ex: 10kg...."} />
-
-      <Select name={"alguma coisa"} text={"selecione a categoria"}/>
-
-      <SubmitButton text={"alguma coisa"}/>
       
-     
-
-    
       
     </Container>
       

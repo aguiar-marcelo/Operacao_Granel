@@ -35,7 +35,7 @@ const CadastroNavio = () => {
       nome: nome,
       imo: imo,
       bandeira: bandeira,
-      status: 'INATIVO',
+      status: 'AGUARDANDO INÍCIO DA OPERAÇÃO',
       usuario: usuario
     })
       .then(function (res) {
@@ -43,6 +43,9 @@ const CadastroNavio = () => {
         res.data.sqlMessage ?
           showAlert(res.data.sqlMessage, 'error') :
           showAlert('Navio cadastrado com sucesso!', 'success');
+          setTimeout(() => {
+            navigate("/navios")
+          }, 2000);
       });
   }
 
@@ -57,7 +60,7 @@ const CadastroNavio = () => {
       return;
     }
     if (imo.length < 7) {
-      showAlert('Imo deve conter 7 digitos!', 'error')
+      showAlert('Imo deve conter 8 digitos!', 'error')
       return;
     }
     addNavio();
@@ -92,7 +95,7 @@ const CadastroNavio = () => {
               <MaskedInput
                 text={'IMO'}
                 name={'IMO'}
-                mask={'9999999'}
+                mask={'99999999'}
                 value={values.Imo}
                 placeholder={'0000000'}
                 onChange={(e) => [setImo(e.target.value.toUpperCase())]}

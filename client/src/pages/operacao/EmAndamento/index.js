@@ -6,12 +6,9 @@ import Navbar from "../../../components/Navbar";
 import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
-import Input from "../../../components/Input";
-import Confirm from '@mui/material/Dialog';
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import style from "./EmAndamento.module.css"
 import modal from "./Modal.module.css"
-
 
 
 const EmAndamento = () => {
@@ -37,42 +34,22 @@ const EmAndamento = () => {
     });
   }
 
-  const registrarAtracacao = () => {
-    if (date == "") {
-      showAlert("Preencha a data e horário!", 'error');
-      return
-    }
-    Axios.put('http://grifo:8080/operacao/registrar/atracacao',
-      {
-        id: i,
-        date: date
-      }).then(function (res) {
-        res.data.sqlMessage ?
-          showAlert(res.data.sqlMessage, 'error') :
-          showAlert('Documentação concluida com sucesso!', 'success');
-        FecharConfirm();
-        getOperacoes();
-        setDate("");
-      });
-  }
-
 
   const abrirDash = (id, status) => {
     if (status == "AGUARDANDO DI/BL") {
-      showAlert('Documentação deve ser concluida antes de acessar o Dashboard', 'error')
+      showAlert('Documentação deve ser concluída antes de acessar o Dashboard', 'error')
     }
 
     if (status == "AGUARDANDO ATRACAÇÃO") {
-      setI(id)
-      AbrirConfirm()
+      showAlert('Um usuário autorizado deve registrar a atracação!', 'error')
     }
 
-    if (status == "OPERANDO") {
+    if (status == "OPERANDO" ||status == "PARALISADO") {
       navigate(`/operacao/${id}`)
     }
   }
 
-  const [openA, setOpenA] = useState(true);
+  const [openA, setOpenA] = useState(false);
   const AbrirConfirm = () => {
     setOpenA(true);
   };
@@ -114,29 +91,7 @@ const EmAndamento = () => {
           </div>
         </div>
       </Container>
-      <Confirm open={openA} onClose={FecharConfirm} fullWidth>
-        <div className={modal.modal}>
-          <div className={modal.nav}>
-            <div onClick={FecharConfirm}>Voltar </div>
-          </div>
-          <div className={modal.center}>
-            Deseja registrar a Atracação desta Operação?
-            <br />
-            <div>ao confirmar o Dashboard será liberado!</div>
-          </div>
-          <div className={modal.inputbox}>
-            <Input
-              type={"datetime-local"}
-              text={"Data e hora da Atracação"}
-              onChange={(e) => [setDate(e.target.value)]}
-            />
-          </div>
-          <div className={modal.flex}>
-            <button className={modal.cancelar} onClick={FecharConfirm}>CANCELAR</button>
-            <button className={modal.confirmar} onClick={registrarAtracacao}>CONFIRMAR</button>
-          </div>
-        </div>
-      </Confirm>
+      
     </>
   );
 };
@@ -146,7 +101,7 @@ export default function IntegrationNotistack() {
     <SnackbarProvider
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       maxSnack={3}
-      autoHideDuration={2500}>
+      autoHideDuration={3000}>
       <EmAndamento />
     </SnackbarProvider >
   );

@@ -47,7 +47,7 @@ const RoutesApp = () => {
                     <Route exact path="/relatorios" element={<Private Item={Relatorios} />} />
                     <Route exact path="/suporte" element={<Private Item={Suporte} />} />
                     <Route exact path="/veiculos/" element={<Private Item={CadastroMotorista} />} />
-                    <Route exact path="/veiculos/pesageminicial/:nome/:cpf/:cnh" element={<Private Item={PesagemInicial} />} />
+                    <Route exact path="/veiculos/pesageminicial/:nome/:cpf/:cnh/:id" element={<Private Item={PesagemInicial} />} />
                     <Route exact path="/veiculos/ultimapesagem" element={<Private Item={UltimaPesagem} />} />
                     <Route exact path="/veiculos/buscarmotorista" element={<Private Item={BuscarMotorista} />} />
                     <Route path="/" element={<Private Item={Dashboard} />} />

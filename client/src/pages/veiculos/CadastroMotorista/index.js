@@ -15,7 +15,7 @@ const CadastroMotorista = () => {
 
     const [nome, setNome] = useState("");
     const usuario = JSON.parse(localStorage.getItem("user_token")).id;
-    const [cnh, setCnh] = useState("");
+    const [cnh, setCnh] = useState(null);
     const [cpf, setCpf] = useState("");
 
     const getMotorista = () => {
@@ -39,7 +39,7 @@ const CadastroMotorista = () => {
         enqueueSnackbar(txt, { variant: variant });
     }
     const validaDados = () => {
-        if (!cpf | !cnh | !nome) {
+        if (!cpf | !nome) {
             showAlert('Preencha todos os campos', 'error')
             return;
         }
@@ -90,14 +90,14 @@ const CadastroMotorista = () => {
                         </div>
                         <div className={'column is-3'}>
                             <Input type={"text"}
-                                text={"CNH do motorista"}
+                                text={"CNH do motorista (opcional)"}
                                 placeholder={"ex: 000.000.000"}
                                 onChange={(e) => [setCnh(e.target.value.toUpperCase())]}
                             />
                         </div>
                         <div className={'column is-2'}>
                             <MaskedInput
-                                text={'Buscar CPF'}
+                                text={'CPF'}
                                 name={'cpf'}
                                 mask={'999.999.999-99'}
                                 value={values.busca}

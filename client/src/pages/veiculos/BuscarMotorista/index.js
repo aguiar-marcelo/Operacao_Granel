@@ -16,6 +16,8 @@ const BuscarMotorista = () => {
 
     const navigate = useNavigate();
 
+
+
     const [busca, setBusca] = useState();
     const [motorista, setMotorista] = useState({});
 
@@ -57,7 +59,7 @@ const BuscarMotorista = () => {
             return;
         }
         else {
-            navigate(`/veiculos/PesagemInicial/${motorista.NOME_MOTORISTA}/${motorista.CPF_MOTORISTA}/${motorista.CNH_MOTORISTA}`)
+            navigate(`/veiculos/PesagemInicial/${motorista.NOME_MOTORISTA}/${motorista.CPF_MOTORISTA}/${motorista.CNH_MOTORISTA}/${motorista.COD_MOTORISTA}`)
         }
     }
 
@@ -87,12 +89,14 @@ const BuscarMotorista = () => {
                             <div className={style.periodo}>
 
                                 <MaskedInput
+
                                     text={'Buscar CPF'}
                                     name={'cpf'}
                                     mask={'999.999.999-99'}
                                     value={values.busca}
                                     placeholder={'000.000.000-00'}
                                     onChange={(e) => [setBusca(e.target.value)]}
+                                    autofocus
 
                                 />
                             </div>
@@ -100,7 +104,8 @@ const BuscarMotorista = () => {
                         </div>
                         <div className={'column'}>
                             <div className={style.submit}>
-                                <SubmitButton text={'Buscar'} onClick={validaDados} />
+                                <SubmitButton text={'Buscar'}
+                                    onClick={validaDados} />
                             </div>
 
 
@@ -109,12 +114,12 @@ const BuscarMotorista = () => {
 
                         <div className="column is-5">
                             <div className={style.box}>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <div class="content">
-                                            <div>Motorista: {motorista.NOME_MOTORISTA}</div>
-                                            <div>CPF: {motorista.CPF_MOTORISTA}</div>
-                                            <div>CNH: {motorista.CNH_MOTORISTA}</div>
+                                <div className="card">
+                                    <div className="card-content">
+                                        <div className="content">
+                                            <div> <strong className={style.name}>Motorista:</strong> {motorista.NOME_MOTORISTA}</div>
+                                            <div><strong className={style.name}>CPF:</strong> {motorista.CPF_MOTORISTA}</div>
+                                            <div><strong className={style.name}>CNH:</strong> {motorista.CNH_MOTORISTA}</div>
                                             <div className={style.submit2}>
                                                 <SubmitButton text={'Pesar'} onClick={validaPesagem} /></div>
                                         </div>

@@ -1,3 +1,11 @@
+
+.notform {
+	text-align: center;
+	font-size: 29px;
+	padding: 150px;
+	color: #1f4d64;
+}
+
 .content {
 	margin: 0 auto;
 	width: 98%;
@@ -33,6 +41,7 @@
 
 /*-----------------------------------------------*/
 
+
 .flex {
 	margin-top: 0.7vw;
 	display: flex;
@@ -64,10 +73,16 @@
 	font-size: 22px;
 	font-weight: 600;
 	transform: translateY(-50%);
-	background-color: #F6BFBF;
-	color: #C00000;
 	padding: 4px 7px;
 	border-radius: 3px;
+}
+.OPERANDO{
+	background-color: #bff6cd;
+	color: #004e07;
+}
+.PARALISADO{
+	background-color: #f79d9d;
+	color: #790000;
 }
 
 .tara {

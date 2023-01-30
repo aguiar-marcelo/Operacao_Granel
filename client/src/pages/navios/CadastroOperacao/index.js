@@ -33,6 +33,7 @@ const CadastroOperacao = () => {
 
   const [empresa, setEmpresa] = useState("");
   const [agente, setAgente] = useState("");
+  const [agentes, setAgentes] = useState();
   const [eta, setEta] = useState("");
   const [previsao, setPrevisao] = useState("");
   const [rap, setRap] = useState("");
@@ -45,8 +46,8 @@ const CadastroOperacao = () => {
     });
   }
   const getAgentes = () => {
-    Axios.get('http://grifo:8080/clientes').then((response) => {
-      setClientes(response.data);
+    Axios.get('http://grifo:8080/agentes').then((response) => {
+      setAgentes(response.data);
     });
   }
   const getBercos = () => {
@@ -55,7 +56,7 @@ const CadastroOperacao = () => {
     });
   }
   const getDate = () => {
-    return new Date().toISOString().slice(0, 19).replace('T', ' ');
+    return moment(new Date()).format("YYYY-MM-DD HH:mm")
   }
 
   const { enqueueSnackbar } = useSnackbar();
@@ -70,8 +71,8 @@ const CadastroOperacao = () => {
       rap: rap,
       agente: agente,
       berco: berco,
-      eta: eta,
-      previsao: previsao,
+      eta: moment(eta).format("YYYY-MM-DD HH:mm"),
+      previsao: moment(previsao).format("YYYY-MM-DD HH:mm"),
       status: 'AGUARDANDO DI/BL',
       usuario: usuario,
       data: getDate()
@@ -81,14 +82,15 @@ const CadastroOperacao = () => {
         res.data.sqlMessage ?
           showAlert(res.data.sqlMessage, 'error') :
           showAlert('Nova Operação cadastrada com sucesso!', 'success');
+          setTimeout(() => {
+            navigate("/navios")
+          }, 2000);
       });
   }
 
 
   const validaDados = () => {
-    console.log(getDate());
-    console.log(moment(eta).format("YYYY-MM-DD HH:mm:ss"));
-    if (!empresa | !agente | !eta | !previsao | !rap | !berco) {
+    if (!empresa |!agente| !eta | !previsao | !rap | !berco) {
       showAlert('Preencha todos os campos!', 'error')
       return;
     }
@@ -115,7 +117,7 @@ const CadastroOperacao = () => {
           </div>
           <div className={style.flex}>
             <div className={style.form_control}>
-              <label>Empresa:</label>
+              <label>Empresa:</label><br/>
               <select onChange={(e) => [setEmpresa(e.target.value)]}>
                 <option disabled selected>Selecione uma opção</option>
                 {empresas?.map((val, key) => {
@@ -129,24 +131,26 @@ const CadastroOperacao = () => {
               <label>Agente:</label>
               <select onChange={(e) => [setAgente(e.target.value)]}>
                 <option disabled selected>Selecione uma opção</option>
-                {clientes?.map((val, key) => {
+                {agentes?.map((val, key) => {
                   return (
-                    <option value={val.COD_CLIENTE}>{val.NOME_CLIENTE}</option>
+                    <option value={val.COD_AGENTE}>{val.NOME_AGENTE}</option>
                   )
                 })}
               </select>
             </div>
           </div>
           <div className={style.flex}>
+            
             <Input
               type={"datetime-local"}
               text={"ETA"}
               onChange={(e) => [setEta(e.target.value)]}
             />
             <Input
-              type={"date"}
+              type={"datetime-local"}
               text={"Previsão de Atracação"}
-              onChange={(e) => [setPrevisao(e.target.value)]}
+              onChange={(e) => [setPrevisao(e.target.value)]              
+              }
             />
             <Input
               type={"text"}
@@ -165,19 +169,6 @@ const CadastroOperacao = () => {
                 })}
               </select>
             </div>
-
-            {/* <div className={style.form_control}>
-              <label htmlFor={name}>{text}:</label>
-              <select name={name} id={name}>
-                <option>Selecione uma opção</option>
-                 {options.map((option) => (                
-                <option value={option.id} key={option.id}>{option.name}</option>
-            ))} 
-
-
-              </select>
-
-            </div> */}
 
           </div>
           <SubmitButton text={"Cadastrar"} onClick={validaDados} />

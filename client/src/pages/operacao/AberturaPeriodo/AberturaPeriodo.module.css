@@ -1,3 +1,10 @@
+.notform {
+	text-align: center;
+	font-size: 29px;
+	padding: 150px;
+	color: #1f4d64;
+}
+
 .content {
 	margin: 0 auto;
 	width: 98%;
@@ -15,47 +22,76 @@
 	display: flex;
 }
 
-.nav div{
+.nav div {
 	padding: 0 1vw;
 	margin-bottom: -1px;
 	cursor: pointer;
 }
-.nav a{
+
+.nav a {
 	text-decoration: none;
 	color: #bbbbbb;
 }
 
-.active{
+.active {
 	color: #1f4d64;
 	border-bottom: 3px solid #1f4d64;
 }
 
-.modal {  
-    border-radius: 20px;
+.modal {
+	border-radius: 20px;
 	padding: 3%;
 
 }
 
-.title{
+.title {
 	text-align: center;
 	font-weight: 600;
 	font-size: 25px;
 }
-.selecti{
-	
+
+.selecti {
+
 	margin-bottom: 15px;
 	border: 1px dashed #153240a2;
 	margin-right: 20px;
-	margin-top: 20px;	
+	margin-top: 20px;
 	background-color: #F0F3F5;
 	padding: 5%;
 }
-.submit{
+
+.submit {
 	text-align: center;
 }
-.conexo{
+
+.conexo {
 	margin-top: 20px;
 }
-.agente{
+
+.agente {
 	width: 100%;
+}
+
+
+.form_control {
+	width: 100%;
+	margin-top: 2vh;
+	font-size: 16px;
+	height: 70px;
+}
+
+.form_control select {
+	font-size: 16px;
+	width: 96%;
+	padding: 8px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.form_control select:focus {
+	border: 1px solid #8ad4ee;
+	outline: 3px solid #8ad4ee80;
 }

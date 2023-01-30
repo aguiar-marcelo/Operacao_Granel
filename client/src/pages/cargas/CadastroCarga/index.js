@@ -13,6 +13,7 @@ import SubmitButton from "../../../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import style from "./CadastroCarga.module.css";
 import modal from "./Modal.module.css";
+import MaskedInput from "../../../components/InputMask";
 
 const CadastroCarga = () => {
   const navigate = useNavigate();
@@ -23,13 +24,13 @@ const CadastroCarga = () => {
   const [tipo, setTipo] = useState("");
   const [perigo, setPerigo] = useState("");
   const [numero, setNumero] = useState("");
+  const [agentes, setAgentes] = useState();
   const [agente, setAgente] = useState("");
   const [emissao, setEmissao] = useState("");
   const [produto, setProduto] = useState("");
   const [ncm, setNcm] = useState("");
   const [manifestado, setManifestado] = useState("");
-  const [referencia, setReferencia] = useState("");
-
+  const [cemercante, setCemercante] = useState("");
   const [cargas, setCargas] = useState([]);
   const [clientes, setClientes] = useState([]);
   const [ncms, setNcms] = useState([]);
@@ -38,6 +39,7 @@ const CadastroCarga = () => {
   useEffect(() => {
     getCargas();
     getClientes();
+    getAgentes()
     getProdutos();
     getNcms();
   }, [])
@@ -64,6 +66,8 @@ const CadastroCarga = () => {
       });
   }
 
+
+
   var total = cargas.reduce(getTotal, 0);
   function getTotal(total, item) {
     return total + (item.QTDE_MANIFESTADA * 1);
@@ -77,9 +81,10 @@ const CadastroCarga = () => {
       numero: numero,
       emissao: emissao,
       cliente: agente,
-      referencia: referencia,
+      referencia: numero.substring(6),
       produto: produto,
       ncm: ncm,
+      cemercante: cemercante,
       perigo: perigo,
       manifestado: manifestado,
       status: '1',
@@ -128,14 +133,14 @@ const CadastroCarga = () => {
   }
 
   const validaDados = () => {
-    if (!tipo | !numero | !agente | !emissao | !produto | !ncm | !manifestado | !referencia) {
+    if (!tipo | !numero | !agente | !cemercante | !emissao | !produto | !ncm | !manifestado) {
       showAlert('Preencha todos os campos!', 'error')
       return;
     }
     addCarga();
   }
 
-  
+
   const [openA, setOpenA] = useState(false);
   const AbrirConfirm = () => {
     setOpenA(true);
@@ -146,7 +151,11 @@ const CadastroCarga = () => {
 
 
 
-
+  const getAgentes = () => {
+    Axios.get('http://grifo:8080/agentes').then((response) => {
+      setAgentes(response.data);
+    });
+  }
 
 
   return (
@@ -179,6 +188,15 @@ const CadastroCarga = () => {
                 <option value={"DI"}>DI</option>
               </select>
             </div>
+            
+
+            <MaskedInput
+              text={'Número do documento'}
+              mask={'9999999999'}
+              placeholder={''}
+              onChange={(e) => [setNumero(e.target.value)]}
+              autofocus
+            />
             <div className={style.form_control}>
               <label>Produto Perigoso: <br /></label>
               <select onChange={(e) => [setPerigo(e.target.value)]}>
@@ -187,20 +205,15 @@ const CadastroCarga = () => {
                 <option value={"N"}>Não</option>
               </select>
             </div>
-            <Input
-              type={"text"}
-              text={"Código do documento"}
-              onChange={(e) => [setNumero(e.target.value)]}
-            />
           </div>
           <div className={style.flex}>
             <div className={style.form_control}>
               <label>Agente:</label>
               <select onChange={(e) => [setAgente(e.target.value)]}>
                 <option disabled selected>Selecione uma opção</option>
-                {clientes?.map((val) => {
+                {agentes?.map((val, key) => {
                   return (
-                    <option value={val.COD_CLIENTE}>{val.NOME_CLIENTE}</option>
+                    <option value={val.COD_AGENTE}>{val.NOME_AGENTE}</option>
                   )
                 })}
               </select>
@@ -210,17 +223,7 @@ const CadastroCarga = () => {
               text={"Data de Emissão"}
               onChange={(e) => [setEmissao(e.target.value)]}
             />
-            <div className={style.form_control}>
-              <label>Produto:</label>
-              <select onChange={(e) => [setProduto(e.target.value)]}>
-                <option disabled selected>Selecione uma opção</option>
-                {produtos?.map((val) => {
-                  return (
-                    <option value={val.COD_PRODUTO}>{val.PRODUTO}</option>
-                  )
-                })}
-              </select>
-            </div>
+            
           </div>
           <div className={style.flex}>
             <div className={style.form_control}>
@@ -233,6 +236,16 @@ const CadastroCarga = () => {
                   )
                 })}
               </select>
+            </div><div className={style.form_control}>
+              <label>Produto:</label>
+              <select onChange={(e) => [setProduto(e.target.value)]}>
+                <option disabled selected>Selecione uma opção</option>
+                {produtos?.map((val) => {
+                  return (
+                    <option value={val.COD_PRODUTO}>{val.PRODUTO}</option>
+                  )
+                })}
+              </select>
             </div>
             <Input
               type={"text"}
@@ -241,21 +254,25 @@ const CadastroCarga = () => {
             />
             <Input
               type={"text"}
-              text={"Referência"}
-              onChange={(e) => [setReferencia(e.target.value)]}
+              text={"CE Mercante"}
+              onChange={(e) => [setCemercante(e.target.value)]}
             />
+
+
           </div>
           <div className={style.listatitulo}>Histórico</div>
           <div className={style.cargas}>
             <div className={style.sumario}>
               <div>TIPO</div>
               <div>CÓDIGO</div>
+              <div>REFERÊNCIA</div>
               <div>DT. EMISSÃO</div>
               <div>PERIGO</div>
               <div>IMPORTADOR</div>
               <div>PRODUTO</div>
               <div>NCM</div>
               <div>QT. MANIFESTADA</div>
+              <div>CE MERCANTE</div>
               <div></div>
             </div>
             <div className={style.lista}>
@@ -267,12 +284,14 @@ const CadastroCarga = () => {
                   return (<div className={style.item}>
                     <div>{val.TIPO}</div>
                     <div>{val.NUMERO}</div>
+                    <div>{val.REFERENCIA}</div>
                     <div>{moment(val.DATA_EMISSAO).format("DD/MM/YYYY")}</div>
                     <div>{val.PERIGOSO}</div>
                     <div>{val.IMPORTADOR}</div>
                     <div>{val.PRODUTO}</div>
                     <div>{val.NCM}</div>
                     <div>{val.QTDE_MANIFESTADA}</div>
+                    <div>{val.CE_MERCANTE}</div>
                     <div>
                       <span className={style.delete}>
                         <i class="fa fa-trash" onClick={() => deleteCarga(val.COD_CARGA)}></i>
@@ -303,9 +322,9 @@ const CadastroCarga = () => {
             <div onClick={FecharConfirm}>Voltar</div>
           </div>
           <div className={modal.center}>
-            Deseja concluir toda documentação desta Operacao?
+            Deseja concluir toda documentação desta Operação?
             <br />
-            <div>ao confirmar não será mais possivel editar os documentos! </div>
+            <div>ao confirmar não será mais possível editar os documentos! </div>
           </div>
 
           <div className={modal.flex}>

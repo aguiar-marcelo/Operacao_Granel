@@ -42,12 +42,8 @@
 }
 
 .box{
-	width: 96%;
-	margin-right: 150px;
 	margin-top: 30px;
-	background-color: #F0F3F5;
 	border: 1px dashed #153240a2;
-	padding: 10px;
 }
 .placas{
 	display: flex;
@@ -56,5 +52,50 @@
 	margin-right: 5px;
 }
 .radio{
-	margin-top: 15px;
+	margin-top: 5px;
+	margin-bottom: -10px;
+}
+
+
+.form_control {
+	width: 100%;
+	margin-top: 2vh;
+	font-size: 16px;
+	height: 70px;
+}
+
+.form_control select{
+	font-size: 16px;
+	width: 96%;
+	padding: 8px 5px;
+	transition: 0.1s;
+	margin-top: 3px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.form_control select:focus {
+	border: 1px solid #8ad4ee;
+	outline: 3px solid #8ad4ee80;
+}
+
+.button{
+	display:flex;
+	justify-content: end;
+	padding-top: 1%;
+}
+
+.cabecario{
+	margin-top: -10px;
+	margin-bottom: 5px;
+	font-weight: 650;
+	font-size: 20px;
+	color:#153240;
+	text-align: start;
+}
+
+.name{
+	color: #153240;
+	margin-right: 5px;
 }

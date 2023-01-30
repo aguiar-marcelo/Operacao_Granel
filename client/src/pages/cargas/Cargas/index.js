@@ -7,9 +7,12 @@ import Brackground from "../../../components/Background";
 import Container from "../../../components/Container";
 import Header from "../../../components/Header";
 import Detalhes from '@mui/material/Dialog';
+import Confirm from '@mui/material/Dialog';
+import Input from "../../../components/Input";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import style from "./Cargas.module.css"
 import modal from "./Modal.module.css";
+import confirm from "./Confirm.module.css"
 
 const Cargas = () => {
 
@@ -18,6 +21,7 @@ const Cargas = () => {
   const [operacoesList, setOperacoesList] = useState([]);
   const [cargas, setCargas] = useState([]);
   const [i, setI] = useState(0);
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     getOperacoes()
@@ -48,7 +52,41 @@ const Cargas = () => {
     setI(operacoesList[index]);
   }
 
-    ;
+  const [openB, setOpenB] = useState(false);
+  const AbrirConfirm = () => {
+    FecharDetalhesOp()
+    setOpenB(true);
+
+  };
+  const FecharConfirm = () => {
+    setOpenB(false);
+  };
+
+  const { enqueueSnackbar } = useSnackbar();
+  const showAlert = (txt, variant) => {
+    enqueueSnackbar(txt, { variant: variant });
+  }
+
+  const registrarAtracacao = () => {
+    if (date == "") {
+      showAlert("Preencha a data e horário!", 'error');
+      return
+    }
+    Axios.put('http://grifo:8080/operacao/registrar/atracacao',
+      {
+        id: i.COD_OPERACAO,
+        date: date
+      }).then(function (res) {
+        res.data.sqlMessage ?
+          showAlert(res.data.sqlMessage, 'error') :
+          showAlert('Atracação registrada com sucesso!', 'success');
+        FecharConfirm();
+        getOperacoes();
+        setDate("");
+      });
+  }
+
+
   return (
     <>
       <Navbar cargas />
@@ -129,7 +167,7 @@ const Cargas = () => {
               </div>
             </div>
           </div>
-          <div className={modal.flex}>
+          <div className={modal.center}>
             {i.STATUS_OPERACAO == 'AGUARDANDO DI/BL' ?
               <button className={modal.finalizar}
                 onClick={() => navigate(`/cargas/cadastro/${i.NOME_NAVIO}/${i.COD_OPERACAO}`)}>
@@ -137,12 +175,41 @@ const Cargas = () => {
               </button>
               :
               <div className={modal.center}>Não é possivel adicionar mais DI/Bl nesta operação</div>
-
             }
+
+            {i.STATUS_OPERACAO == 'AGUARDANDO ATRACAÇÃO' ?
+              <button className={modal.finalizar}
+                onClick={AbrirConfirm}>
+                REGISTRAR ATRACAÇÃO
+              </button>
+              : ""}
           </div>
         </div>
 
       </Detalhes>
+      <Confirm open={openB} onClose={FecharConfirm} fullWidth>
+        <div className={confirm.modal}>
+          <div className={confirm.nav}>
+            <div onClick={FecharConfirm}>Voltar</div>
+          </div>
+          <div className={confirm.center}>
+            Deseja registrar a Atracação desta Operação?
+            <br />
+            <div>ao confirmar o Dashboard será liberado!</div>
+          </div>
+          <div className={confirm.inputbox}>
+            <Input
+              type={"datetime-local"}
+              text={"Data e hora da Atracação"}
+              onChange={(e) => [setDate(e.target.value)]}
+            />
+          </div>
+          <div className={confirm.flex}>
+            <button className={confirm.cancelar} onClick={FecharConfirm}>CANCELAR</button>
+            <button className={confirm.confirmar} onClick={registrarAtracacao}>CONFIRMAR</button>
+          </div>
+        </div>
+      </Confirm>
     </>
   );
 };
